@@ -38,7 +38,7 @@
             </button>
         </form>
         <div class="icon">
-            <img src="public/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
+            <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
             <a class="login" href="{{url('/login')}}">
                 <?php
                 $customer_id = Session::get('customer_id');
