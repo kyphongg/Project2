@@ -61,7 +61,7 @@
                         <p>Lịch sử đơn hàng</p>
                     </a>
                     <a href="{{url('/security')}}" class="sub-menu-link">
-                        <p>Mật khẩu mới</p>
+                        <p>Mật khẩu</p>
                     </a>
                     <a href="{{url('/logout')}}" class="sub-menu-link">
                         <p>Đăng xuất</p>
