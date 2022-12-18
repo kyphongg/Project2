@@ -86,7 +86,7 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/images/category (1).png" alt="UserImage" style="width: 30px;height: 30px;">
-                        Danh mục sản phẩm
+                        Danh mục sản phẩmm
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#">Chiến thuật</a></li>
