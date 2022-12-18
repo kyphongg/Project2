@@ -29,7 +29,7 @@
 <header id="header">
     <div class="head_link">
         <a href="{{url('/home')}}">
-            <img src="/images/gamingstore-logoo.png" alt="LogoImage">
+            <img src="public/images/gamingstore-logoo.png" alt="LogoImage">
         </a>
         <form METHOD="GET" class="search-form">
             <input type="text" placeholder="Tìm kiếm sản phẩm...">
@@ -38,7 +38,7 @@
             </button>
         </form>
         <div class="icon">
-            <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
+            <img src="public/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
             <a class="login" href="{{url('/login')}}">
                 <?php
                 $customer_id = Session::get('customer_id');
@@ -61,7 +61,7 @@
                         <p>Lịch sử đơn hàng</p>
                     </a>
                     <a href="{{url('/security')}}" class="sub-menu-link">
-                        <p>Mật khẩu</p>
+                        <p>Mật khẩu mới</p>
                     </a>
                     <a href="{{url('/logout')}}" class="sub-menu-link">
                         <p>Đăng xuất</p>
