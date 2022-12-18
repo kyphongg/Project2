@@ -29,7 +29,7 @@
 <header id="header">
     <div class="head_link">
         <a href="{{url('/home')}}">
-            <img src="public/images/gamingstore-logoo.png" alt="LogoImage">
+            <img src="images/gamingstore-logoo.png" alt="LogoImage">
         </a>
         <form METHOD="GET" class="search-form">
             <input type="text" placeholder="Tìm kiếm sản phẩm...">
@@ -38,7 +38,7 @@
             </button>
         </form>
         <div class="icon">
-            <img src="public/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
+            <img src="images/user (2).png" alt="UserImage" onclick="toggleMenu()">
             <a class="login" href="{{url('/login')}}">
                 <?php
                 $customer_id = Session::get('customer_id');
@@ -86,7 +86,7 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/images/category (1).png" alt="UserImage" style="width: 30px;height: 30px;">
-                        Danh mục sản phẩmm
+                        Danh mục sản phẩm
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#">Chiến thuật</a></li>
