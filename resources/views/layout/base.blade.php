@@ -29,7 +29,11 @@
 <header id="header">
     <div class="head_link">
         <a href="{{url('/home')}}">
+<<<<<<< HEAD
             <img src="images/gamingstore-logoo.png" alt="LogoImage">
+=======
+            <img src="/images/gamingstore-logoo.png" alt="LogoImage">
+>>>>>>> d8cf11d77201b492010d6ef40a66a04ece66c34a
         </a>
         <form METHOD="GET" class="search-form">
             <input type="text" placeholder="Tìm kiếm sản phẩm...">
@@ -38,7 +42,11 @@
             </button>
         </form>
         <div class="icon">
+<<<<<<< HEAD
             <img src="images/user (2).png" alt="UserImage" onclick="toggleMenu()">
+=======
+            <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
+>>>>>>> d8cf11d77201b492010d6ef40a66a04ece66c34a
             <a class="login" href="{{url('/login')}}">
                 <?php
                 $customer_id = Session::get('customer_id');
