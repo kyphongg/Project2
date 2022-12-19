@@ -313,23 +313,25 @@ return [
         ],
 
         [
-            'text'        => 'Trang web',
-            'url'         => '/home',
-            'icon'        => 'fas fa-home',
-        ],
-
-        [
             'text'        => 'Trang chủ',
             'url'         => 'admin/home',
             'icon'        => 'fas fa-home',
         ],
 
+        [
+            'text'        => 'Trang web',
+            'url'         => '/home',
+            'icon'        => 'fas fa-browser',
+        ],
+
         ['header' => 'Quản lý sản phẩm'],
         [
             'text'        => 'Thể loại',
+            'icon'        => 'fas fa-list',
             'submenu' => [
                 [
                     'text' => 'Thêm thể loại',
+                    'icon'        => 'fas fa-plus',
                     'url'  => '/add_category',
                 ],
                 [
@@ -341,9 +343,11 @@ return [
 
         [
             'text'        => 'Nhà sản xuất',
+            'icon'        => 'fas fa-list',
             'submenu' => [
                 [
                     'text' => 'Thêm nhà sản xuất',
+                    'icon'        => 'fas fa-plus',
                     'url'  => '/add_producer',
                 ],
                 [
@@ -355,6 +359,7 @@ return [
 
         [
             'text'        => 'Sản phẩm',
+            'icon'        => 'fas fa-list',
             'submenu' => [
                 [
                     'text' => 'Danh sách sản phẩm',
@@ -365,13 +370,16 @@ return [
 
         [
             'text'        => 'Hình ảnh',
+            'icon'        => 'fas fa-list',
             'submenu' => [
                 [
                     'text' => 'Thêm hình ảnh',
+                    'icon'        => 'fas fa-plus',
                     'url'  => '/add_image',
                 ],
                 [
                     'text' => 'Danh sách hình ảnh',
+                    'icon'        => 'fas fa-image',
                     'url'  => '/all_image',
                 ],
             ],
@@ -379,13 +387,16 @@ return [
 
         [
             'text'        => 'Slide',
+            'icon'        => 'fas fa-list',
             'submenu' => [
                 [
                     'text' => 'Thêm slide',
+                    'icon'        => 'fas fa-plus',
                     'url'  => '/add_slide',
                 ],
                 [
                     'text' => 'Danh sách slide',
+
                     'url'  => '/all_slide',
                 ],
             ],
