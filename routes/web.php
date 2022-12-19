@@ -37,7 +37,7 @@ Route::post('/customer_login',[LoginController::class,'login']);
 
 Route::get('/signup', [SignupController::class,'viewSignUp']);
 
-Route::get('/logout',[LoginController::class,'logout']);
+Route::get('/customer_logout',[LoginController::class,'customer_logout']);
 
 //Client profile
 Route::get('/profile', [ProfileController::class,'viewProfile']);

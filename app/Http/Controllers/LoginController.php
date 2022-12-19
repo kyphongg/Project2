@@ -32,7 +32,7 @@ class LoginController extends Controller
         }
     }
 
-    function logout(){
+    function customer_logout(){
         Session::put('customer_name',null);
         Session::put('customer_id',null);
         return redirect('/login');

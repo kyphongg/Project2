@@ -63,7 +63,7 @@
                     <a href="{{url('/security')}}" class="sub-menu-link">
                         <p>Mật khẩu</p>
                     </a>
-                    <a href="{{url('/logout')}}" class="sub-menu-link">
+                    <a href="{{url('/customer_logout')}}" class="sub-menu-link">
                         <p>Đăng xuất</p>
                     </a>
                 </div>
