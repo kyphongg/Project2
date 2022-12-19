@@ -46,29 +46,26 @@
                     echo '<a href="/profile">';
                     echo $customer_name;
                     echo '</a>';
+                    echo '<div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <a href="/profile" class="sub-menu-link">
+                        <p>Quản lý tài khoản</p>
+                    </a>
+                    <a href="/orders" class="sub-menu-link">
+                        <p>Lịch sử đơn hàng</p>
+                    </a>
+                    <a href="/security" class="sub-menu-link">
+                        <p>Mật khẩu</p>
+                    </a>
+                    <a href="/customer_logout" class="sub-menu-link">
+                        <p>Đăng xuất</p></a>
+                </div>
+            </div>';
                 }
                 else{
                     echo '<a href="/login">Đăng nhập/Đăng ký</a>';
                 }
                 ?>
-{{--            <a class="login" href="{{url('/login')}}">--}}
-{{--            </a>--}}
-            <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
-                    <a href="{{url('/profile')}}" class="sub-menu-link">
-                        <p>Quản lý tài khoản</p>
-                    </a>
-                    <a href="{{url('/orders')}}" class="sub-menu-link">
-                        <p>Lịch sử đơn hàng</p>
-                    </a>
-                    <a href="{{url('/security')}}" class="sub-menu-link">
-                        <p>Mật khẩu</p>
-                    </a>
-                    <a href="{{url('/customer_logout')}}" class="sub-menu-link">
-                        <p>Đăng xuất</p>
-                    </a>
-                </div>
-            </div>
             <a class="cart" href="{{url('/cart')}}">
                 <img src="/images/shopping-cart.png" alt="UserImage">
                 Giỏ hàng (0)
