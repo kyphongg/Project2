@@ -29,7 +29,7 @@
 <header id="header">
     <div class="head_link">
         <a href="{{url('/home')}}">
-            <img src="images/gamingstore-logoo.png" alt="LogoImage">
+            <img src="/images/gamingstore-logoo.png" alt="LogoImage">
         </a>
         <form METHOD="GET" class="search-form">
             <input type="text" placeholder="Tìm kiếm sản phẩm...">
