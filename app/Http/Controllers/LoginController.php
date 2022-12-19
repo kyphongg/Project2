@@ -32,6 +32,9 @@ class LoginController extends Controller
             return redirect('/login');
         }
     }
+    function customer_signup(){
+        return view('guest/signup');
+    }
 //
 //    function customer_signup(Request $request){
 //        $this -> validate($request,
