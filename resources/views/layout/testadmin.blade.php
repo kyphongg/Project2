@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-book"></i>
-                            <span>UI Elements</span>
+                            <span>Thể loại</span>
                         </a>
                         <ul class="sub">
                             <li><a href="typography.html">Typography</a></li>
