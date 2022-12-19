@@ -41,6 +41,7 @@
             <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
                 <?php
                 $customer_id = Session::get('customer_id');
+                $admin_id = Session::get('admin_id');
                 if ($customer_id) {
                     $customer_name = Session::get('customer_name');
                     echo '<a href="/profile">';
@@ -62,6 +63,12 @@
                 </div>
             </div>';
                 }
+                elseif($admin_id){
+                    $admin_name = Session::get('admin_name');
+                    echo '<a href="/admin/home">';
+                    echo $admin_name;
+                    echo '</a>';
+                }
                 else{
                     echo '<a href="/login">Đăng nhập/Đăng ký</a>';
                 }
@@ -70,10 +77,18 @@
                 <img src="/images/shopping-cart.png" alt="UserImage">
                 Giỏ hàng (0)
             </a>
-            <a class="cart" href="{{url('/admin/login')}}">
-                <img src="/images/gear.png" alt="UserImage">
-                Quản lý
-            </a>
+            <?php
+            if($admin_id){
+                echo '<a class="cart" href="/admin/home">
+                <img src="/images/gear.png" alt="UserImage">Quản lý
+            </a>';
+            }
+            else{
+                echo '<a class="cart" href="/admin/login">
+                <img src="/images/gear.png" alt="UserImage">Quản lý
+            </a>';
+            }
+            ?>
         </div>
     </div>
 
