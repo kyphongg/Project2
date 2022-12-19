@@ -39,19 +39,20 @@
         </form>
         <div class="icon">
             <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
-            <a class="login" href="{{url('/login')}}">
                 <?php
                 $customer_id = Session::get('customer_id');
-                $admin_id = Session::get('admin_id');
                 if ($customer_id) {
                     $customer_name = Session::get('customer_name');
+                    echo '<a href="/profile">';
                     echo $customer_name;
+                    echo '</a>';
                 }
                 else{
-                    echo 'Đăng nhập/Đăng ký';
+                    echo '<a href="/login">Đăng nhập/Đăng ký</a>';
                 }
                 ?>
-            </a>
+{{--            <a class="login" href="{{url('/login')}}">--}}
+{{--            </a>--}}
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <a href="{{url('/profile')}}" class="sub-menu-link">
