@@ -24,6 +24,10 @@ class AdminController extends Controller
         return view('/admin/home');
     }
 
+    function test(){
+        return view('/layout/testadmin');
+    }
+
     function login(Request $request){
         $admin_email = $request -> get('admin_email');
         $admin_password = md5($request -> get('admin_password'));

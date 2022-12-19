@@ -81,5 +81,7 @@ Route::get('/all_image',[ImageController::class,'all']);
 Route::get('/add_slide',[SlideController::class,'add']);
 Route::get('/all_slide',[SlideController::class,'all']);
 
+Route::get('/test_admin',[AdminController::class,'test']);
+
 
 
