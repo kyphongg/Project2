@@ -512,6 +512,7 @@ return [
 
         ['header' => 'Đăng xuất'],
         [
+            'icon'    => 'fas fa-arrow-right-from-bracket',
             'text' => 'Đăng xuất',
             'url'  => '/admin_logout',
         ],
