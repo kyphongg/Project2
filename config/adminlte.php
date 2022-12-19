@@ -502,7 +502,7 @@ return [
         ['header' => 'Đăng xuất'],
         [
             'text' => 'Đăng xuất',
-            'url'  => '/logout',
+            'url'  => '/admin_logout',
         ],
 
     ],
