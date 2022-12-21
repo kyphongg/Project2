@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    function add(){
-        return view('/admin.category.add_category');
+    function viewCategory(){
+        return view('admin/category/category');
     }
 
-    function all(){
-        return view('/admin.category.all_category');
+    function addCategory(){
+        return view('admin/category/add_category');
     }
-
 }

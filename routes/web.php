@@ -65,21 +65,14 @@ Route::get('/admin_logout',[AdminController::class,'admin_logout']);
 Route::get('/admin/home', [AdminController::class,'viewHome']);
 
 //Admin function
+Route::get('/admin/categories',[CategoryController::class, 'viewCategory']);
+Route::get('/admin/categories_add',[CategoryController::class, 'addCategory']);
 
-Route::get('/add_category',[CategoryController::class,'add']);
-Route::get('/all_category',[CategoryController::class,'all']);
+Route::get('/admin/producers',[ProducerController::class, 'viewProducer']);
+Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);
 
-Route::get('/add_producer',[ProducerController::class,'add']);
-Route::get('/all_producer',[ProducerController::class,'all']);
-
-Route::get('/add_product',[ProductController::class,'add']);
-Route::get('/all_product',[ProductController::class,'all']);
-
-Route::get('/add_image',[ImageController::class,'add']);
-Route::get('/all_image',[ImageController::class,'all']);
-
-Route::get('/add_slide',[SlideController::class,'add']);
-Route::get('/all_slide',[SlideController::class,'all']);
+Route::get('/admin/products',[\App\Http\Controllers\AdminProductController::class, 'viewProduct']);
+Route::get('/admin/products_add',[\App\Http\Controllers\AdminProductController::class, 'addProduct']);
 
 Route::get('/test_admin',[AdminController::class,'test']);
 

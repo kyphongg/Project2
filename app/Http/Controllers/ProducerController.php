@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class ProducerController extends Controller
 {
-    function add(){
-        return view('/admin.producer.add_producer');
+    function viewProducer(){
+        return view('/admin/producer/producer');
     }
 
-    function all(){
-        return view('/admin.producer.all_producer');
+    function addProducer(){
+        return view('/admin/producer/add_producer');
     }
 }
