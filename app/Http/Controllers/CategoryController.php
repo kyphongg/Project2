@@ -50,4 +50,9 @@ class CategoryController extends Controller
             $data);
         return redirect()->route('Category_home');
     }
+
+    function deleteCategory($category_id){
+        DB::table('tbl_category')->where('category_id',$category_id)->delete();
+        return redirect()->route('Category_home');
+    }
 }

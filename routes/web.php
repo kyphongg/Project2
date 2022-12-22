@@ -71,12 +71,15 @@ Route::get('/admin/categories_add',[CategoryController::class, 'addCategory']); 
 Route::post('/admin/categories_add',[CategoryController::class, 'saveCategory']); // -> addCategory: no View
 Route::get('/admin/edit-category/{category_id}',[CategoryController::class,'editCategory']);
 Route::post('/admin/update-category/{category_id}',[CategoryController::class, 'updateCategory']);
+Route::get('/admin/delete-category/{category_id}',[CategoryController::class,'deleteCategory']);
+
 
 Route::get('/admin/producers',[ProducerController::class, 'viewProducer'])->name('Producer_home');
 Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);//-> Admin addProducer
 Route::post('/admin/producers_add',[ProducerController::class, 'saveProducer']); // -> addProducer: no View
 Route::get('/admin/edit-producer/{producer_id}',[ProducerController::class,'editProducer']);
 Route::post('/admin/update-producer/{producer_id}',[ProducerController::class, 'updateProducer']);
+Route::get('/admin/delete-producer/{producer_id}',[ProducerController::class,'deleteProducer']);
 
 Route::get('/admin/products',[AdminProductController::class, 'viewProduct']);
 Route::get('/admin/products_add',[AdminProductController::class, 'addProduct']);

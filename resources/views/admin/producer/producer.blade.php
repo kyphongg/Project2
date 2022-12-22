@@ -27,7 +27,7 @@
                                 <a href="{{URL::to('/admin/edit-producer/'.$producers->producer_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>
-                                <a href="#" class="active" ui-toggle-class="">
+                                <a onclick="return confirm('Xoá ?')" href="{{URL::to('/admin/delete-producer/'.$producers->producer_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
                                 </a>
                             </td>

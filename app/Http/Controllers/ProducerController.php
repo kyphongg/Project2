@@ -45,4 +45,9 @@ class ProducerController extends Controller
             $data);
         return redirect()->route('Producer_home');
     }
+
+    function deleteProducer($producer_id){
+        DB::table('tbl_producer')->where('producer_id',$producer_id)->delete();
+        return redirect()->route('Producer_home');
+    }
 }
