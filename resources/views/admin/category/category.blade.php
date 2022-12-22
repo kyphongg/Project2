@@ -18,44 +18,23 @@
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><span class="text-ellipsis">Hành động</span></td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nhập vai</td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Mô phỏng</td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
+                    @forelse($category as $categories)
+                        <tbody>
+                        <tr>
+                            <td>{{$categories->category_id}}</td>
+                            <td>{{$categories->category_name}}</td>
+                            <td>
+                                <a href="#" class="active" ui-toggle-class="">
+                                    <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
+                                </a>
+                                <a href="#" class="active" ui-toggle-class="">
+                                    <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="4">Danh sách rỗng</td></tr>
+                    @endforelse
                 </table>
             </div>
     </div>

@@ -65,8 +65,9 @@ Route::get('/admin_logout',[AdminController::class,'admin_logout']);
 Route::get('/admin/home', [AdminController::class,'viewHome']);
 
 //Admin function
-Route::get('/admin/categories',[CategoryController::class, 'viewCategory']);
+Route::get('/admin/categories',[CategoryController::class, 'viewCategory'])->name('home');
 Route::get('/admin/categories_add',[CategoryController::class, 'addCategory']);
+Route::post('/admin/categories_add',[CategoryController::class, 'saveCategory']);
 
 Route::get('/admin/producers',[ProducerController::class, 'viewProducer']);
 Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);
