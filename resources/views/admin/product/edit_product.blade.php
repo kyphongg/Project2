@@ -25,7 +25,7 @@
                         <label for="exampleInputEmail1">Thể loại</label>
                         <select name="category_id" class="form-control m-bot15">
                             @foreach($category_id as $b => $cate)
-                                @if($cate->category_id==$all->game_id)
+                                @if($cate->category_id==$all->category_id)
                                     <option selected value="{{$cate->category_id}}">{{$cate->category_id}}: {{$cate->category_name}}</option>
                                 @else
                                     <option value="{{$cate->category_id}}">{{$cate->category_id}}: {{$cate->category_name}}</option>
@@ -38,7 +38,7 @@
                         <label for="exampleInputEmail1">Nhà sản xuất</label>
                         <select name="producer_id" class="form-control m-bot15">
                             @foreach($producer_id as $a => $pro)
-                                @if($pro->producer_id==$all->game_id)
+                                @if($pro->producer_id==$all->producer_id)
                                     <option selected value="{{$pro->producer_id}}">{{$pro->producer_id}}: {{$pro->producer_name}}</option>
                                 @else
                                     <option value="{{$pro->producer_id}}">{{$pro->producer_id}}: {{$pro->producer_name}}</option>
