@@ -14,63 +14,30 @@
                     <thead>
                     <tr>
                         <th style="width: 15px;">STT</th>
-                        <th>Mã sản phẩm</th>
                         <th>Tên sản phẩm</th>
                         <th>Hình ảnh</th>
                         <th>Thể loại</th>
                         <th>Nhà sản xuất</th>
-                        <th>Số lượng</th>
                         <th>Mô tả</th>
-                        <th>Loại sản phẩm</th>
-                        <th>Giá nhập</th>
-                        <th>Giá bán</th>
-                        <th>Tình trạng</th>
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($game as $key => $all)
                     <tr>
-                        <td>1</td>
-                        <td>SP001</td>
-                        <td>EldenRing</td>
-                        <td><img src="/images/ps5(sp3).png" style="width: 75px; height: 75px;"></td>
-                        <td>Nhập vai, Hành Động</td>
-                        <td>PS5</td>
-                        /
-                        <td>10</td>
-                        /
-                        <td>Trò chơi siêu cuốn</td>
-                        <td>Bán chạy</td>
-                        <td>1.250.000đ</td>
-                        <td>1.350.000đ</td>
-                        <td>Còn hàng</td>
+                        <td>{{$all->game_id}}</td>
+                        <td>{{$all->game_name}}</td>
+                        <td><img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt=""></td>
+                        <td>{{$all->category_name}}</td>
+                        <td>{{$all->producer_name}}</td>
+                        <td>{{$all->game_description}}</td>
                         <td>
-                            <a href="#" class="active" ui-toggle-class="">
+                            <a href="{{URL::to('/admin/edit-product/'.$all->game_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SP002</td>
-                        <td>EldenRing</td>
-                        <td><img src="/images/ps5(sp3).png" style="width: 75px; height: 75px;"></td>
-                        <td>Nhập vai, Hành Động</td>
-                        <td>PS5</td>
-                        /
-                        <td>10</td>
-                        /
-                        <td>Trò chơi siêu cuốn</td>
-                        <td>Bán chạy</td>
-                        <td>1.250.000đ</td>
-                        <td>1.350.000đ</td>
-                        <td>Còn hàng</td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
