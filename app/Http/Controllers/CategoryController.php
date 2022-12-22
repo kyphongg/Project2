@@ -9,7 +9,8 @@ class CategoryController extends Controller
 {
     //View hiển thị toàn bộ danh sách
     function viewCategory(){
-        return view('admin/category/category');
+        $tbl_category=DB::table('tbl_category')->get();
+        return view('admin/category/category',['category'=>$tbl_category]);
     }
 
     //View thêm thể loại
