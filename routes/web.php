@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -72,8 +73,8 @@ Route::post('/admin/categories_add',[CategoryController::class, 'saveCategory'])
 Route::get('/admin/producers',[ProducerController::class, 'viewProducer']);
 Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);
 
-Route::get('/admin/products',[\App\Http\Controllers\AdminProductController::class, 'viewProduct']);
-Route::get('/admin/products_add',[\App\Http\Controllers\AdminProductController::class, 'addProduct']);
+Route::get('/admin/products',[AdminProductController::class, 'viewProduct']);
+Route::get('/admin/products_add',[AdminProductController::class, 'addProduct']);
 
 Route::get('/test_admin',[AdminController::class,'test']);
 
