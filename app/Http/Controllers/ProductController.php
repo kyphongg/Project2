@@ -32,7 +32,8 @@ class ProductController extends Controller
         $product_image = $request->file('product_image');
         if($product_image){
             $set_image_name = $product_image->getClientOriginalName();
-            $new_image = $set_image_name.rand(0,99).'.'.$product_image->getClientOriginalExtension();
+            $name_image = current(explode('.',$set_image_name));
+            $new_image = $name_image.rand(0,99).'.'.$product_image->getClientOriginalExtension();
             $product_image->move('public/images/upload',$new_image);
             $data['game_image'] = $new_image;
         }
