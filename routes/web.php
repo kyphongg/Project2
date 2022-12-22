@@ -66,11 +66,11 @@ Route::get('/admin_logout',[AdminController::class,'admin_logout']);
 Route::get('/admin/home', [AdminController::class,'viewHome']);
 
 //Admin function viewCategory
-Route::get('/admin/categories',[CategoryController::class, 'viewCategory'])->name('home');
+Route::get('/admin/categories',[CategoryController::class, 'viewCategory'])->name('Category_home');
 Route::get('/admin/categories_add',[CategoryController::class, 'addCategory']); //-> Admin addCategory
 Route::post('/admin/categories_add',[CategoryController::class, 'saveCategory']); // -> addCategory: no View
 
-Route::get('/admin/producers',[ProducerController::class, 'viewProducer'])->name('home');
+Route::get('/admin/producers',[ProducerController::class, 'viewProducer'])->name('Producer_home');
 Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);//-> Admin addProducer
 Route::post('/admin/producers_add',[ProducerController::class, 'saveProducer']); // -> addProducer: no View
 

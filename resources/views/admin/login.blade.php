@@ -19,10 +19,6 @@
             <input type="email" name="admin_email" class="box" placeholder="Email" required="">
             <span>Mật khẩu</span>
             <input type="password" name="admin_password" class="box" placeholder="Mật khẩu" required="">
-            <div class="checkbox">
-                <input type="checkbox" name="" id="remember-me">
-                <label for="remember-me">Ghi nhớ tài khoản</label>
-            </div>
             <input type="submit" value="Đăng nhập" class="btn">
             <p>Quên mật khẩu ? <a href="#">Ấn tại đây</a></p>
         </form>

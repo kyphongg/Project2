@@ -26,6 +26,6 @@ class ProducerController extends Controller
             ['producer_Name'=>$producer_name]
         );
         //chuyển hướng về trang home
-        return redirect()->route('home');
+        return redirect()->route('Producer_home');
     }
 }

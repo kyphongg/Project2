@@ -26,6 +26,6 @@ class CategoryController extends Controller
             ['category_Name'=>$category_name]
         );
         //chuyển hướng về trang home
-        return redirect()->route('home');
+        return redirect()->route('Category_home');
     }
 }
