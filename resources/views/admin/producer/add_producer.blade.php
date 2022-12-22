@@ -7,10 +7,11 @@
         <h3>Thêm nhà sản xuất</h3>
         <div class="panel-body">
             <div class="position-center">
-                <form role="form">
+                <form role="form" action="{{url('/admin/producers_add')}}" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên nhà sản xuất</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
+                        <label>Tên nhà sản xuất</label>
+                        <input name="producerName" type="text" class="form-control" placeholder="Tên nhà sản xuất">
                     </div>
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-plus"></i> Thêm NSX mới</button>

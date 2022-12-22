@@ -32,6 +32,7 @@
                                 </a>
                             </td>
                         </tr>
+                        </tbody>
                     @empty
                         <tr><td colspan="4">Danh sách rỗng</td></tr>
                     @endforelse

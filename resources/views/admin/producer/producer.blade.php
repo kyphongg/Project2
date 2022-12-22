@@ -18,44 +18,24 @@
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><span class="text-ellipsis">PS5</span></td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>PS4</td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Nintendo</td>
-                        <td>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
-                            </a>
-                            <a href="#" class="active" ui-toggle-class="">
-                                <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
+                    @forelse($producer as $producers)
+                        <tbody>
+                        <tr>
+                            <td>{{$producers->producer_id}}</td>
+                            <td>{{$producers->producer_name}}</td>
+                            <td>
+                                <a href="#" class="active" ui-toggle-class="">
+                                    <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
+                                </a>
+                                <a href="#" class="active" ui-toggle-class="">
+                                    <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    @empty
+                        <tr><td colspan="4">Danh sách rỗng</td></tr>
+                    @endforelse
                 </table>
             </div>
         </div>
