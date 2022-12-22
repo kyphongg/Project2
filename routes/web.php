@@ -69,6 +69,8 @@ Route::get('/admin/home', [AdminController::class,'viewHome']);
 Route::get('/admin/categories',[CategoryController::class, 'viewCategory'])->name('Category_home');
 Route::get('/admin/categories_add',[CategoryController::class, 'addCategory']); //-> Admin addCategory
 Route::post('/admin/categories_add',[CategoryController::class, 'saveCategory']); // -> addCategory: no View
+Route::get('/admin/edit-category/{category_id}',[CategoryController::class,'editCategory']);
+Route::post('/admin/update-category/{category_id}',[CategoryController::class, 'updateCategory']);
 
 Route::get('/admin/producers',[ProducerController::class, 'viewProducer'])->name('Producer_home');
 Route::get('/admin/producers_add',[ProducerController::class, 'addProducer']);//-> Admin addProducer

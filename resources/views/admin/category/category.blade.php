@@ -24,7 +24,7 @@
                             <td>{{$categories->category_id}}</td>
                             <td>{{$categories->category_name}}</td>
                             <td>
-                                <a href="#" class="active" ui-toggle-class="">
+                                <a href="{{URL::to('/admin/edit-category/'.$categories->category_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>
                                 <a href="#" class="active" ui-toggle-class="">
