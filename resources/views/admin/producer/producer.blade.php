@@ -24,7 +24,7 @@
                             <td>{{$producers->producer_id}}</td>
                             <td>{{$producers->producer_name}}</td>
                             <td>
-                                <a href="#" class="active" ui-toggle-class="">
+                                <a href="{{URL::to('/admin/edit-producer/'.$producers->producer_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>
                                 <a href="#" class="active" ui-toggle-class="">

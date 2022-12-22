@@ -28,4 +28,21 @@ class ProducerController extends Controller
         //chuyển hướng về trang home
         return redirect()->route('Producer_home');
     }
+
+    function editProducer($producer_id)
+    {
+        $tbl_producer = DB::table('tbl_producer')->where('producer_id', $producer_id)->get();
+        return view('admin/producer/edit_producer', ['producer' => $tbl_producer]);
+    }
+
+    function updateProducer(Request $request, $producer_id)
+    {
+        $data = array();
+        $data['producer_name'] = $request->producer_name;
+        $producer_name = $request->get('producer_name');
+        //Update
+        DB::table('tbl_producer')->where('producer_id',$producer_id)->update(
+            $data);
+        return redirect()->route('Producer_home');
+    }
 }
