@@ -41,7 +41,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+                    <a href="{{URL::to('/admin/warehouse')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-plus"></i> Nhập mới</button>
                 </form>
             </div>

@@ -13,7 +13,7 @@
                         <label>Tên thể loại</label>
                         <input name="categoryName" type="text" class="form-control" placeholder="Tên thể loại">
                     </div>
-                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+                    <a href="{{URL::to('/admin/categories')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-plus"></i> Thêm thể loại mới</button>
                 </form>
             </div>
