@@ -2930,3 +2930,67 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     padding: 0;
 }
 }
+.security p{
+    margin-top: 10px;
+}
+
+.password-change{
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.password-change input{
+    height: 50px;
+    width: 420px;
+    border: 1px solid #dadce0;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+.password-change label{
+    position: absolute;
+    padding: 0px 5px;
+    left: 300px;
+    margin-top: 40px;
+    pointer-events: none;
+    transform: translateY(-25px);
+    background-color: white;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    color: #808080;
+    font-weight: bold;
+}
+
+.form-group input:focus{
+    border: 2px solid #2579F2;
+}
+
+.form-group input:focus + label{
+    margin-top: 15px;
+    color: #2579F2;
+}
+
+.passwordbtn-update{
+    width: 420px;
+    height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #2579F2;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+}
+
+.passwordbtn-update:hover{
+    background-color: #0156D0;
+}
+

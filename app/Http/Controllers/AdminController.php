@@ -51,4 +51,12 @@ class AdminController extends Controller
         Session::put('admin_id',null);
         return redirect('/admin/login');
     }
+
+    function viewProfile(){
+        return view('/admin/profile/profile');
+    }
+
+    function viewSecurity(){
+        return view('/admin/profile/security');
+    }
 }
