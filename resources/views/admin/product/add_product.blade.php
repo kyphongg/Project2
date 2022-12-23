@@ -50,7 +50,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+                    <a href="{{URL::to('/admin/products')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
                     <button type="submit" class="btn btn-info" name="add_product"><i class="fa-solid fa-plus"></i> Nhập SP mới</button>
                 </form>
             </div>

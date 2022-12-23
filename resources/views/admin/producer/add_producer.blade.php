@@ -13,7 +13,7 @@
                         <label>Tên nhà sản xuất</label>
                         <input name="producerName" type="text" class="form-control" placeholder="Tên nhà sản xuất">
                     </div>
-                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+                    <a href="{{URL::to('/admin/producers')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-plus"></i> Thêm NSX mới</button>
                 </form>
             </div>

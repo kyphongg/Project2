@@ -14,7 +14,7 @@
                         <label>Tên nhà sản xuất</label>
                         <input name="producer_name" value="{{$producers->producer_name}}" type="text" class="form-control" placeholder="Tên nhà sản xuất">
                     </div>
-                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+                    <a href="{{URL::to('/admin/producers')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
                     <button type="submit" class="btn btn-info">Sửa</button>
                 </form>
             </div>
