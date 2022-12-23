@@ -146,11 +146,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="form_validation.html"><i class="fas fa-comments"></i>Cũ</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="fontawesome.html">
+                    <li class="sub-menu">
+                        <a href="javascript:;">
                             <i class="fas fa-users-cog"></i>
                             <span>Danh sách nhân viên</span>
                         </a>
+                        <ul class="sub">
+                            <li><a href="form_component.html"><i class="fa-solid fa-people-carry-box"></i>Nhân viên kho</a></li>
+                            <li><a href="form_validation.html"><i class="fa-solid fa-user-check"></i>Nhân viên đơn hàng</a></li>
+                            <li><a href="form_validation.html"><i class="fa-solid fa-user-doctor"></i>Nhân viên CSKH</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="fontawesome.html">
