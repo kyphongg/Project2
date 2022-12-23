@@ -86,6 +86,8 @@ Route::post('/admin/products_save',[ProductController::class, 'saveProduct']); /
 Route::get('/admin/edit-product/{product_id}',[ProductController::class,'editProduct']);
 Route::post('/admin/update-product/{product_id}',[ProductController::class, 'updateProduct']);
 Route::get('/admin/delete-product/{product_id}',[ProductController::class,'deleteProduct']);
+Route::get('/admin/warehouse',[ProductController::class,'viewWarehouse']);
+Route::get('/admin/warehouse_add',[ProductController::class,'addWarehouse']);//->Admin addWarehouse
 
 Route::get('/test_admin',[AdminController::class,'test']);
 

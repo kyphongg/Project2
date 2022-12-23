@@ -84,4 +84,12 @@ class ProductController extends Controller
         DB::table('tbl_category')->where('category_id', $category_id)->delete();
         return redirect()->route('Product_home');
     }
+
+    function viewWarehouse(){
+        return view('/admin/warehouse/warehouse');
+    }
+
+    function addWarehouse(){
+        return view('/admin/warehouse/add_warehouse');
+    }
 }
