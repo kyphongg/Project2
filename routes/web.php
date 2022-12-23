@@ -85,9 +85,12 @@ Route::get('/admin/products_add',[ProductController::class, 'addProduct']);
 Route::post('/admin/products_save',[ProductController::class, 'saveProduct']); // -> addProducer: no View
 Route::get('/admin/edit-product/{product_id}',[ProductController::class,'editProduct']);
 Route::post('/admin/update-product/{product_id}',[ProductController::class, 'updateProduct']);
-Route::get('/admin/delete-product/{product_id}',[ProductController::class,'deleteProduct']);
-Route::get('/admin/warehouse',[ProductController::class,'viewWarehouse']);
+
+Route::get('/admin/warehouse',[ProductController::class,'viewWarehouse'])->name('Warehouse_home');
 Route::get('/admin/warehouse_add',[ProductController::class,'addWarehouse']);//->Admin addWarehouse
+Route::post('/admin/warehouse_save',[ProductController::class, 'saveWarehouse']);
+Route::get('/admin/edit-warehouse/{warehouse_id}',[ProductController::class,'editWarehouse']);
+Route::post('/admin/update-warehouse/{warehouse_id}',[ProductController::class, 'updateWarehouse']);
 
 Route::get('/test_admin',[AdminController::class,'test']);
 

@@ -9,7 +9,6 @@
             <div class="position-center">
                 <form role="form" action="{{url('/admin/products_save')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên sản phẩm</label>
                         <input type="text" class="form-control" name="product_name" placeholder="Tên sản phẩm" required="">
@@ -41,6 +40,14 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mô tả</label>
                         <textarea class="form-control " name="product_description" required=""></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Trạng thái</label>
+                        <select name="product_status" class="form-control m-bot15">
+                            <option value="0">Nổi bật</option>
+                            <option value="1">Mới</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>

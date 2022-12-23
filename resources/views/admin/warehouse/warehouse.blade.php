@@ -18,21 +18,31 @@
                         <th>Số lượng</th>
                         <th>Giá nhập</th>
                         <th>Giá bán</th>
+                        <th>Ngày nhập</th>
                         <th>Người nhập</th>
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
+                    @foreach($ware as $key => $w)
                     <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>God of War: Ragnarok</td>
-                        <td>10</td>
-                        <td>1.380.000đ</td>
-                        <td>1.450.000đ</td>
-                        <td>Lâm</td>
+                        <td>{{$w->warehouse_id}}</td>
+                        <td>{{$w->game_name}}</td>
+                        <td>{{$w->quantity_in}}</td>
+                        <td>{{$w->price_in}}đ</td>
+                        <td>{{$w->price_out}}đ</td>
+                        <td>{{$w->time_in}}</td>
+                        <td>{{$w->admin_name}}</td>
                         <td>
-                            <a href="#" class="active" ui-toggle-class="">
+                            <a href="{{URL::to('/admin/edit-warehouse/'.$w->warehouse_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                             </a>
                         </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection

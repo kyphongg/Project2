@@ -19,6 +19,7 @@
                         <th>Thể loại</th>
                         <th>Nhà sản xuất</th>
                         <th>Mô tả</th>
+                        <th>Trạng thái</th>>
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
@@ -31,6 +32,11 @@
                         <td>{{$all->category_name}}</td>
                         <td>{{$all->producer_name}}</td>
                         <td>{{$all->game_description}}</td>
+                        @if($all->game_status==0)
+                            <td>Nổi bật</td>
+                        @else
+                            <td>Mới</td>
+                        @endif
                         <td>
                             <a href="{{URL::to('/admin/edit-product/'.$all->game_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>

@@ -51,6 +51,15 @@
                         <label for="exampleInputEmail1">Mô tả</label>
                         <textarea class="form-control " name="product_description" required="">{{$all->game_description}}</textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Trạng thái</label>
+                        <select name="product_status" class="form-control m-bot15">
+                            <option value="0">Nổi bật</option>
+                            <option value="1">Mới</option>
+                        </select>
+                    </div>
+
                     @endforeach
                     <button type="submit" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
                     <button type="submit" class="btn btn-info" name="add_product">Sửa</button>

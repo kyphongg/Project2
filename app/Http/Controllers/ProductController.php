@@ -13,8 +13,6 @@ class ProductController extends Controller
         $game = DB::table('tbl_game')->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
             ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
             ->orderBy('tbl_game.game_id','desc')->get();
-        $cate = DB::table('tbl_category')->orderBy('category_id','desc')->get();
-        $pro = DB::table('tbl_producer')->orderBy('producer_id','desc')->get();
         return view('admin/product/product', ['game' => $game]);
     }
 
@@ -41,6 +39,7 @@ class ProductController extends Controller
             $product_image->move('public/images/upload',$new_image);
             $data['game_image'] = $new_image;
         }
+        $data['game_status'] = $request ->get('product_status');
         //Insert
         DB::table('tbl_game')->insert(
             $data
@@ -72,24 +71,60 @@ class ProductController extends Controller
             $product_image->move('public/images/upload',$new_image);
             $data['game_image'] = $new_image;
         }
-        $category_name = $request->get('category_name');
+        $data['game_status'] = $request ->get('product_status');
         //Update
         DB::table('tbl_game')->where('game_id', $product_id)->update(
             $data);
         return redirect()->route('Product_home');
     }
 
-    function deleteCategory($category_id)
-    {
-        DB::table('tbl_category')->where('category_id', $category_id)->delete();
-        return redirect()->route('Product_home');
-    }
-
     function viewWarehouse(){
-        return view('/admin/warehouse/warehouse');
+        $ware = DB::table('tbl_warehouse')->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
+            ->orderBy('tbl_warehouse.game_id','desc')->get();
+        return view('/admin/warehouse/warehouse', ['ware' => $ware]);
     }
 
     function addWarehouse(){
-        return view('/admin/warehouse/add_warehouse');
+        $game_id = DB::table('tbl_game')->orderBy('game_id','desc')->get();
+        $admin_id = DB::table('tbl_admin')->orderBy('admin_id','desc')->get();
+        return view('/admin/warehouse/add_warehouse')->with('game_id',$game_id)->with('admin_id',$admin_id);
+    }
+
+    function saveWarehouse(Request $request){
+        $data = array();
+        $data['game_id'] = $request->get('game_id');
+        $data['quantity_in'] = $request->get('quantity_in');
+        $data['price_in'] = $request->get('price_in');
+        $data['price_out'] = $request->get('price_out');
+        $data['time_in'] = $request->get('date_in');
+        $data['admin_id'] = $request->get('admin_id');
+        DB::table('tbl_warehouse')->insert(
+            $data
+        );
+        //chuyển hướng về trang home
+        return redirect()->route('Warehouse_home');
+    }
+
+    function editWarehouse($warehouse_id){
+        $game_id = DB::table('tbl_game')->orderBy('game_id','desc')->get();
+        $admin_id = DB::table('tbl_admin')->orderBy('admin_id','desc')->get();
+        $ware = DB::table('tbl_warehouse')->where('warehouse_id', $warehouse_id)->get();
+        return view('admin/warehouse/edit_warehouse', ['ware' => $ware])->with('game_id',$game_id)->with('admin_id',$admin_id);
+    }
+
+    function updateWarehouse(Request $request, $warehouse_id){
+        $data = array();
+        $data['game_id'] = $request->get('game_id');
+        $data['quantity_in'] = $request->get('quantity_in');
+        $data['price_in'] = $request->get('price_in');
+        $data['price_out'] = $request->get('price_out');
+        $data['time_in'] = $request->get('date_in');
+        $data['admin_id'] = $request->get('admin_id');
+
+        //Update
+        DB::table('tbl_warehouse')->where('warehouse_id', $warehouse_id)->update(
+            $data);
+        return redirect()->route('Warehouse_home');
     }
 }
