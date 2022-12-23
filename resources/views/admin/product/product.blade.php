@@ -19,7 +19,7 @@
                         <th>Thể loại</th>
                         <th>Nhà sản xuất</th>
                         <th>Mô tả</th>
-                        <th>Trạng thái</th>>
+                        <th>Trạng thái</th>
                         <th>Tùy biến</th>
                     </tr>
                     </thead>
