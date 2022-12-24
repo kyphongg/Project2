@@ -4,9 +4,21 @@
 
 @section('content')
     <div class="my-signup">
-        <form action="{{URL::to('/customer_signup')}}" method="post">
-            {{csrf_field()}}
+        <form action="{{URL::to('/customer_save')}}" method="post">
+            @csrf
             <h3>Đăng ký tài khoản</h3>
+            <?php
+            $message = Session::get('message');
+            $a = Session::get('a');
+            if ($message) {
+                echo '<span class="text-alert" style="color: red; font-size: 17px; width: 100%; text-align: center; font-weight: bold">', $message, '</span>';
+                Session::put('message', null);
+            }
+            elseif ($a){
+                echo '<span class="text-alert" style="color: green; font-size: 17px; width: 100%; text-align: center; font-weight: bold">', $a, '</span>';
+                Session::put('a', null);
+            }
+            ?>
             <div class="row">
                 <div class="col">
                     <span>Họ và tên: </span>

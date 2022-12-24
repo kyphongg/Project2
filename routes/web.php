@@ -36,8 +36,8 @@ Route::get('/home', [HomeController::class,'viewHome']);
 Route::get('/login', [LoginController::class,'viewLogin']);
 Route::post('/customer_login',[LoginController::class,'login']);
 
-Route::get('/signup', [SignupController::class,'viewSignUp']);
-Route::get('/customer_signup', [SignupController::class,'customer_signup']);
+Route::get('/signup', [SignupController::class,'viewSignUp'])->name('Signup_home');
+Route::post('/customer_save',[SignupController::class, 'customer_save']);
 
 Route::get('/customer_logout',[LoginController::class,'customer_logout']);
 Route::post('/customer_signup',[LoginController::class,'customer_signup']);
