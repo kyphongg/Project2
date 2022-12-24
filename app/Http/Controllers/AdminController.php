@@ -59,4 +59,24 @@ class AdminController extends Controller
     function viewSecurity(){
         return view('/admin/profile/security');
     }
+
+    function viewCustomerList(){
+        return view('/admin/customer/customer');
+    }
+
+    function viewWarehouseStaffList(){
+        return view('/admin/employee/warehousestaff/warehousestaff');
+    }
+
+    function viewOrderStaffList(){
+        return view('/admin/employee/orderstaff/orderstaff');
+    }
+
+    function viewCareStaffList(){
+        return view('/admin/employee/carestaff/carestaff');
+    }
+
+    function viewAddEmployee(){
+        return view('/admin/employee/add_employee');
+    }
 }

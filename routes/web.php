@@ -98,5 +98,13 @@ Route::post('/admin/update-warehouse/{warehouse_id}',[ProductController::class, 
 
 Route::get('/test_admin',[AdminController::class,'test']);
 
+//Admin view CustomerList
+Route::get('/admin/customer-list',[AdminController::class,'viewCustomerList']);
+
+//Admin viewEmployeeList
+Route::get('/admin/warehouse-staff',[AdminController::class,'viewWarehouseStaffList']);
+Route::get('/admin/order-staff',[AdminController::class,'viewOrderStaffList']);
+Route::get('/admin/care-staff',[AdminController::class,'viewCareStaffList']);
+Route::get('admin/add-employee',[AdminController::class,'viewAddEmployee']);
 
 
