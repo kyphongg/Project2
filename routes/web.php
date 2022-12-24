@@ -40,7 +40,6 @@ Route::get('/signup', [SignupController::class,'viewSignUp'])->name('Signup_home
 Route::post('/customer_save',[SignupController::class, 'customer_save']);
 
 Route::get('/customer_logout',[LoginController::class,'customer_logout']);
-Route::post('/customer_signup',[LoginController::class,'customer_signup']);
 
 //Client profile
 Route::get('/profile', [ProfileController::class,'viewProfile']);
@@ -105,6 +104,8 @@ Route::get('/admin/customer-list',[AdminController::class,'viewCustomerList']);
 Route::get('/admin/warehouse-staff',[AdminController::class,'viewWarehouseStaffList']);
 Route::get('/admin/order-staff',[AdminController::class,'viewOrderStaffList']);
 Route::get('/admin/care-staff',[AdminController::class,'viewCareStaffList']);
+
 Route::get('admin/add-employee',[AdminController::class,'viewAddEmployee']);
+Route::post('admin/save-employee',[AdminController::class,'saveEmployee']);
 
 

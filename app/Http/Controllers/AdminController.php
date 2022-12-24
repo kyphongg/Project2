@@ -20,10 +20,6 @@ class AdminController extends Controller
         return view('/admin/login');
     }
 
-    function showDashboard(){
-        return view('/admin/home');
-    }
-
     function test(){
         return view('/layout/testadmin');
     }
@@ -52,6 +48,18 @@ class AdminController extends Controller
         return redirect('/admin/login');
     }
 
+    function saveEmployee(Request $request){
+        $data = array();
+        $data['admin_name'] = $request -> get('admin_name');
+        $data['admin_email'] = $request -> get('admin_email');
+        $data['admin_password'] = md5($request -> get('admin_password'));
+        $data['admin_level'] = $request -> get('admin_level');
+        DB::table('tbl_admin')->insert(
+            $data
+        );
+        return redirect('/admin/home');
+    }
+
     function viewProfile(){
         return view('/admin/profile/profile');
     }
@@ -66,7 +74,8 @@ class AdminController extends Controller
     }
 
     function viewWarehouseStaffList(){
-        return view('/admin/employee/warehousestaff/warehousestaff');
+        $warehouse = DB::table('tbl_admin')->where('admin_level','=','1')->orderBy('admin_id')->get();
+        return view('/admin/employee/warehousestaff/warehousestaff',['warehouse' => $warehouse]);
     }
 
     function viewOrderStaffList(){

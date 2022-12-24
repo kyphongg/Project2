@@ -32,9 +32,6 @@ class LoginController extends Controller
             return redirect('/login');
         }
     }
-    function customer_signup(){
-        return view('guest/signup');
-    }
 
     function customer_logout(){
         Session::put('customer_name',null);

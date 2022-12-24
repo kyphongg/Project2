@@ -18,17 +18,19 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($warehouse as $key => $w)
                     <tr>
-                        <td>1</td>
-                        <td>Lâm</td>
-                        <td>lam@admin.com</td>
-                        <td>Nhân viên kho</td>
+                        <td>{{$w->admin_id}}</td>
+                        <td>{{$w->admin_name}}</td>
+                        <td>{{$w->admin_email}}</td>
+                        <td>{{$w->admin_level}}</td>
                         <td>
                             <a href="#" class="active">
                                 <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
