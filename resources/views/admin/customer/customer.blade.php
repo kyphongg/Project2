@@ -19,18 +19,20 @@
                     </tr>
                     </thead>
                         <tbody>
+                        @foreach($customer as $key => $c)
                         <tr>
-                            <td>1</td>
-                            <td>Lan</td>
-                            <td>lan@customer.com</td>
-                            <td>0377923832</td>
-                            <td>Số 2A ngõ 18 Quận 1 Hồ Chí Minh</td>
+                            <td>{{$c->customer_id}}</td>
+                            <td>{{$c->customer_name}}</td>
+                            <td>{{$c->customer_email}}</td>
+                            <td>{{$c->customer_phone}}</td>
+                            <td>{{$c->customer_address}}</td>
                             <td>
                                 <a href="#" class="active">
                                     <i class="fa-solid fa-square-check" style="font-size: 25px; color: #337AB7;"></i>
                                 </a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                 </table>
             </div>

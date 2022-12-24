@@ -61,7 +61,8 @@ class AdminController extends Controller
     }
 
     function viewCustomerList(){
-        return view('/admin/customer/customer');
+        $customer = DB::table('tbl_customer')->orderBy('customer_id')->get();
+        return view('/admin/customer/customer',['customer' => $customer]);
     }
 
     function viewWarehouseStaffList(){
