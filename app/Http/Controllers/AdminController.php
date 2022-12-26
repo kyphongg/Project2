@@ -61,7 +61,8 @@ class AdminController extends Controller
     }
 
     function viewProfile(){
-        return view('/admin/profile/profile');
+        $admin = DB::table('tbl_admin')->get();
+        return view('/admin/profile/profile',['admin'=> $admin]);
     }
 
     function viewSecurity(){
