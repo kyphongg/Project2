@@ -37,17 +37,17 @@
 
                         <div class="col-2">
                             <p>Số điện thoại</p>
-                            <p style="font-weight: 600;">0966331402</p>
+                            <p style="font-weight: 600;">{{$customer->customer_phone}}</p>
                         </div>
 
                         <div class="col-4">
                             <p>Địa chỉ</p>
-                            <p style="font-weight: 600;">Nhà A17, Tạ Quang Bửu, Hai Bà Trưng, Hà Nội</p>
+                            <p style="font-weight: 600;">{{$customer->customer_address}}</p>
                         </div>
 
                         <div class="col-4">
                             <p>Địa chỉ email</p>
-                            <p style="font-weight: 600;">kyphong2802@gmail.com</p>
+                            <p style="font-weight: 600;">{{$customer->customer_email}}</p>
                         </div>
                     </div>
                     <div class="changeInfo">
