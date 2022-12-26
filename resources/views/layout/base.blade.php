@@ -83,6 +83,8 @@
                 <img src="/images/gear.png" alt="UserImage">Quản lý
             </a>';
             }
+            elseif ($customer_id)
+                echo '';
             else{
                 echo '<a class="cart" href="/admin/login">
                 <img src="/images/gear.png" alt="UserImage">Quản lý
