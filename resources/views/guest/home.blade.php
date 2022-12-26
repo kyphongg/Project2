@@ -62,23 +62,23 @@
                 <h3 style="font-size: 22px;">Sản phẩm nổi bật</h3>
                 <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ thích</p>
             </div>
-
+            @foreach($game as $key => $all)
             <ul class="autoWidth" class="cs-hidden">
                 {{------------------1---------------------}}
                 <li class="item-a">
                     <div class="featured-box">
-                        <a href="{{url('/product')}}">
-                            <img src="images/ps5(sp1).jpg">
+                        <a href="#">
+                            <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
                             <div class="p-title">
-                                <p>Demon's Souls (PS5)</p>
+                                <p>{{$all->game_name}}</p>
                             </div>
                             <div class="price">
-                                <p>1.350.000đ</p>
+                                <p>{{$all->price_out}}đ</p>
                             </div>
                         </a>
                     </div>
                 </li>
-
+                @endforeach
                 {{------------------2---------------------}}
                 <li class="item-a">
                     <div class="featured-box">
