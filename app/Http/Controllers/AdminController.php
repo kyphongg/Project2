@@ -60,8 +60,8 @@ class AdminController extends Controller
         return redirect('/admin/home');
     }
 
-    function viewProfile(){
-        $admin = DB::table('tbl_admin')->first();
+    function viewProfile($admin_id){
+        $admin = DB::table('tbl_admin')->where('admin_id',$admin_id)->first();
         return view('/admin/profile/profile',['admin'=> $admin]);
     }
 

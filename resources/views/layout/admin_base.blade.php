@@ -80,7 +80,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </span>
                     </a>
                     <ul class="dropdown-menu extended logout">
-                        <li><a href="{{url('/admin/profile')}}"><i class="far fa-address-card"></i> Hồ sơ cá nhân</a></li>
+                        <?php
+                        $admin_id = Session::get('admin_id');
+                        ?>
+                        <li><a href="{{url('/admin/profile/'.$admin_id)}}"><i class="far fa-address-card"></i> Hồ sơ cá nhân</a></li>
                         <li><a href="{{url('/admin/security')}}"><i class="fas fa-lock"></i> Cài đặt</a></li>
                         <li><a href="{{url('admin_logout')}}"><i class="fas fa-power-off"></i> Đăng xuất</a></li>
                     </ul>
