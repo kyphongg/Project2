@@ -13,8 +13,16 @@
                 <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">{{$ad->admin_email}}</p>
                 <p>Chức vụ</p>
                 <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">
-                @if($ad->admin_level==1)
-                    <p>Nhân viên kho</p>
+                @if($ad->admin_level==0)
+                    <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">Quản lý</p>
+                @elseif($ad->admin_level==1)
+                    <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">Nhân viên kho</p>
+                @elseif($ad->admin_level==2)
+                    <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">Nhân viên đơn hàng</p>
+                @elseif($ad->admin_level==3)
+                    <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">Nhân viên CSKH</p>
+                @elseif($ad->admin_level==100)
+                    <p style="font-weight: 600; margin-top: 10px; margin-bottom: 10px;">Chủ cửa hàng</p>
                 @endif
             @endforeach
         </div>

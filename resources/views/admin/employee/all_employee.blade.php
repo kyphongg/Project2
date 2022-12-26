@@ -26,7 +26,17 @@
                             <td>{{$admins->admin_id}}</td>
                             <td>{{$admins->admin_name}}</td>
                             <td>{{$admins->admin_email}}</td>
-                            <td>{{$admins->admin_level}}</td>
+                            @if($admins->admin_level==0)
+                                <td>Quản lý</td>
+                            @elseif($admins->admin_level==1)
+                                <td>Nhân viên kho</td>
+                            @elseif($admins->admin_level==2)
+                                <td>Nhân viên đơn hàng</td>
+                            @elseif($admins->admin_level==3)
+                                <td>Nhân viên CSKH</td>
+                            @elseif($admins->admin_level==100)
+                                <td>Chủ cửa hàng</td>
+                            @endif
                             <td>
                                 <a href="#" class="active">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
