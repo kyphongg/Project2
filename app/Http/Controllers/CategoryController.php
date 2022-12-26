@@ -55,4 +55,11 @@ class CategoryController extends Controller
         DB::table('tbl_category')->where('category_id',$category_id)->delete();
         return redirect()->route('Category_home');
     }
+
+    //Client Category Page
+    function viewEachCategory($category_id){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        $categoryName = DB::table('tbl_category')->where('category_id',$category_id)->first();
+        return view('/guest/category')->with('category',$category)->with('categoryName',$categoryName);
+    }
 }

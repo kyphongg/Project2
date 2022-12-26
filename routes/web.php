@@ -33,6 +33,7 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class,'viewHome']);
 //Client product -> product details
 Route::get('/product',[HomeController::class,'viewDetailProduct']);
+Route::get('/category/{category_id}',[CategoryController::class,'viewEachCategory']);
 
 //Client Login & Signup & Logout
 Route::get('/login', [LoginController::class,'viewLogin']);

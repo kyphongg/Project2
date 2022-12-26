@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     function viewCart(){
-        return view('guest/cart');
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/cart')->with('category',$category);
     }
 
     function viewPayment(){
-        return view('guest/payment');
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/payment')->with('category',$category);
     }
 }

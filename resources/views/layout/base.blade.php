@@ -104,12 +104,9 @@
                         Danh mục sản phẩm
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Chiến thuật</a></li>
-                        <li><a class="dropdown-item" href="#">Nhập vai</a></li>
-                        <li><a class="dropdown-item" href="#">Thể thao</a></li>
-                        <li><a class="dropdown-item" href="#">Phiêu lưu</a></li>
-                        <li><a class="dropdown-item" href="#">Hành động</a></li>
-                        <li><a class="dropdown-item" href="#">Mô phỏng</a></li>
+                        @foreach($category as $kw=>$cate)
+                            <li><a class="dropdown-item" href="{{'/category/'.$cate->category_id}}">{{$cate->category_name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

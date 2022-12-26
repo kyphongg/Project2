@@ -17,7 +17,8 @@ class AdminController extends Controller
     }
 
     function viewLogin(){
-        return view('/admin/login');
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('/admin/login')->with('category',$category);
     }
 
     function test(){
