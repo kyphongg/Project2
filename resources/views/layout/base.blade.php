@@ -44,7 +44,7 @@
                 $admin_id = Session::get('admin_id');
                 if ($customer_id) {
                     $customer_name = Session::get('customer_name');
-                    echo '<a href="/profile">';
+                    echo '<a href="/profile/'.$customer_id.'">';
                     echo $customer_name;
                     echo '</a>';
                     echo '<div class="sub-menu-wrap" id="subMenu">
