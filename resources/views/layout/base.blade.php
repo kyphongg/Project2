@@ -49,7 +49,7 @@
                     echo '</a>';
                     echo '<div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
-                    <a href="/profile" class="sub-menu-link">
+                    <a href="/profile/'.$customer_id.'" class="sub-menu-link">
                         <p>Quản lý tài khoản</p>
                     </a>
                     <a href="/orders" class="sub-menu-link">

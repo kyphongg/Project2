@@ -44,7 +44,7 @@ Route::post('/customer_save',[SignupController::class, 'customer_save']);
 Route::get('/customer_logout',[LoginController::class,'customer_logout']);
 
 //Client profile
-Route::get('/profile', [ProfileController::class,'viewProfile']);
+Route::get('/profile/{customer_id}', [ProfileController::class,'viewProfile']);
 
 Route::get('/orders', [ProfileController::class,'viewOrders']);
 

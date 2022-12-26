@@ -28,10 +28,11 @@
             <div class="col-9">
                 <div class="account">
                     <h3>Tổng quan</h3>
+                    @if($customer)
                     <div class="row user-detail">
                         <div class="col-2">
                             <p>Họ và tên</p>
-                            <p style="font-weight: 600;">Mai Kỳ Phong</p>
+                            <p style="font-weight: 600;">{{$customer->customer_name}}</p>
                         </div>
 
                         <div class="col-2">
@@ -72,6 +73,7 @@
                         </form>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
