@@ -25,6 +25,9 @@
                         <td>Nhân viên đơn hàng</td>
                         <td>
                             <a href="#" class="active">
+                                <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
+                            </a>
+                            <a href="#" class="active">
                                 <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>
                             </a>
                         </td>

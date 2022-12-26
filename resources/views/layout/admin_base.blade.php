@@ -152,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Danh sách nhân viên</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="{{url('/admin/add-employee')}}"><i class="fa-solid fa-user-plus"></i>Thêm nhân viên</a></li>
+                            <li><a href="{{url('/admin/all-staff')}}"><i class="fa-solid fa-list-ol"></i>Danh sách nhân viên</a></li>
                             <li><a href="{{url('/admin/warehouse-staff')}}"><i class="fa-solid fa-people-carry-box"></i>Nhân viên kho</a></li>
                             <li><a href="{{url('/admin/order-staff')}}"><i class="fa-solid fa-user-check"></i>Nhân viên đơn hàng</a></li>
                             <li><a href="{{url('/admin/care-staff')}}"><i class="fa-solid fa-user-doctor"></i>Nhân viên CSKH</a></li>

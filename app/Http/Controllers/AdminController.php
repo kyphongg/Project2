@@ -86,6 +86,11 @@ class AdminController extends Controller
         return view('/admin/employee/carestaff/carestaff');
     }
 
+    function viewAllStaff(){
+        $tbl_admin = DB::table('tbl_admin')->get();
+        return view('/admin/employee/all_employee',['admin'=> $tbl_admin]);
+    }
+
     function viewAddEmployee(){
         return view('/admin/employee/add_employee');
     }

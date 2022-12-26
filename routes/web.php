@@ -104,6 +104,7 @@ Route::get('/admin/customer-list',[AdminController::class,'viewCustomerList']);
 Route::get('/admin/warehouse-staff',[AdminController::class,'viewWarehouseStaffList']);
 Route::get('/admin/order-staff',[AdminController::class,'viewOrderStaffList']);
 Route::get('/admin/care-staff',[AdminController::class,'viewCareStaffList']);
+Route::get('/admin/all-staff',[AdminController::class,'viewAllStaff']);
 
 Route::get('admin/add-employee',[AdminController::class,'viewAddEmployee']);
 Route::post('admin/save-employee',[AdminController::class,'saveEmployee']);
