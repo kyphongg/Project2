@@ -23,7 +23,9 @@
                         <td>{{$w->admin_id}}</td>
                         <td>{{$w->admin_name}}</td>
                         <td>{{$w->admin_email}}</td>
-                        <td>{{$w->admin_level}}</td>
+                        @if($w->admin_level==1)
+                            <td>Nhân viên kho</td>
+                            @endif
                         <td>
                             <a href="#" class="active">
                                 <i class="fa-solid fa-square-xmark" style="font-size: 25px; color: #D9534F;"></i>

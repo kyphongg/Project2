@@ -14,7 +14,7 @@
                             <label>Game</label>
                             <select name="game_id" class="form-control m-bot15">
                                 @foreach($game_id as $ke => $g)
-                                    <option value="{{$g->game_id}}">{{$g->game_id}}: {{$g->game_name}}</option>
+                                    <option value="{{$g->game_id}}">{{$g->game_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -38,7 +38,7 @@
                             <label>Người nhập</label>
                             <select name="admin_id" class="form-control m-bot15">
                                 @foreach($admin_id as $l => $ad)
-                                    <option value="{{$ad->admin_id}}">{{$ad->admin_id}}: {{$ad->admin_name}}</option>
+                                    <option value="{{$ad->admin_id}}">{{$ad->admin_name}}</option>
                                 @endforeach
                             </select>
                         </div>
