@@ -67,7 +67,7 @@
                 {{------------------1---------------------}}
                 <li class="item-a">
                     <div class="featured-box">
-                        <a href="{{url('/home/product/'.$all->game_id)}}">
+                        <a href="{{url('/product/')}}">
                             <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
                             <div class="p-title">
                                 <p>{{$all->game_name}}</p>
@@ -94,7 +94,7 @@
                 {{------------------1---------------------}}
                 <li class="item-a">
                     <div class="favorite-box">
-                        <a href="#">
+                        <a href="{{url('/product/')}}">
                             <img src="images/ps5(sp1).jpg">
                             <div class="p-title">
                                 <p>Demon's Souls (PS5)</p>
@@ -109,7 +109,7 @@
                 {{------------------2---------------------}}
                 <li class="item-a">
                     <div class="favorite-box">
-                        <a href="#">
+                        <a href="{{url('/product/')}}">
                             <img src="images/ps5(sp2).jpg">
                             <div class="p-title">
                                 <p>God Of War: Ragnarok (PS5)</p>
@@ -124,7 +124,7 @@
                 {{------------------3---------------------}}
                 <li class="item-a">
                     <div class="favorite-box">
-                        <a href="#">
+                        <a href="{{url('/product/')}}">
                             <img src="images/ps5(sp3).png">
                             <div class="p-title">
                                 <p>Elden Ring (PS5)</p>
@@ -139,7 +139,7 @@
                 {{------------------4---------------------}}
                 <li class="item-a">
                     <div class="favorite-box">
-                        <a href="#">
+                        <a href="{{url('/product/')}}">
                             <img src="images/ps5(sp4).jpg">
                             <div class="p-title">
                                 <p>Grand Theft Auto V (PS5)</p>
@@ -154,7 +154,7 @@
                 {{------------------5---------------------}}
                 <li class="item-a">
                     <div class="favorite-box">
-                        <a href="#">
+                        <a href="{{url('/product/')}}">
                             <img src="images/ps5(sp5).jpeg">
                             <div class="p-title">
                                 <p>FIFA 23 (PS5)</p>

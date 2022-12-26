@@ -14,6 +14,6 @@ class HomeController extends Controller
     }
 
     function viewDetailProduct(){
-
+        return view('guest/product');
     }
 }

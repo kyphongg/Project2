@@ -31,7 +31,8 @@ Route::get('/', function () {
 
 //Client Home
 Route::get('/home', [HomeController::class,'viewHome']);
-Route::get('/home/product/{game_id}',[HomeController::class,'viewDetailProduct']);
+//Client product -> product details
+Route::get('/product',[HomeController::class,'viewDetailProduct']);
 
 //Client Login & Signup & Logout
 Route::get('/login', [LoginController::class,'viewLogin']);
@@ -49,9 +50,7 @@ Route::get('/orders', [ProfileController::class,'viewOrders']);
 
 Route::get('/security', [ProfileController::class,'viewSecurity']);
 
-//Client product cart &payment
-Route::get('/product',[ProductController::class,'viewProduct']);
-
+//Client cart &payment
 Route::get('/cart', [CartController::class, 'viewCart']);
 
 Route::get('/payment', [CartController::class, 'viewPayment']);
