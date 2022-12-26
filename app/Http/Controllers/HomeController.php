@@ -12,4 +12,8 @@ class HomeController extends Controller
             ->orderBy('tbl_game.game_id','desc')->get();
         return view('guest/home', ['game' => $game]);
     }
+
+    function viewDetailProduct(){
+
+    }
 }

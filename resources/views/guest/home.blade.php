@@ -67,7 +67,7 @@
                 {{------------------1---------------------}}
                 <li class="item-a">
                     <div class="featured-box">
-                        <a href="#">
+                        <a href="{{url('/home/product/'.$all->game_id)}}">
                             <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
                             <div class="p-title">
                                 <p>{{$all->game_name}}</p>

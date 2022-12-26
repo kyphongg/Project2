@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 //Client Home
 Route::get('/home', [HomeController::class,'viewHome']);
+Route::get('/home/product/{game_id}',[HomeController::class,'viewDetailProduct']);
 
 //Client Login & Signup & Logout
 Route::get('/login', [LoginController::class,'viewLogin']);
