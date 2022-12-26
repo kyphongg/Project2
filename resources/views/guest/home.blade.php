@@ -79,66 +79,8 @@
                     </div>
                 </li>
                 @endforeach
-                {{------------------2---------------------}}
-                <li class="item-a">
-                    <div class="featured-box">
-                        <a href="#">
-                            <img src="images/ps5(sp2).jpg">
-                            <div class="p-title">
-                                <p>God Of War: Ragnarok (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------3---------------------}}
-                <li class="item-a">
-                    <div class="featured-box">
-                        <a href="#">
-                            <img src="images/ps5(sp3).png">
-                            <div class="p-title">
-                                <p>Elden Ring (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------4---------------------}}
-                <li class="item-a">
-                    <div class="featured-box">
-                        <a href="#">
-                            <img src="images/ps5(sp4).jpg">
-                            <div class="p-title">
-                                <p>Grand Theft Auto V (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------5---------------------}}
-                <li class="item-a">
-                    <div class="featured-box">
-                        <a href="#">
-                            <img src="images/ps5(sp5).jpeg">
-                            <div class="p-title">
-                                <p>FIFA 23 (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
             </ul>
+
         </div>
     </div>
     <div class="favorite">
