@@ -11,7 +11,7 @@
         </div>
     <div class="row row-cols-4">
             <div class="col product">
-                <div class="favorite-box">
+                <div class="sp-box">
                     <a href="{{url('/product/')}}">
                         <img src="/images/ps5(sp1).jpg">
                         <div class="p-title">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         <div class="col product">
-            <div class="favorite-box">
+            <div class="sp-box">
                 <a href="{{url('/product/')}}">
                     <img src="/images/ps5(sp1).jpg">
                     <div class="p-title">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col product">
-            <div class="favorite-box">
+            <div class="sp-box">
                 <a href="{{url('/product/')}}">
                     <img src="/images/ps5(sp1).jpg">
                     <div class="p-title">
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col product">
-            <div class="favorite-box">
+            <div class="sp-box">
                 <a href="{{url('/product/')}}">
                     <img src="/images/ps5(sp1).jpg">
                     <div class="p-title">

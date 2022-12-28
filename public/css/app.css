@@ -439,7 +439,7 @@ input:focus{
     text-decoration: none;
     background-color: white;
     border-radius: 20px;
-    margin: 25px;
+    margin-left: 45px;
     box-sizing: border-box;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.03);
     border: 1px solid rgba(0,0,0,0.08);
@@ -450,7 +450,8 @@ input:focus{
 .featured-box img{
     width: 207px;
     height: 207px;
-    padding-left: 30px;
+    padding-left: 50px;
+    padding-top: 10px;
     justify-content: center;
     align-items: center;
     object-fit: contain;
@@ -497,7 +498,7 @@ input:focus{
     text-decoration: none;
     background-color: white;
     border-radius: 20px;
-    margin: 25px;
+    margin-left: 45px;
     box-sizing: border-box;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.03);
     border: 1px solid rgba(0,0,0,0.08);
@@ -508,7 +509,8 @@ input:focus{
 .favorite-box img{
     width: 207px;
     height: 207px;
-    padding-left: 30px;
+    padding-left: 50px;
+    padding-top: 10px;
     justify-content: center;
     align-items: center;
     object-fit: contain;
@@ -1234,6 +1236,44 @@ input:focus{
     background-color: #0156D0;
 }
 
+.sp-box{
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 300px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 20px;
+    margin: 15px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all ease 0.3s;
+}
+
+.sp-box img{
+    width: 207px;
+    height: 207px;
+    padding-left: 50px;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    object-position: center;
+}
+
+.sp-box a{
+    text-decoration: none;
+}
+
+.sp-box .p-title{
+    color: black;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 
 
