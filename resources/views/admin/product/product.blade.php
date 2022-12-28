@@ -10,7 +10,7 @@
         </a>
         <div class="panel panel-default">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
+                <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th style="width: 15px;">STT</th>
@@ -49,4 +49,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @parent
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
 @endsection
