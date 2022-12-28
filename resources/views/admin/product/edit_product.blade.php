@@ -49,7 +49,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mô tả</label>
-                        <textarea class="form-control " name="product_description" required="">{{$all->game_description}}</textarea>
+                        <textarea id="editor" class="form-control " name="product_description" required="">{{$all->game_description}}</textarea>
                     </div>
 
                     <div class="form-group">
@@ -68,4 +68,18 @@
 
         </div>
     </div>
+@endsection
+
+@section('js')
+    @parent
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
