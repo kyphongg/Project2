@@ -7,15 +7,26 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    function viewHome(){
+    function viewHome()
+    {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        $game = DB::table('tbl_game')->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
-            ->orderBy('tbl_game.game_id','desc')->get();
-        return view('guest/home', ['game' => $game])->with('category',$category);
+        $game = DB::table('tbl_game')->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
+            ->orderBy('tbl_game.game_id', 'desc')->get();
+        $cateMoPhong = DB::table('tbl_category')->where('category_id', '=', '1')->orderBy('category_id')->get();
+        $catePhieuLuu = DB::table('tbl_category')->where('category_id', '=', '2')->orderBy('category_id')->get();
+        $cateHanhDong = DB::table('tbl_category')->where('category_id', '=', '3')->orderBy('category_id')->get();
+        $cateNhapVai = DB::table('tbl_category')->where('category_id', '=', '4')->orderBy('category_id')->get();
+        $cateChienThuat = DB::table('tbl_category')->where('category_id', '=', '5')->orderBy('category_id')->get();
+        $cateTheThao = DB::table('tbl_category')->where('category_id', '=', '6')->orderBy('category_id')->get();
+        return view('guest/home', ['game' => $game])->with('category', $category)->with('cateMoPhong', $cateMoPhong)
+            ->with('catePhieuLuu', $catePhieuLuu)->with('cateHanhDong', $cateHanhDong)
+            ->with('cateNhapVai', $cateNhapVai)->with('cateChienThuat', $cateChienThuat)
+            ->with('cateTheThao', $cateTheThao);
     }
 
-    function viewDetailProduct(){
+    function viewDetailProduct()
+    {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        return view('guest/product')->with('category',$category);
+        return view('guest/product')->with('category', $category);
     }
 }

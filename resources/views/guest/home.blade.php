@@ -21,11 +21,13 @@
                             <img src="images/demons-souls.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -34,24 +36,44 @@
 
             <div class="col-3">
                 <div class="col brand">
-                    <a href="#">
-                        <img src="images/MoPhong.jpg">
-                    </a>
+                    @foreach($cateMoPhong as $kw=>$cate)
+                        <a href="{{'/category/'.$cate->category_id}}">
+                            <img src="images/MoPhong.jpg">
+                        </a>
+                    @endforeach
                 </div>
 
                 <div class="col brandd">
-                    <a href="#">
-                        <img src="images/NhapVai.jpg">
-                    </a>
+                    @foreach($cateNhapVai as $kw=>$cate)
+                        <a href="{{'/category/'.$cate->category_id}}">
+                            <img src="images/NhapVai.jpg">
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
     <div class="my-content1">
+        @foreach($cateHanhDong as $kw=>$cate)
+            <a href="{{'/category/'.$cate->category_id}}">
                 <img src="images/HanhDong.jpg">
+            </a>
+        @endforeach
+        @foreach($catePhieuLuu as $kw=>$cate)
+            <a href="{{'/category/'.$cate->category_id}}">
                 <img src="images/PhieuLuu.jpg">
+            </a>
+        @endforeach
+        @foreach($cateTheThao as $kw=>$cate)
+            <a href="{{'/category/'.$cate->category_id}}">
                 <img src="images/TheThao.jpg">
+            </a>
+        @endforeach
+        @foreach($cateChienThuat as $kw=>$cate)
+            <a href="{{'/category/'.$cate->category_id}}">
                 <img src="images/ChienThuat.jpg">
+            </a>
+        @endforeach
     </div>
 @endsection
 
@@ -60,26 +82,27 @@
         <div class="container">
             <div class="featured-heading">
                 <h3 style="font-size: 22px;">Sản phẩm nổi bật</h3>
-                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ thích</p>
+                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ
+                    thích</p>
             </div>
             @foreach($game as $key => $all)
-            <ul class="autoWidth" class="cs-hidden">
-                {{------------------1---------------------}}
-                <li class="item-a">
-                    <div class="featured-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
-                            <div class="p-title">
-                                <p>{{$all->game_name}}</p>
-                            </div>
-                            <div class="price">
-                                <p>{{$all->price_out}}đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                @endforeach
-            </ul>
+                <ul class="autoWidth" class="cs-hidden">
+                    {{------------------1---------------------}}
+                    <li class="item-a">
+                        <div class="featured-box">
+                            <a href="{{url('/product/')}}">
+                                <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
+                                <div class="p-title">
+                                    <p>{{$all->game_name}}</p>
+                                </div>
+                                <div class="price">
+                                    <p>{{$all->price_out}}đ</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
 
         </div>
     </div>
@@ -87,7 +110,8 @@
         <div class="container">
             <div class="favorite-heading">
                 <h3 style="font-size: 22px;">Sản phẩm bán chạy</h3>
-                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ thích</p>
+                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ
+                    thích</p>
             </div>
 
             <ul class="autoWidth" class="cs-hidden">
