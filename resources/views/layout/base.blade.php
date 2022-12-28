@@ -156,8 +156,8 @@
 
                 <div class="col">
                     <h5>Tài Khoản</h5>
-                    <a href="{{url('/home')}}"><p>Đăng Nhập</p></a>
-                    <a href="{{url('/home')}}"><p>Đăng Ký</p></a>
+                    <a href="{{url('/login')}}"><p>Đăng Nhập</p></a>
+                    <a href="{{url('/signup')}}"><p>Đăng Ký</p></a>
                 </div>
 
                 <div class="col">

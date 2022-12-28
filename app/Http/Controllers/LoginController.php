@@ -15,7 +15,7 @@ class LoginController extends Controller
 {
     function viewLogin(){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        return view('guest/login')->with('category',$category);;
+        return view('guest/login')->with('category',$category);
     }
 
     function login(Request $request){

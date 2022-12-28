@@ -9,7 +9,8 @@ use Session;
 class SignupController extends Controller
 {
     function viewSignUp(){
-        return view('guest/signup');
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/signup')->with('category',$category);
     }
 
     function customer_save(Request $request){
