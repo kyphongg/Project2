@@ -46,6 +46,7 @@ class AdminController extends Controller
         if($rs){
             Session::put('admin_name',$rs->admin_name);
             Session::put('admin_id',$rs->admin_id);
+            Session::put('admin_level',$rs->admin_level);
             return redirect('/admin/home');
         }
         else{

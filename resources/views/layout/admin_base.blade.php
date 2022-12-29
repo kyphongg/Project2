@@ -115,59 +115,84 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Trang website</span>
                         </a>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
+                    <?php
+                    $admin_level = Session::get('admin_level');
+                    if($admin_level==0||$admin_level==1||$admin_level==100)
+                        echo '<li class="sub-menu">
+                        <a href="javascript:">
                             <i class="fas fa-gamepad"></i>
                             <span>Quản lý sản phẩm</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="{{url('admin/categories')}}"><i class="fas fa-list"></i>Thể loại</a></li>
-                            <li><a href="{{url('admin/producers')}}"><i class="fas fa-registered"></i>Nhà sản xuất</a></li>
-                            <li><a href="{{url('admin/products')}}"><i class="fas fa-archive"></i>Sản phẩm</a></li>
-                            <li><a href="grids.html"><i class="fas fa-images"></i>Hình ảnh</a></li>
-                            <li><a href="{{url('admin/warehouse')}}"><i class="fa-solid fa-boxes-stacked"></i>Quản lý kho</a></li>
+                            <li><a href="/admin/categories"><i class="fas fa-list"></i>Thể loại</a></li>
+                            <li><a href="/admin/producers"><i class="fas fa-registered"></i>Nhà sản xuất</a></li>
+                            <li><a href="/admin/products"><i class="fas fa-archive"></i>Sản phẩm</a></li>
+                            <li><a href=""><i class="fas fa-images"></i>Hình ảnh</a></li>
+                            <li><a href="/admin/warehouse"><i class="fa-solid fa-boxes-stacked"></i>Quản lý kho</a></li>
                         </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
+                    </li>';
+                    ?>
+
+                    <?php
+                    $admin_level = Session::get('admin_level');
+                    if($admin_level==0||$admin_level==2||$admin_level==3||$admin_level==100)
+                        echo '<li class="sub-menu">
+                        <a href="javascript:">
                             <i class="fas fa-truck-loading"></i>
                             <span>Quản lý đơn hàng</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="basic_table.html"><i class="fas fa-cart-plus"></i>Đơn hàng mới</a></li>
-                            <li><a href="basic_table.html"><i class="fas fa-spinner"></i>Đơn hàng đang xử lý</a></li>
-                            <li><a href="responsive_table.html"><i class="fas fa-clipboard-check"></i>Đơn hàng đã hoàn thành</a></li>
-                            <li><a href="responsive_table.html"><i class="fas fa-window-close"></i>Đơn hàng bị hủy</a></li>
+                            <li><a href=""><i class="fas fa-cart-plus"></i>Đơn hàng mới</a></li>
+                            <li><a href=""><i class="fas fa-spinner"></i>Đơn hàng đang xử lý</a></li>
+                            <li><a href=""><i class="fas fa-clipboard-check"></i>Đơn hàng đã hoàn thành</a></li>
+                            <li><a href=""><i class="fas fa-window-close"></i>Đơn hàng bị hủy</a></li>
                         </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
+                    </li>';
+                    ?>
+
+                    <?php
+                    $admin_level = Session::get('admin_level');
+                    if($admin_level==0||$admin_level==2||$admin_level==3||$admin_level==100)
+                        echo '<li class="sub-menu">
+                        <a href="javascript:">
                             <i class="fas fa-comment-dots"></i>
                             <span>Quản lý bình luận</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="form_component.html"><i class="fas fa-comment-medical"></i>Mới</a></li>
-                            <li><a href="form_validation.html"><i class="fas fa-comments"></i>Cũ</a></li>
+                            <li><a href=""><i class="fas fa-comment-medical"></i>Mới</a></li>
+                            <li><a href=""><i class="fas fa-comments"></i>Cũ</a></li>
                         </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
+                    </li>';
+                    ?>
+
+                    <?php
+                    $admin_level = Session::get('admin_level');
+                    if($admin_level==0||$admin_level==100)
+                        echo '<li class="sub-menu">
+                        <a href="javascript:">
                             <i class="fas fa-users-cog"></i>
                             <span>Danh sách nhân viên</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="{{url('/admin/all-staff')}}"><i class="fa-solid fa-list-ol"></i>Danh sách nhân viên</a></li>
-                            <li><a href="{{url('/admin/warehouse-staff')}}"><i class="fa-solid fa-people-carry-box"></i>Nhân viên kho</a></li>
-                            <li><a href="{{url('/admin/order-staff')}}"><i class="fa-solid fa-user-check"></i>Nhân viên đơn hàng</a></li>
-                            <li><a href="{{url('/admin/care-staff')}}"><i class="fa-solid fa-user-doctor"></i>Nhân viên CSKH</a></li>
+                            <li><a href="/admin/all-staff"><i class="fa-solid fa-list-ol"></i>Danh sách nhân viên</a></li>
+                            <li><a href="/admin/warehouse-staff"><i class="fa-solid fa-people-carry-box"></i>Nhân viên kho</a></li>
+                            <li><a href="/admin/order-staff"><i class="fa-solid fa-user-check"></i>Nhân viên đơn hàng</a></li>
+                            <li><a href="/admin/care-staff"><i class="fa-solid fa-user-doctor"></i>Nhân viên CSKH</a></li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="{{url('/admin/customer-list')}}">
+                    </li>';
+                    ?>
+
+                    <?php
+                    $admin_level = Session::get('admin_level');
+                    if($admin_level==0||$admin_level==3||$admin_level==100)
+                        echo '<li>
+                        <a href="/admin/customer-list">
                             <i class="fas fa-chalkboard-teacher"></i>
                             <span>Danh sách khách hàng</span>
                         </a>
-                    </li>
+                    </li>';
+                    ?>
+
                 </ul>
             </div>
             <!-- sidebar menu end-->
