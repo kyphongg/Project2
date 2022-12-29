@@ -103,7 +103,6 @@
                     </li>
                     @endforeach
                 </ul>
-
         </div>
     </div>
     <div class="favorite">

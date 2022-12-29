@@ -6,20 +6,23 @@
     <div class="product-box">
         <div class="p-left">
             <div class="big-img">
-                <img src="images/ps5(sp1).jpg" alt="">
+                <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="300px" width="100px" alt="">
+
             </div>
         </div>
 
         <div class="p-right">
-            <div class="url">Trang chủ > Hành Động</div>
-            <div class="pname">Demon's Souls (PS5)
+            <div class="url">
+                <a href="{{'/home'}}">Trang chủ</a> > <a href="{{'/category/'.$game->category_name}}">Hành động</a>
+            </div>
+            <div class="pname"> {{$game->game_name}}
                 <div class="p-favorite">
                     <i class="fa-regular fa-heart"></i>
                 </div>
             </div>
             <div class="pid">
                 <p style="font-weight: bold">Mã sản phẩm: &nbsp</p>
-                <p>00001</p>
+                <p>{{$game->game_id}}</p>
             </div>
             <div class="pstatus">
                 <p style="font-weight: bold">Tình trạng: &nbsp</p>
@@ -27,9 +30,13 @@
             </div>
             <div class="pcategory">
                 <p style="font-weight: bold">Thể loại: &nbsp</p>
-                <p> Hành Động, Nhập Vai</p>
+                <p>{{$game->category_name}}</p>
             </div>
-            <div class="p-price">1.350.000đ</div>
+            <div class="pproducer">
+                <p style="font-weight: bold">Nhà sản xuất: &nbsp</p>
+                <p>{{$game->producer_name}}</p>
+            </div>
+            <div class="p-price">đ</div>
             <div class="quantity">
                 <p>Số lượng :</p>
                 <input type="number" min="1" max="5" value="1">
@@ -47,11 +54,9 @@
             </div>
 
             <div class="col-8 p-info">
-                <p>Game Demon's Souls cho PS5 đang bán tại nShop là phiên bản làm lại hoàn toàn của siêu phẩm cùng tên năm xưa trên PS3, cũng chính là tựa game khởi đầu cho thể loại siêu khó, chuyên "hành hạ" người chơi.
-                    Demon's Souls PS5 không chỉ đẹp lộng lẫy, lột tả không khí nguy hiểm rợn người của thế giới trong đó, mà còn được cải tiến lại gameplay, nâng tầm trải nghiệm qua những tính năng mới chẳng hạn như "rung phản hồi" của tay cầm DualSense. Mỗi nhát chém trong game của bạn đều có cảm giác chân thực hơn hẳn.
+                <p>{{$game->game_description}}
                 </p>
-                <img src="images/demonsoul(2).jpg" style="text-align: center;width: 682px; height: 455px">
-                <p>Đối mặt với với những chiến binh vĩ đại nhất thế giới - Tranh tài với người chơi khác thông qua những trận PvP kịch tính. Hoặc bạn cũng có thể hợp tác với họ để cùng giết quỷ đỡ nhọc nhằn hơn.</p>
+                <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="682px" width="455px" alt="">
             </div>
         </div>
     </div>

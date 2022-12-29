@@ -38,8 +38,7 @@ class ProducerController extends Controller
     function updateProducer(Request $request, $producer_id)
     {
         $data = array();
-        $data['producer_name'] = $request->producer_name;
-        $producer_name = $request->get('producer_name');
+        $data['producer_name'] = $request->get('producer_name');
         //Update
         DB::table('tbl_producer')->where('producer_id',$producer_id)->update(
             $data);

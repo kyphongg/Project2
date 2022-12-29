@@ -629,11 +629,11 @@ input:focus{
     background-color: #34A370;
 }
 
-.pid, .pstatus, .pcategory{
+.pid, .pstatus, .pcategory, .pproducer{
     display: flex;
 }
 
-.pid, .pstatus, .pcategory i{
+.pid, .pstatus, .pcategory, .pproducer i{
     font-size: 14px;
 }
 

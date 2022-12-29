@@ -24,10 +24,32 @@ class HomeController extends Controller
             ->with('cateTheThao', $cateTheThao);
     }
 
-    function viewDetailProduct($game_id)
-    {
+//    function viewDetailProduct($id)
+//    {
+//        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+////        $game = DB::table('tbl_game')->join('tbl_warehouse', 'tbl_game.game_id', '=', 'tbl_warehouse.game_id')
+//////            ->orderBy('tbl_game.game_id', 'desc')->get();
+////        $game = DB::table('tbl_game')
+////            ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
+////            ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
+////            ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
+////            ->where('game_id',$id)->first();
+////            ->where('game_id',$game_id)->first();
+////        $game = DB::table('tbl_game')->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
+////            ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
+////            ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
+////            ->orderBy('tbl_game.game_id','desc')->first();
+////        return view('guest/product',['game'=> $game])->with('category',$category);
+//    }
+
+    function viewDetail($id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        $game = DB::table('tbl_game')->where('game_id',$game_id)->first();
+        $game = DB::table('tbl_game')
+//            ->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
+            ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
+            ->where('game_id',$id)
+            ->first();
         return view('guest/product',['game'=> $game])->with('category',$category);
     }
 }

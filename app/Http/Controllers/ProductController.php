@@ -127,11 +127,4 @@ class ProductController extends Controller
             $data);
         return redirect()->route('Warehouse_home');
     }
-
-    function homeProduct(){
-        $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        $game = DB::table('tbl_game')->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
-            ->orderBy('tbl_game.game_id','desc')->get();
-        return view('/home', ['game' => $game])->with('category',$category);;
-    }
 }
