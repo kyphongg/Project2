@@ -11,7 +11,6 @@ class ProfileController extends Controller
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
         return view('/guest/profile',['customer'=>$customer])->with('category',$category);
-
     }
 
     function viewOrders(){

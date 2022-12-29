@@ -104,7 +104,7 @@
                         Danh mục sản phẩm
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        @foreach($category as $kw=>$cate)
+                        @foreach($category as $kw => $cate)
                             <li><a class="dropdown-item" href="{{'/category/'.$cate->category_id}}">{{$cate->category_name}}</a></li>
                         @endforeach
                     </ul>

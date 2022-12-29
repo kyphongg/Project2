@@ -24,9 +24,10 @@ class HomeController extends Controller
             ->with('cateTheThao', $cateTheThao);
     }
 
-    function viewDetailProduct()
+    function viewDetailProduct($game_id)
     {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        return view('guest/product')->with('category', $category);
+        $game = DB::table('tbl_game')->where('game_id',$game_id)->first();
+        return view('guest/product',['game'=> $game])->with('category',$category);
     }
 }
