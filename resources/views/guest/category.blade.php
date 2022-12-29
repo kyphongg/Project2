@@ -5,62 +5,23 @@
 @section('content')
     <div class="cart-p">
         <div class="cart-heading">
-            @if($categoryName)
-                <h3>{{$categoryName->category_name}}</h3>
-            @endif
+                <h3>{{$game->category_name}}</h3>
         </div>
+
     <div class="row row-cols-4">
             <div class="col product">
                 <div class="sp-box">
-                    <a href="{{url('/product/')}}">
-                        <img src="/images/ps5(sp1).jpg">
+                    <a href="{{url('/product/'.$game->game_id)}}">
+                        <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="300px" width="100px" alt="">
                         <div class="p-title">
-                            <p>Demon's Souls (PS5)</p>
+                            <p>{{$game->game_name}}</p>
                         </div>
                         <div class="price">
-                            <p>1.350.000đ</p>
+                            <p>{{$game->price_out}}đ</p>
                         </div>
                     </a>
                 </div>
             </div>
-        <div class="col product">
-            <div class="sp-box">
-                <a href="{{url('/product/')}}">
-                    <img src="/images/ps5(sp1).jpg">
-                    <div class="p-title">
-                        <p>Demon's Souls (PS5)</p>
-                    </div>
-                    <div class="price">
-                        <p>1.350.000đ</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col product">
-            <div class="sp-box">
-                <a href="{{url('/product/')}}">
-                    <img src="/images/ps5(sp1).jpg">
-                    <div class="p-title">
-                        <p>Demon's Souls (PS5)</p>
-                    </div>
-                    <div class="price">
-                        <p>1.350.000đ</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col product">
-            <div class="sp-box">
-                <a href="{{url('/product/')}}">
-                    <img src="/images/ps5(sp1).jpg">
-                    <div class="p-title">
-                        <p>Demon's Souls (PS5)</p>
-                    </div>
-                    <div class="price">
-                        <p>1.350.000đ</p>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
+
 @endsection

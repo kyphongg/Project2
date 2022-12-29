@@ -7,13 +7,12 @@
         <div class="p-left">
             <div class="big-img">
                 <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="300px" width="100px" alt="">
-
             </div>
         </div>
 
         <div class="p-right">
             <div class="url">
-                <a href="{{'/home'}}">Trang chủ</a> > <a href="{{'/category/'.$game->category_name}}">Hành động</a>
+                <a href="{{'/home'}}">Trang chủ</a> > <a href="{{'/category/'.$game->category_id}}">{{$game->category_name}}</a>
             </div>
             <div class="pname"> {{$game->game_name}}
                 <div class="p-favorite">
@@ -36,7 +35,7 @@
                 <p style="font-weight: bold">Nhà sản xuất: &nbsp</p>
                 <p>{{$game->producer_name}}</p>
             </div>
-            <div class="p-price">đ</div>
+            <div class="p-price">{{$game->price_out}}đ</div>
             <div class="quantity">
                 <p>Số lượng :</p>
                 <input type="number" min="1" max="5" value="1">
