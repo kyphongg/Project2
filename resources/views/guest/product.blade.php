@@ -25,7 +25,11 @@
             </div>
             <div class="pstatus">
                 <p style="font-weight: bold">Tình trạng: &nbsp</p>
+                @if($game->quantity_in>0)
                 <p>Còn Hàng</p>
+                @else
+                    <p>Hết Hàng</p>
+                @endif
             </div>
             <div class="pcategory">
                 <p style="font-weight: bold">Thể loại: &nbsp</p>
