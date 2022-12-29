@@ -4,13 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use MongoDB\Driver\Session;
+use Session;
 
 class CategoryController extends Controller
 {
+    function checkLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
     //View hiển thị toàn bộ danh sách
     function viewCategory()
     {
+        $this->checkLogin();
         $tbl_category = DB::table('tbl_category')->get();
         return view('admin/category/category', ['category' => $tbl_category]);
     }
@@ -18,12 +28,14 @@ class CategoryController extends Controller
     //View thêm thể loại
     function addCategory()
     {
+        $this->checkLogin();
         return view('admin/category/add_category');
     }
 
     //Không có giao diện: thêm thể loại
     function saveCategory(Request $request)
     {
+        $this->checkLogin();
         //Lấy dữ liệu
         $category_name = $request->get('categoryName');
         //Insert
@@ -36,12 +48,14 @@ class CategoryController extends Controller
 
     function editCategory($category_id)
     {
+        $this->checkLogin();
         $tbl_category = DB::table('tbl_category')->where('category_id', $category_id)->get();
         return view('admin/category/edit_category', ['category' => $tbl_category]);
     }
 
     function updateCategory(Request $request, $category_id)
     {
+        $this->checkLogin();
         $data = array();
         $data['category_name'] = $request->get('category_name');
         //Update
@@ -51,6 +65,7 @@ class CategoryController extends Controller
     }
 
     function deleteCategory($category_id){
+        $this->checkLogin();
         DB::table('tbl_category')->where('category_id',$category_id)->delete();
         return redirect()->route('Category_home');
     }

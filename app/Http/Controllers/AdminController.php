@@ -12,7 +12,18 @@ session_start();
 
 class AdminController extends Controller
 {
+    function checkLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
+
     function viewHome(){
+        $this->checkLogin();
         return view('/admin/home');
     }
 
@@ -62,38 +73,46 @@ class AdminController extends Controller
     }
 
     function viewProfile($admin_id){
+        $this->checkLogin();
         $admin = DB::table('tbl_admin')->where('admin_id',$admin_id)->first();
         return view('/admin/profile/profile',['admin'=> $admin]);
     }
 
     function viewSecurity(){
+        $this->checkLogin();
         return view('/admin/profile/security');
     }
 
     function viewCustomerList(){
+        $this->checkLogin();
         $customer = DB::table('tbl_customer')->orderBy('customer_id')->get();
         return view('/admin/customer/customer',['customer' => $customer]);
     }
 
     function viewWarehouseStaffList(){
+        $this->checkLogin();
         $warehouse = DB::table('tbl_admin')->where('admin_level','=','1')->orderBy('admin_id')->get();
         return view('/admin/employee/warehousestaff/warehousestaff',['warehouse' => $warehouse]);
     }
 
     function viewOrderStaffList(){
+        $this->checkLogin();
         return view('/admin/employee/orderstaff/orderstaff');
     }
 
     function viewCareStaffList(){
+        $this->checkLogin();
         return view('/admin/employee/carestaff/carestaff');
     }
 
     function viewAllStaff(){
+        $this->checkLogin();
         $tbl_admin = DB::table('tbl_admin')->get();
         return view('/admin/employee/all_employee',['admin'=> $tbl_admin]);
     }
 
     function viewAddEmployee(){
+        $this->checkLogin();
         return view('/admin/employee/add_employee');
     }
 }

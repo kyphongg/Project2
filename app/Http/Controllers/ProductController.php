@@ -4,12 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class ProductController extends Controller
 {
+    function checkLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return redirect('/admin/home');
+        }
+        else{
+            return redirect('/admin/login')->send();
+        }
+    }
 
     function viewProduct()
     {
+        $this->checkLogin();
         $game = DB::table('tbl_game')->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
             ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
             ->orderBy('tbl_game.game_id','desc')->get();
@@ -18,6 +29,7 @@ class ProductController extends Controller
 
     function addProduct()
     {
+        $this->checkLogin();
         $category_id = DB::table('tbl_category')->orderBy('category_id','desc')->get();
         $producer_id = DB::table('tbl_producer')->orderBy('producer_id','desc')->get();
         return view('admin/product/add_product')->with('category_id',$category_id)->with('producer_id',$producer_id);
@@ -25,6 +37,7 @@ class ProductController extends Controller
 
     function saveProduct(Request $request)
     {
+        $this->checkLogin();
         //Lấy dữ liệu
         $data = array();
         $data['game_name'] = $request->get('product_name');
@@ -50,6 +63,7 @@ class ProductController extends Controller
 
     function editProduct($product_id)
     {
+        $this->checkLogin();
         $category_id = DB::table('tbl_category')->orderBy('category_id','desc')->get();
         $producer_id = DB::table('tbl_producer')->orderBy('producer_id','desc')->get();
         $game = DB::table('tbl_game')->where('game_id', $product_id)->get();
@@ -58,6 +72,7 @@ class ProductController extends Controller
 
     function updateProduct(Request $request, $product_id)
     {
+        $this->checkLogin();
         $data = array();
         $data['game_name'] = $request->get('product_name');
         $data['category_id'] = $request->get('category_id');
@@ -79,6 +94,7 @@ class ProductController extends Controller
     }
 
     function viewWarehouse(){
+        $this->checkLogin();
         $ware = DB::table('tbl_warehouse')->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
             ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
             ->orderBy('tbl_warehouse.game_id','desc')->get();
@@ -86,12 +102,14 @@ class ProductController extends Controller
     }
 
     function addWarehouse(){
+        $this->checkLogin();
         $game_id = DB::table('tbl_game')->orderBy('game_id','desc')->get();
         $admin_id = DB::table('tbl_admin')->orderBy('admin_id','desc')->get();
         return view('/admin/warehouse/add_warehouse')->with('game_id',$game_id)->with('admin_id',$admin_id);
     }
 
     function saveWarehouse(Request $request){
+        $this->checkLogin();
         $data = array();
         $data['game_id'] = $request->get('game_id');
         $data['quantity_in'] = $request->get('quantity_in');
@@ -107,6 +125,7 @@ class ProductController extends Controller
     }
 
     function editWarehouse($warehouse_id){
+        $this->checkLogin();
         $game_id = DB::table('tbl_game')->orderBy('game_id','desc')->get();
         $admin_id = DB::table('tbl_admin')->orderBy('admin_id','desc')->get();
         $ware = DB::table('tbl_warehouse')->where('warehouse_id', $warehouse_id)->get();
@@ -114,6 +133,7 @@ class ProductController extends Controller
     }
 
     function updateWarehouse(Request $request, $warehouse_id){
+        $this->checkLogin();
         $data = array();
         $data['game_id'] = $request->get('game_id');
         $data['quantity_in'] = $request->get('quantity_in');
