@@ -30,6 +30,7 @@ class HomeController extends Controller
             ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
             ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
             ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->where('tbl_game.game_id',$id)
             ->first();
         return view('guest/product',['game'=> $game])->with('category',$category);
     }

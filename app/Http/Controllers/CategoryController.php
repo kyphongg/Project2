@@ -59,9 +59,10 @@ class CategoryController extends Controller
     function viewEachCategory($category_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $game = DB::table('tbl_game')
-            ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
             ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
             ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
+            ->where('tbl_category.category_id',$category_id)
             ->first();
         return view('/guest/category',['game' => $game])->with('category',$category);
     }

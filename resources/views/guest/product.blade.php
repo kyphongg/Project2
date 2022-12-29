@@ -35,7 +35,7 @@
                 <p style="font-weight: bold">Nhà sản xuất: &nbsp</p>
                 <p>{{$game->producer_name}}</p>
             </div>
-            <div class="p-price">{{$game->price_out}}đ</div>
+            <div class="p-price">{{number_format($game->price_out).' VNĐ'}}</div>
             <div class="quantity">
                 <p>Số lượng :</p>
                 <input type="number" min="1" max="5" value="1">
