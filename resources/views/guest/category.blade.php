@@ -5,10 +5,11 @@
 @section('content')
     <div class="cart-p">
         <div class="cart-heading">
-                <h3>{{$game->category_name}}</h3>
+                <h3>{{$categoryName->category_name}}</h3>
         </div>
 
     <div class="row row-cols-4">
+        @forelse($gameCate as $game)
             <div class="col product">
                 <div class="sp-box">
                     <a href="{{url('/product/'.$game->game_id)}}">
@@ -22,6 +23,9 @@
                     </a>
                 </div>
             </div>
+        @empty
+            <p>Rỗng</p>
+        @endforelse
     </div>
 
 @endsection
