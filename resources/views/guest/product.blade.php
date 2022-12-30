@@ -57,8 +57,7 @@
             </div>
 
             <div class="col-8 p-info">
-                <p>{{$game->game_description}}
-                </p>
+                <p>{{$game->game_description}}</p>
                 <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="682px" width="455px" alt="">
             </div>
         </div>

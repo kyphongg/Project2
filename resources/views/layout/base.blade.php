@@ -31,9 +31,9 @@
         <a href="{{url('/home')}}">
             <img src="/images/gamingstore-logoo.png" alt="LogoImage">
         </a>
-        <form METHOD="GET" class="search-form">
-            <input type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button class="btn" type="button">
+        <form METHOD="GET" class="search-form" action="{{url('/search')}}">
+            <input name="kw_submit" type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button class="btn" type="submit">
                 <i class="bi bi-search" style="color: white"></i>
             </button>
         </form>

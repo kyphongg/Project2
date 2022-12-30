@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 //Client Home
 Route::get('/home', [HomeController::class,'viewHome']);
+Route::get('/search',[HomeController::class, 'search']);
 //Client product -> product details
 Route::get('/product/{game_id}',[HomeController::class,'viewDetail']);
 Route::get('/category/{category_id}',[CategoryController::class,'viewEachCategory']);

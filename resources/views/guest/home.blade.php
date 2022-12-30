@@ -85,9 +85,8 @@
                 <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ
                     thích</p>
             </div>
-            @foreach($game as $key => $all)
                 <ul class="autoWidth" class="cs-hidden">
-                    {{------------------1---------------------}}
+                    @forelse($game as $key => $all)
                     <li class="item-a">
                         <div class="featured-box">
                             <a href="{{url('/product/'.$all->game_id)}}">
@@ -101,7 +100,9 @@
                             </a>
                         </div>
                     </li>
-                    @endforeach
+                    @empty
+                        <p>Rỗng</p>
+                    @endforelse
                 </ul>
         </div>
     </div>

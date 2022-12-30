@@ -548,11 +548,12 @@ input:focus{
 }
 
 .big-img{
-    width: 300px;
+    width: 250px;
 }
 
 .big-img img{
     width: inherit;
+    height: 350px;
 }
 
 .p-right{
