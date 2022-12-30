@@ -647,6 +647,10 @@ input:focus{
     text-align: center;
 }
 
+.description .p-info{
+    margin-top: -15px;
+}
+
 .comment{
     background-color: white;
     border-radius: 10px;

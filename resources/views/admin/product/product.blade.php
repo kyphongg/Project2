@@ -13,12 +13,12 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 15px;">STT</th>
+                        <th style="width: 45px;">STT</th style="width: 45px;">
                         <th>Tên sản phẩm</th>
                         <th>Hình ảnh</th>
                         <th>Thể loại</th>
                         <th>Nhà sản xuất</th>
-                        <th>Mô tả</th>
+                        <th style="width:220px;">Mô tả</th>
                         <th>Trạng thái</th>
                         <th>Tùy biến</th>
                     </tr>
@@ -26,19 +26,19 @@
                     <tbody>
                     @foreach($game as $key => $all)
                     <tr>
-                        <td>{{$all->game_id}}</td>
-                        <td>{{$all->game_name}}</td>
-                        <td><img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt=""></td>
-                        <td>{{$all->category_name}}</td>
-                        <td>{{$all->producer_name}}</td>
-                        <td>{{$all->game_description}}</td>
+                        <td style="text-align: center;">{{$all->game_id}}</td>
+                        <td style="width:180px;">{{$all->game_name}}</td>
+                        <td style="text-align: center;width:50px;"><img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt=""></td>
+                        <td style="text-align: center;width:85px;">{{$all->category_name}}</td>
+                        <td style="text-align: center; width:110px;">{{$all->producer_name}}</td>
+                        <td style="display:block; display:-webkit-box; line-height: 100px; width:220px; height: 100px;overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient: vertical;">{!!$all->game_description!!}</td>
                         @if($all->game_status==0)
-                            <td>Nổi bật</td>
+                            <td style="text-align: center;">Nổi bật</td>
                         @else
-                            <td>Mới</td>
+                            <td style="text-align: center;">Mới</td>
                         @endif
-                        <td>
-                            <a href="{{URL::to('/admin/edit-product/'.$all->game_id)}}" class="active" ui-toggle-class="">
+                        <td style="text-align: center;">
+                            <a  href="{{URL::to('/admin/edit-product/'.$all->game_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                             </a>
                         </td>

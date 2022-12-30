@@ -21,10 +21,10 @@
                         <tbody>
                         @foreach($customer as $key => $c)
                         <tr>
-                            <td>{{$c->customer_id}}</td>
+                            <td style="text-align: center;">{{$c->customer_id}}</td>
                             <td>{{$c->customer_name}}</td>
                             <td>{{$c->customer_email}}</td>
-                            <td>{{$c->customer_phone}}</td>
+                            <td style="text-align: center;">{{$c->customer_phone}}</td>
                             <td>{{$c->customer_address}}</td>
                             <td>
                                 <a href="#" class="active">

@@ -7,7 +7,7 @@
         <h3>Danh sách nhân viên đơn hàng</h3>
         <div class="panel panel-default">
             <div class="table-responsive" style="margin-top: 15px;">
-                <table class="table table-striped table-bordered">
+                <table style="text-align: center;" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th style="width: 30px;">STT</th>

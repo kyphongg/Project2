@@ -21,9 +21,9 @@
                     @forelse($producer as $producers)
                         <tbody>
                         <tr>
-                            <td>{{$producers->producer_id}}</td>
-                            <td>{{$producers->producer_name}}</td>
-                            <td>
+                            <td style="text-align: center;">{{$producers->producer_id}}</td>
+                            <td style="text-align: center;">{{$producers->producer_name}}</td>
+                            <td style="text-align: center;">
                                 <a href="{{URL::to('/admin/edit-producer/'.$producers->producer_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>

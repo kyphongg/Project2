@@ -21,9 +21,9 @@
                     @forelse($category as $categories)
                         <tbody>
                         <tr>
-                            <td>{{$categories->category_id}}</td>
-                            <td>{{$categories->category_name}}</td>
-                            <td>
+                            <td style="text-align: center;">{{$categories->category_id}}</td>
+                            <td style="text-align: center;">{{$categories->category_name}}</td>
+                            <td style="text-align: center;">
                                 <a href="{{URL::to('/admin/edit-category/'.$categories->category_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>
