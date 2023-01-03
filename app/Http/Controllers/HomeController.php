@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class HomeController extends Controller
 {
@@ -52,6 +53,7 @@ class HomeController extends Controller
                 ->orderBy('tbl_game.game_id')->where('game_name', 'like', '%' . $kw . '%')->get();
         } //Nếu không có kw => Lấy toàn bộ bản ghi
         else {
+//            $search_product = Session::put('message','Tìm kiếm rỗng');
             $search_product = DB::table('tbl_game')
                 ->orderBy('tbl_game.game_id')->get();
         }
