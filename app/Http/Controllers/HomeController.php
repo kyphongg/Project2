@@ -47,16 +47,16 @@ class HomeController extends Controller
     function search(Request $request)
     {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        $kw = $request->kw_submit;
+        $kw = $request->get('kw_submit');
         if (!empty($kw)) {
             $search_product = DB::table('tbl_game')
                 ->orderBy('tbl_game.game_id')->where('game_name', 'like', '%' . $kw . '%')->get();
+            return view('guest/search')->with('category', $category)->with('search_product', $search_product);
         } //Nếu không có kw => Lấy toàn bộ bản ghi
         else {
-//            $search_product = Session::put('message','Tìm kiếm rỗng');
-            $search_product = DB::table('tbl_game')
-                ->orderBy('tbl_game.game_id')->get();
+            $message = Session::put('message','Tìm kiếm rỗng');
+            return view('guest/search')->with('category', $category)->with('message', $message);
         }
-        return view('guest/search')->with('category', $category)->with('search_product', $search_product);
+
     }
 }
