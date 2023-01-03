@@ -96,6 +96,10 @@ Route::get('/admin/warehouse_add',[ProductController::class,'addWarehouse']);//-
 Route::post('/admin/warehouse_save',[ProductController::class, 'saveWarehouse']);
 Route::get('/admin/edit-warehouse/{warehouse_id}',[ProductController::class,'editWarehouse']);
 Route::post('/admin/update-warehouse/{warehouse_id}',[ProductController::class, 'updateWarehouse']);
+Route::get('/admin/warehouse_quantity',[ProductController::class,'viewQuantity']);
+Route::get('/admin/warehouse_inventory',[ProductController::class,'viewInventory']);
+Route::get('/admin/warehouse_inventory_details',[ProductController::class,'viewInventoryDetails']);
+Route::get('/admin/warehouse_number',[ProductController::class,'viewNumber']);
 
 Route::get('/test_admin',[AdminController::class,'test']);
 

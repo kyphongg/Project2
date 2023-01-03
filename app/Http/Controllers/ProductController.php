@@ -147,4 +147,20 @@ class ProductController extends Controller
             $data);
         return redirect()->route('Warehouse_home');
     }
+
+    function viewQuantity(){
+        return view('admin/warehouse/warehouse_quantity');
+    }
+
+    function viewInventory(){
+        return view('admin/warehouse/warehouse_inventory');
+    }
+
+    function viewInventoryDetails(){
+        return view('admin/warehouse/warehouse_inventory_details');
+    }
+
+    function viewNumber(){
+        return view('admin/warehouse/warehouse_number');
+    }
 }

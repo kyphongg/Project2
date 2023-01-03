@@ -129,6 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/admin/products"><i class="fas fa-archive"></i>Sản phẩm</a></li>
                             <li><a href=""><i class="fas fa-images"></i>Hình ảnh</a></li>
                             <li><a href="/admin/warehouse"><i class="fa-solid fa-boxes-stacked"></i>Quản lý kho</a></li>
+                            <li><a href="/admin/warehouse_quantity"><i class="fas fa-store"></i>Số lượng tồn kho</a></li>
+                            <li><a href="/admin/warehouse_inventory"><i class="fas fa-clipboard-check"></i>Kiểm kê</a></li>
+                            <li><a href="/admin/warehouse_number"><i class="fas fa-archive"></i>Số lượng sản phẩm</a></li>
                         </ul>
                     </li>';
                     ?>
