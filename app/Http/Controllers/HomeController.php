@@ -48,11 +48,11 @@ class HomeController extends Controller
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $kw = $request->kw_submit;
         if (!empty($kw)) {
-            $search_product = DB::table('tbl_game')->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
+            $search_product = DB::table('tbl_game')
                 ->orderBy('tbl_game.game_id')->where('game_name', 'like', '%' . $kw . '%')->get();
         } //Nếu không có kw => Lấy toàn bộ bản ghi
         else {
-            $search_product = DB::table('tbl_game')->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
+            $search_product = DB::table('tbl_game')
                 ->orderBy('tbl_game.game_id')->get();
         }
         return view('guest/search')->with('category', $category)->with('search_product', $search_product);
