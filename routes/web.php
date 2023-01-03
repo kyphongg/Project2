@@ -49,6 +49,7 @@ Route::get('/customer_logout',[LoginController::class,'customer_logout']);
 Route::get('/profile/{customer_id}', [ProfileController::class,'viewProfile']);
 
 Route::get('/orders', [ProfileController::class,'viewOrders']);
+Route::get('/orders_detail', [ProfileController::class,'viewOrdersDetail']);
 
 Route::get('/security', [ProfileController::class,'viewSecurity']);
 
@@ -101,8 +102,6 @@ Route::get('/admin/warehouse_inventory',[ProductController::class,'viewInventory
 Route::get('/admin/warehouse_inventory_details',[ProductController::class,'viewInventoryDetails']);
 Route::get('/admin/warehouse_number',[ProductController::class,'viewNumber']);
 
-Route::get('/test_admin',[AdminController::class,'test']);
-
 //Admin view CustomerList
 Route::get('/admin/customer-list',[AdminController::class,'viewCustomerList']);
 
@@ -115,4 +114,7 @@ Route::get('/admin/all-staff',[AdminController::class,'viewAllStaff']);
 Route::get('admin/add-employee',[AdminController::class,'viewAddEmployee']);
 Route::post('admin/save-employee',[AdminController::class,'saveEmployee']);
 
-
+Route::get('/admin/new_orders',[AdminController::class,'viewNewOrders']);
+Route::get('/admin/accept_orders',[AdminController::class,'viewAcceptOrders']);
+Route::get('/admin/done_orders',[AdminController::class,'viewDoneOrders']);
+Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);

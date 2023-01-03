@@ -35,30 +35,47 @@
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
-                                <th>Mã đơn hàng</th>
+                                <th style="width: 120px;">Mã đơn hàng</th>
                                 <th>Ngày đặt hàng</th>
                                 <th>TT thanh toán</th>
                                 <th>Trạng thái</th>
+                                <th>Tùy biến</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
+                                <td style="width: 120px;">1</td>
                                 <td>15/12/2022</td>
                                 <td>1.380.000đ</td>
                                 <td>Đã hoàn thành</td>
+                                <td>
+                                    <a href="{{url('/orders_detail')}}">
+                                        <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
+                                    </a>
+                                </td>
+
                             </tr>
                             <tr>
-                                <td>2</td>
+                                <td style="width: 120px;">2</td>
                                 <td>15/12/2022</td>
                                 <td>1.380.000đ</td>
                                 <td>Đang vận chuyển</td>
+                                <td>
+                                    <a href="{{url('/orders_detail')}}">
+                                        <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
-                                <td>3</td>
+                                <td style="width: 120px;">3</td>
                                 <td>15/12/2022</td>
                                 <td>1.380.000đ</td>
-                                <td>Đang xử lí | <button style="border: none; background-color: red; color: white; border-radius: 10px">Hủy đơn hàng</button></td>
+                                <td>Đang xử lí</td>
+                                <td>
+                                    <a href="{{url('/orders_detail')}}">
+                                        <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

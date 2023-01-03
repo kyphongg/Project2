@@ -116,4 +116,20 @@ class AdminController extends Controller
         $this->checkLogin();
         return view('/admin/employee/add_employee');
     }
+
+    function viewNewOrders(){
+        return view('/admin/orders/new_orders');
+    }
+
+    function viewAcceptOrders(){
+        return view('/admin/orders/accept_orders');
+    }
+
+    function viewDoneOrders(){
+        return view('/admin/orders/done_orders');
+    }
+
+    function viewCancelOrders(){
+        return view('/admin/orders/cancel_orders');
+    }
 }

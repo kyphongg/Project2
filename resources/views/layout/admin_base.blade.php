@@ -145,10 +145,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Quản lý đơn hàng</span>
                         </a>
                         <ul class="sub">
-                            <li><a href=""><i class="fas fa-cart-plus"></i>Đơn hàng mới</a></li>
-                            <li><a href=""><i class="fas fa-spinner"></i>Đơn hàng đang xử lý</a></li>
-                            <li><a href=""><i class="fas fa-clipboard-check"></i>Đơn hàng đã hoàn thành</a></li>
-                            <li><a href=""><i class="fas fa-window-close"></i>Đơn hàng bị hủy</a></li>
+                            <li><a href="/admin/new_orders"><i class="fas fa-cart-plus"></i>Đơn hàng mới</a></li>
+                            <li><a href="/admin/accept_orders"><i class="fas fa-spinner"></i>Đơn hàng đang xử lý</a></li>
+                            <li><a href="/admin/done_orders"><i class="fas fa-clipboard-check"></i>Đơn hàng đã hoàn thành</a></li>
+                            <li><a href="/admin/cancel_orders"><i class="fas fa-window-close"></i>Đơn hàng bị hủy</a></li>
                         </ul>
                     </li>';
                     ?>

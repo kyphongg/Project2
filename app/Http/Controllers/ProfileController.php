@@ -18,6 +18,11 @@ class ProfileController extends Controller
         return view('/guest/orders')->with('category',$category);
     }
 
+    function viewOrdersDetail(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('/guest/orders_detail')->with('category',$category);
+    }
+
     function viewSecurity(){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         return view('/guest/security')->with('category',$category);
