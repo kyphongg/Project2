@@ -19,27 +19,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($ware as $key => $w)
                     <tr>
-                        <td style="text-align: center;">Elden Ring</td>
+                        <td style="text-align: center;">{{$w->game_name}}</td>
                         <td style="text-align: center;">20</td>
                         <td style="text-align: center;">10</td>
                         <td style="text-align: center;">0</td>
                         <td style="text-align: center;">30</td>
                     </tr>
-                    <tr>
-                        <td style="text-align: center;">Demon's Souls</td>
-                        <td style="text-align: center;">0</td>
-                        <td style="text-align: center;">10</td>
-                        <td style="text-align: center;">0</td>
-                        <td style="text-align: center;">10</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;">Grand Theft Auto V</td>
-                        <td style="text-align: center;">15</td>
-                        <td style="text-align: center;">0</td>
-                        <td style="text-align: center;">5</td>
-                        <td style="text-align: center;">10</td>
-                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

@@ -87,19 +87,21 @@
             </div>
                 <ul class="autoWidth" class="cs-hidden">
                     @forelse($game as $key => $all)
-                    <li class="item-a">
-                        <div class="featured-box">
-                            <a href="{{url('/product/'.$all->game_id)}}">
-                                <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
-                                <div class="p-title">
-                                    <p>{{$all->game_name}}</p>
+                    @if($all->game_status==0)
+                            <li class="item-a">
+                                <div class="featured-box">
+                                    <a href="{{url('/product/'.$all->game_id)}}">
+                                        <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
+                                        <div class="p-title">
+                                            <p>{{$all->game_name}}</p>
+                                        </div>
+                                        <div class="price">
+                                            <p>{{number_format($all->game_price_out).' VNĐ'}}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="price">
-                                    <p>{{number_format($all->game_price_out).' VNĐ'}}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
+                            </li>
+                        @endif
                     @empty
                         <p>Rỗng</p>
                     @endforelse
@@ -109,86 +111,31 @@
     <div class="favorite">
         <div class="container">
             <div class="favorite-heading">
-                <h3 style="font-size: 22px;">Sản phẩm bán chạy</h3>
-                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm theo xu hướng mà có thể bạn sẽ
+                <h3 style="font-size: 22px;">Sản phẩm Mới</h3>
+                <p style="font-style: italic;font-size: 14px;">Danh sách những sản phẩm mới mà có thể bạn sẽ
                     thích</p>
             </div>
 
             <ul class="autoWidth" class="cs-hidden">
-                {{------------------1---------------------}}
-                <li class="item-a">
-                    <div class="favorite-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="images/ps5(sp1).jpg">
-                            <div class="p-title">
-                                <p>Demon's Souls (PS5)</p>
+                @forelse($game as $key => $all)
+                    @if($all->game_status==1)
+                        <li class="item-a">
+                            <div class="featured-box">
+                                <a href="{{url('/product/'.$all->game_id)}}">
+                                    <img src="/public/images/upload/{{$all->game_image}}" height="100" width="100" alt="">
+                                    <div class="p-title">
+                                        <p>{{$all->game_name}}</p>
+                                    </div>
+                                    <div class="price">
+                                        <p>{{number_format($all->game_price_out).' VNĐ'}}</p>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------2---------------------}}
-                <li class="item-a">
-                    <div class="favorite-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="images/ps5(sp2).jpg">
-                            <div class="p-title">
-                                <p>God Of War: Ragnarok (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------3---------------------}}
-                <li class="item-a">
-                    <div class="favorite-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="images/ps5(sp3).png">
-                            <div class="p-title">
-                                <p>Elden Ring (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------4---------------------}}
-                <li class="item-a">
-                    <div class="favorite-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="images/ps5(sp4).jpg">
-                            <div class="p-title">
-                                <p>Grand Theft Auto V (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                {{------------------5---------------------}}
-                <li class="item-a">
-                    <div class="favorite-box">
-                        <a href="{{url('/product/')}}">
-                            <img src="images/ps5(sp5).jpeg">
-                            <div class="p-title">
-                                <p>FIFA 23 (PS5)</p>
-                            </div>
-                            <div class="price">
-                                <p>1.350.000đ</p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
+                        </li>
+                    @endif
+                @empty
+                    <p>Rỗng</p>
+                @endforelse
             </ul>
         </div>
     </div>

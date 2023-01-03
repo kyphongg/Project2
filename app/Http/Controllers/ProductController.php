@@ -149,7 +149,11 @@ class ProductController extends Controller
     }
 
     function viewQuantity(){
-        return view('admin/warehouse/warehouse_quantity');
+        $this->checkLogin();
+        $ware = DB::table('tbl_warehouse')->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
+            ->orderBy('tbl_warehouse.game_id','desc')->get();
+        return view('/admin/warehouse/warehouse_quantity', ['ware' => $ware]);
     }
 
     function viewInventory(){

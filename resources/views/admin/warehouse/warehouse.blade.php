@@ -27,7 +27,7 @@
                         <td style="text-align: center;">{{$w->warehouse_id}}</td>
                         <td>{{$w->game_name}}</td>
                         <td style="text-align: center;">{{$w->quantity_in}}</td>
-                        <td>{{$w->time_in}}</td>
+                        <td style="text-align: center;">{{$w->time_in}}</td>
                         <td style="text-align: center;">{{$w->admin_name}}</td>
                         <td style="text-align: center;">
                             <a href="{{URL::to('/admin/edit-warehouse/'.$w->warehouse_id)}}" class="active" ui-toggle-class="">

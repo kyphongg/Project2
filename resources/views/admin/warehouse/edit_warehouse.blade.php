@@ -23,7 +23,7 @@
                             <input name="quantity_in" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Ngày nhập (Năm-Tháng-Ngày)</label>
+                            <label>Ngày nhập (Năm-Tháng-Ngày Giờ:Phút)</label>
                             <input name="date_in" type="text" class="form-control">
                         </div>
                         <div class="form-group">
