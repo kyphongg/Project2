@@ -65,10 +65,9 @@
     <div class="container">
         <div class="comment">
             <h3>Bình luận</h3>
-            <p>Thời gian phản hồi trung bình: 5p</p>
             <form action="#">
                 <textarea name="comment" placeholder="Nhập nội dung bình luận"></textarea>
-                <button type="submit"><i class="fa-solid fa-location-arrow"></i>Gửi bình luận</button>
+                <button type="submit"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận</button>
             </form>
         </div>
     </div>
