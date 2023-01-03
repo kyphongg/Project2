@@ -11,7 +11,6 @@ class HomeController extends Controller
     {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $game = DB::table('tbl_game')
-            ->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
             ->orderBy('tbl_game.game_id', 'desc')->get();
         $cateMoPhong = DB::table('tbl_category')->where('category_id', '=', '1')->orderBy('category_id')->get();
         $catePhieuLuu = DB::table('tbl_category')->where('category_id', '=', '2')->orderBy('category_id')->get();
