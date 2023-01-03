@@ -51,12 +51,12 @@ class HomeController extends Controller
         if (!empty($kw)) {
             $search_product = DB::table('tbl_game')
                 ->orderBy('tbl_game.game_id')->where('game_name', 'like', '%' . $kw . '%')->get();
-            return view('guest/search')->with('category', $category)->with('search_product', $search_product);
         } //Nếu không có kw => Lấy toàn bộ bản ghi
         else {
-            $message = Session::put('message','Tìm kiếm rỗng');
-            return view('guest/search')->with('category', $category)->with('message', $message);
+            $search_product = '`Rỗng`';
+//            $search_product = DB::table('tbl_game')
+//                ->orderBy('tbl_game.game_id')->get();
         }
-
+        return view('guest/search')->with('category', $category)->with('search_product', $search_product);
     }
 }
