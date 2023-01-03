@@ -95,7 +95,7 @@
                                     <p>{{$all->game_name}}</p>
                                 </div>
                                 <div class="price">
-                                    <p>{{number_format($all->price_out).' VNĐ'}}</p>
+                                    <p>{{number_format($all->game_price_out).' VNĐ'}}</p>
                                 </div>
                             </a>
                         </div>

@@ -22,14 +22,6 @@
                         <input name="quantity_in" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Giá nhập</label>
-                        <input name="price_in" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Giá bán</label>
-                        <input name="price_out" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label>Ngày nhập (Năm-Tháng-Ngày)</label>
                         <input name="date_in" type="text" class="form-control">
                     </div>

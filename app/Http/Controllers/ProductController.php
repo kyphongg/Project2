@@ -53,6 +53,8 @@ class ProductController extends Controller
             $data['game_image'] = $new_image;
         }
         $data['game_status'] = $request ->get('product_status');
+        $data['game_price_in'] = $request->get('product_price_in');
+        $data['game_price_out'] = $request->get('product_price_out');
         //Insert
         DB::table('tbl_game')->insert(
             $data
@@ -87,6 +89,8 @@ class ProductController extends Controller
             $data['game_image'] = $new_image;
         }
         $data['game_status'] = $request ->get('product_status');
+        $data['game_price_in'] = $request->get('product_price_in');
+        $data['game_price_out'] = $request->get('product_price_out');
         //Update
         DB::table('tbl_game')->where('game_id', $product_id)->update(
             $data);
@@ -113,8 +117,6 @@ class ProductController extends Controller
         $data = array();
         $data['game_id'] = $request->get('game_id');
         $data['quantity_in'] = $request->get('quantity_in');
-        $data['price_in'] = $request->get('price_in');
-        $data['price_out'] = $request->get('price_out');
         $data['time_in'] = $request->get('date_in');
         $data['admin_id'] = $request->get('admin_id');
         DB::table('tbl_warehouse')->insert(
@@ -137,8 +139,6 @@ class ProductController extends Controller
         $data = array();
         $data['game_id'] = $request->get('game_id');
         $data['quantity_in'] = $request->get('quantity_in');
-        $data['price_in'] = $request->get('price_in');
-        $data['price_out'] = $request->get('price_out');
         $data['time_in'] = $request->get('date_in');
         $data['admin_id'] = $request->get('admin_id');
 

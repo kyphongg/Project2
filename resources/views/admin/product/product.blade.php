@@ -19,6 +19,8 @@
                         <th>Thể loại</th>
                         <th>Nhà sản xuất</th>
                         <th style="width:220px;">Mô tả</th>
+                        <th>Giá nhập</th>
+                        <th>Giá bán</th>
                         <th>Trạng thái</th>
                         <th>Tùy biến</th>
                     </tr>
@@ -32,6 +34,8 @@
                         <td style="text-align: center;width:85px;">{{$all->category_name}}</td>
                         <td style="text-align: center; width:110px;">{{$all->producer_name}}</td>
                         <td style="display:block; display:-webkit-box; line-height: 100px; width:220px; height: 100px;overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient: vertical;">{!!$all->game_description!!}</td>
+                        <td style="width:180px;">{{number_format($all->game_price_in).' VNĐ'}}</td>
+                        <td style="width:180px;">{{number_format($all->game_price_out).' VNĐ'}}</td>
                         @if($all->game_status==0)
                             <td style="text-align: center;">Nổi bật</td>
                         @else

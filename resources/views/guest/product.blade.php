@@ -25,7 +25,7 @@
             </div>
             <div class="pstatus">
                 <p style="font-weight: bold">Tình trạng: &nbsp</p>
-                @if($game->quantity_in>0)
+                @if($count>0)
                 <p>Còn Hàng</p>
                 @else
                     <p>Hết Hàng</p>
@@ -39,7 +39,7 @@
                 <p style="font-weight: bold">Nhà sản xuất: &nbsp</p>
                 <p>{{$game->producer_name}}</p>
             </div>
-            <div class="p-price">{{number_format($game->price_out).' VNĐ'}}</div>
+            <div class="p-price">{{number_format($game->game_price_out).' VNĐ'}}</div>
             <div class="quantity">
                 <p>Số lượng :</p>
                 <input type="number" min="1" max="5" value="1">

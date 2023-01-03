@@ -16,8 +16,6 @@
                         <th style="width: 45px;">STT</th>
                         <th>Game</th>
                         <th>Số lượng</th>
-                        <th>Giá nhập</th>
-                        <th>Giá bán</th>
                         <th>Ngày nhập</th>
                         <th>Người nhập</th>
                         <th>Tùy biến</th>
@@ -29,8 +27,6 @@
                         <td style="text-align: center;">{{$w->warehouse_id}}</td>
                         <td>{{$w->game_name}}</td>
                         <td style="text-align: center;">{{$w->quantity_in}}</td>
-                        <td style="text-align: center;">{{$w->price_in}}đ</td>
-                        <td style="text-align: center;">{{$w->price_out}}đ</td>
                         <td>{{$w->time_in}}</td>
                         <td style="text-align: center;">{{$w->admin_name}}</td>
                         <td style="text-align: center;">

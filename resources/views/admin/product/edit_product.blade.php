@@ -53,6 +53,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Giá nhập</label>
+                        <input type="text" class="form-control" name="product_price_in" placeholder="Giá nhập" required="" value="{{$all->game_price_in}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Giá bán</label>
+                        <input type="text" class="form-control" name="product_price_out" placeholder="Giá bán" required="" value="{{$all->game_price_out}}">
+                    </div>
+
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Trạng thái</label>
                         <select name="product_status" class="form-control m-bot15">
                             <option value="0">Nổi bật</option>
