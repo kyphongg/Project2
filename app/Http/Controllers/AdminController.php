@@ -132,4 +132,8 @@ class AdminController extends Controller
     function viewCancelOrders(){
         return view('/admin/orders/cancel_orders');
     }
+
+    function viewOrdersDetails(){
+        return view('/admin/orders/orders_detail');
+    }
 }

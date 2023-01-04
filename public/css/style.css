@@ -2997,3 +2997,21 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     background-color: #0156D0;
 }
 
+.info-orders p{
+    margin-top: 10px;
+}
+
+.cart-price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-price table{
+    width: 100%;
+    max-width: 350px;
+}
+
+.cart-price td{
+    padding-top: 10px;
+    padding-right: 25px;
+}

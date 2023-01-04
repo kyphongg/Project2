@@ -31,6 +31,7 @@
                         <h3>Chi tiết đơn hàng</h3>
                         <p><b>Mã đơn hàng:</b> 1</p>
                         <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
+                        <p><b>Địa chỉ nhận hàng:</b> Văn Chương, Đống Đa, Hà Nội</p>
                         <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang xử lí</p>
                         <p><b>Hình thức thanh toán:</b> Tiền mặt</p>
                     </div>
@@ -64,7 +65,7 @@
                         <table>
                             <tr>
                                 <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                                <td>1.350.000đ</td>
+                                <td>4.000.000đ</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">Phí vận chuyển:</td>
@@ -72,7 +73,7 @@
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">Tổng thành tiền:</td>
-                                <td>1.380.000đ</td>
+                                <td>4.030.000đ</td>
                             </tr>
                         </table>
                     </div>

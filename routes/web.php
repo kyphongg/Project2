@@ -118,3 +118,4 @@ Route::get('/admin/new_orders',[AdminController::class,'viewNewOrders']);
 Route::get('/admin/accept_orders',[AdminController::class,'viewAcceptOrders']);
 Route::get('/admin/done_orders',[AdminController::class,'viewDoneOrders']);
 Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
+Route::get('/admin/orders_details',[AdminController::class,'viewOrdersDetails']);
