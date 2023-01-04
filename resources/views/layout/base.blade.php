@@ -113,19 +113,19 @@
 
             <div class="col">
                 <div class="icon-menu">
-                    <a class="introduction" href="{{url('/home')}}">
+                    <a class="introduction" href="{{url('/about')}}">
                         <img src="/images/introduction.png" alt="UserImage">
                         Giới thiệu
                     </a>
-                    <a class="news" href="{{url('/home')}}">
+                    <a class="news" href="{{url('/news')}}">
                         <img src="/images/newspaper.png" alt="UserImage">
                         Tin tức
                     </a>
-                    <a class="Hiring" href="{{url('/home')}}">
+                    <a class="Hiring" href="{{url('/hiring')}}">
                         <img src="/images/hiring.png" alt="UserImage">
                         Tuyển dụng
                     </a>
-                    <a class="support" href="{{url('/home')}}">
+                    <a class="support" href="{{url('/help')}}">
                         <img src="/images/headphones.png" alt="UserImage">
                         Hỗ trợ
                     </a>
@@ -149,9 +149,9 @@
             <div class="row">
                 <div class="col">
                     <h5>Giới Thiệu</h5>
-                    <a href="{{url('/home')}}"><p>Thông tin về Gaming store</p></a>
-                    <a href="{{url('/home')}}"><p>Điều khoản dịch vụ</p></a>
-                    <a href="{{url('/home')}}"><p>Chính sách bảo mật</p></a>
+                    <a href="{{url('/about')}}"><p>Thông tin về Gaming store</p></a>
+                    <a href="{{url('/dieu_khoan_dich_vu')}}"><p>Điều khoản dịch vụ</p></a>
+                    <a href="{{url('/chinh_sach_bao_mat')}}"><p>Chính sách bảo mật</p></a>
                 </div>
 
                 <div class="col">
@@ -162,9 +162,9 @@
 
                 <div class="col">
                     <h5>Liên hệ</h5>
-                    <a href="{{url('/home')}}"><p>Hotline 0123456789</p></a>
-                    <a href="{{url('/home')}}"><p>Hỗ trợ</p></a>
-                    <a href="{{url('/home')}}"><p>Chat với CSKH</p></a>
+                    <a href="{{url('#')}}"><p>Hotline 0123456789</p></a>
+                    <a href="{{url('/help')}}"><p>Hỗ trợ</p></a>
+                    <a href="{{url('#')}}"><p>Chat với CSKH</p></a>
                 </div>
 
                 <div class="col">

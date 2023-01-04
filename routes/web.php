@@ -30,6 +30,12 @@ Route::get('/', function () {
 });
 
 //Client Home
+Route::get('/about',[HomeController::class,'viewAbout']);
+Route::get('/news',[HomeController::class,'viewNews']);
+Route::get('/hiring',[HomeController::class,'viewHiring']);
+Route::get('/help',[HomeController::class,'viewHelp']);
+Route::get('/dieu_khoan_dich_vu',[HomeController::class,'viewDKDV']);
+Route::get('/chinh_sach_bao_mat',[HomeController::class,'viewCSBM']);
 Route::get('/home', [HomeController::class,'viewHome']);
 Route::get('/search',[HomeController::class, 'search']);
 //Client product -> product details

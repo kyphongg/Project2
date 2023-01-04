@@ -59,4 +59,34 @@ class HomeController extends Controller
         }
         return view('guest/search')->with('category', $category)->with('search_product', $search_product);
     }
+
+    function viewAbout(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/about')->with('category', $category);
+    }
+
+    function viewNews(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/news')->with('category', $category);
+    }
+
+    function viewHiring(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/hiring')->with('category', $category);
+    }
+
+    function viewHelp(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/help')->with('category', $category);
+    }
+
+    function viewDKDV(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/dkdv')->with('category', $category);
+    }
+
+    function viewCSBM(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/csbm')->with('category', $category);
+    }
 }
