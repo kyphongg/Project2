@@ -220,6 +220,23 @@
                 }
             });
         }
+
+        $('.send-comment').click(function (){
+            var game_id = $('.game_id').val();
+            var comment_info = $('.comment_info').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{url('/send-comment')}}",
+                method:"POST",
+                data:{game_id:game_id, comment_info:comment_info, _token:_token},
+                success:function (data){
+                    $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công</p>');
+                    load_comment();
+                    $('notify_comment').fadeOut(2000);
+                    $('.comment_info').val('');
+                }
+            });
+        });
     });
 </script>
 </body>

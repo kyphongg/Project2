@@ -9,6 +9,7 @@ use App\Models\Comment;
 
 class HomeController extends Controller
 {
+
     function viewHome()
     {
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
@@ -91,6 +92,18 @@ class HomeController extends Controller
         return view('guest/csbm')->with('category', $category);
     }
 
+    function send_comment(Request $request){
+        $game_id = $request ->game_id;
+        $comment_info = $request ->comment_info;
+        $customer_id = $request ->customer_id;
+        $customer_id = Session::get('customer_id');
+        $comment = new Comment();
+        $comment ->comment_info= $comment_info;
+        $comment->game_id= $game_id;
+        $comment->customer_id= $customer_id;
+        $comment->save();
+    }
+
     function load_comment(Request $request){
         $game_id = $request ->game_id;
         $comment= Comment::where('game_id',$game_id)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')->get();
@@ -115,4 +128,5 @@ class HomeController extends Controller
         }
         echo $output;
     }
+
 }
