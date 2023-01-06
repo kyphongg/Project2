@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\Models\Comment;
 
 class HomeController extends Controller
 {
@@ -88,5 +89,30 @@ class HomeController extends Controller
     function viewCSBM(){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         return view('guest/csbm')->with('category', $category);
+    }
+
+    function load_comment(Request $request){
+        $game_id = $request ->game_id;
+        $comment= Comment::where('game_id',$game_id)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')->get();
+//        $comment = DB::table('tbl_comment')
+//            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
+//            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
+//            ->orderBy('comment_id')->get();
+        $output= '';
+        foreach($comment as $key =>$comm){
+            $output.= '
+              <div class="row style_comment">
+                <div class="col-md-2">
+                    <img style="width: 80px;" src="/images/avataricon.png">
+                </div>
+                <div class="col-md-10">
+                    <p style="line-height: 0.5;"><b>'.$comm->customer_name.'</b></p>
+                    <p style="color: #6B7684;">Bình luận vào lúc: '.$comm->created_at.'</p>
+                    <p>'.$comm->comment_info.'</p>
+                </div>
+            </div>
+            ';
+        }
+        echo $output;
     }
 }

@@ -204,5 +204,23 @@
     }
 
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        load_comment();
+        function load_comment(){
+            var game_id = $('.game_id').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url:"{{url('/load-comment')}}",
+                method:"POST",
+                data:{game_id:game_id, _token:_token},
+                success:function (data){
+                    $('#comment_show').html(data);
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

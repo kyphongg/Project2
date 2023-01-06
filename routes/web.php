@@ -41,7 +41,7 @@ Route::get('/search',[HomeController::class, 'search']);
 //Client product -> product details
 Route::get('/product/{game_id}',[HomeController::class,'viewDetail']);
 Route::get('/category/{category_id}',[CategoryController::class,'viewEachCategory']);
-
+Route::post('/load-comment',[HomeController::class,'load_comment']);
 //Client Login & Signup & Logout
 Route::get('/login', [LoginController::class,'viewLogin']);
 Route::post('/customer_login',[LoginController::class,'login']);

@@ -84,7 +84,14 @@
             <h3>Bình luận</h3>
             <form action="#">
                 <textarea name="comment" placeholder="Nhập nội dung bình luận"></textarea>
-                <button type="submit"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận</button>
+            </form>
+            <button type="submit"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận</button>
+            <form>
+                @csrf
+                <input type="hidden" name="game_id" class="game_id" value="{{$game->game_id}}">
+                <div id="comment_show"></div>
+
+                <p></p>
             </form>
         </div>
     </div>
