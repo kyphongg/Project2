@@ -127,9 +127,9 @@ Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
 Route::get('/admin/orders_details',[AdminController::class,'viewOrdersDetails']);
 
 //Cart
-Route::post('/cart_save',[CartController::class,'saveCart']);
-Route::get('/cart_delete/{rowId}',[CartController::class,'deleteCart']);
-Route::post('/update_cart_quantity',[CartController::class,'updateCart']);
+Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);
+Route::get('/cart_delete/{rowId}/{customer_id}',[CartController::class,'deleteCart']);
+Route::post('/update_cart_quantity/{customer_id}',[CartController::class,'updateCart']);
 
 //Check Login
 Route::get('/check_login',[LoginController::class,'checkLogin']);

@@ -40,7 +40,10 @@
                 <p>{{$game->producer_name}}</p>
             </div>
             <div class="p-price">{{number_format($game->game_price_out).' VNĐ'}}</div>
-            <form action="{{URL::to('/cart_save')}}" method="POST">
+            <?php
+            $customer_id = Session::get('customer_id');
+            ?>
+            <form action="{{URL::to('/cart_save/'.$customer_id)}}" method="POST">
                 @csrf
             <div class="quantity">
                 <p>Số lượng :</p>
@@ -48,7 +51,7 @@
                 <input name="product_id_hidden" type="hidden" value="{{$game->game_id}}">
             </div>
                 <?php
-                $customer_id = Session::get('customer_id');
+
                 if($customer_id){
                     echo '<div class="btn-box">
                 <button type="submit" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>

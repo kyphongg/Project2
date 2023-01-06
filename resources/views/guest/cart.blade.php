@@ -11,6 +11,7 @@
             <table class="table table-bordered table-hover table-striped">
                 <?php
                     $content = Cart::content();
+                    $customer = Session::get('customer_id');
                 ?>
                 <thead>
                     <tr>
@@ -26,7 +27,7 @@
                     <tr>
                         <td><img src="/public/images/upload/{{$v->options->images}}" alt=""></td>
                         <td>{{$v->name}}</td>
-                        <form action="{{URL::to('/update_cart_quantity')}}" method="POST">
+                        <form action="{{URL::to('/update_cart_quantity/'.$customer)}}" method="POST">
                             @csrf
                             <td>
                                 <input type="number" min="1" max="5" value="{{$v->qty}}" name="quantity_cart">
@@ -35,7 +36,7 @@
                             </td>
                         </form>
                         <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
-                        <td><a href="/cart_delete/{{$v->rowId}}"><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</a></td>
+                        <td><a href="/cart_delete/{{$v->rowId}}/{{$customer}}"><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -71,7 +72,7 @@
                 </div>
 
                 <div class="col">
-                    <a href={{url("/payment/$customer->customer_id")}}>
+                    <a href={{url("/payment/$customer")}}>
                         <button class="btn-next">Thanh toán</button>
                     </a>
                 </div>

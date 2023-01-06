@@ -7,6 +7,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Session;
 
 class CartController extends Controller
 {
@@ -22,9 +23,10 @@ class CartController extends Controller
         return view('guest/payment',['customer'=>$customer])->with('category',$category);
     }
 
-    function saveCart(Request $request){
+    function saveCart(Request $request, $customer_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
+        Session::put('customer_id',$customer->customer_id);
         $product_id = $request -> get('product_id_hidden');
         $quantity = $request -> get('quantity');
 
@@ -38,18 +40,20 @@ class CartController extends Controller
         $data['options']['images'] = $product_info -> game_image;
         Cart::add($data);
         Cart::setGlobalTax(1);
-        return Redirect::to('/cart');
+        return Redirect::to('/cart/'.$customer_id)->with('customer',$customer);
     }
 
-    function deleteCart($rowId){
+    function deleteCart($rowId, $customer_id){
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
         Cart::update($rowId,0);
-        return Redirect::to('/cart');
+        return Redirect::to('/cart/'.$customer_id)->with('customer',$customer);
     }
 
-    function updateCart(Request $request){
+    function updateCart(Request $request, $customer_id){
         $rowId = $request -> get('rowId_cart');
         $quantity = $request -> get('quantity_cart');
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
         Cart::update($rowId,$quantity);
-        return Redirect::to('/cart');
+        return Redirect::to('/cart/'.$customer_id)->with('customer',$customer);
     }
 }

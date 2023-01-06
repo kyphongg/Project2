@@ -27,9 +27,7 @@
                             <tbody>
                             @foreach($content as $v)
                             <tr>
-                                <td>
-                                    1
-                                </td>
+                                <td>1</td>
                                 <td>{{$v->name}}</td>
                                 <td>{{$v->qty}}</td>
                                 <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
@@ -38,25 +36,34 @@
                             </tbody>
                         </table>
 
-                        <div class="payment-price">
-                            <table>
-                                <tr>
-                                    <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                                    <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold;">Thuế:</td>
-                                    <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold;">Phí vận chuyển:</td>
-                                    <td style="padding-left: 20px;">Miễn Phí</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold;">Tổng thành tiền:</td>
-                                    <td>{{Cart::total(0).' VNĐ'}}</td>
-                                </tr>
-                            </table>
+                        <div class="two-btn">
+                            <div class="row">
+                                <div class="col">
+                                    <a href={{url("/home")}}>
+                                        <button class="btn-back">Tiếp tục mua hàng</button>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <table>
+                                        <tr>
+                                            <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
+                                             <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
+                                        </tr>
+                                        <tr>
+                                             <td style="font-weight: bold;">Thuế:</td>
+                                            <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">Phí vận chuyển:</td>
+                                            <td style="padding-left: 20px;">Miễn Phí</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">Tổng thành tiền:</td>
+                                            <td>{{Cart::total(0).' VNĐ'}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,26 +74,18 @@
                         <div class="info-detail">
                             <form action="" class="payment-infomation">
                                 <div class="form-group">
-{{--                                    <input type="text">--}}
-{{--                                    <label for="">Họ và Tên</label>--}}
                                     <p style="font-weight: bold">Họ và tên</p>
                                     <p>{{$customer->customer_name}}</p>
                                 </div>
                                 <div class="form-group">
-{{--                                    <input type="text">--}}
-{{--                                    <label for="">Số điện thoại</label>--}}
                                     <p style="font-weight: bold">Số điện thoại</p>
                                     <p>{{$customer->customer_phone}}</p>
                                 </div>
                                 <div class="form-group">
-{{--                                    <input type="text">--}}
-{{--                                    <label for="">Địa chỉ hiện tại</label>--}}
                                     <p style="font-weight: bold">Địa chỉ hiện tại</p>
                                     <p>{{$customer->customer_address}}</p>
                                 </div>
                                 <div class="form-group">
-{{--                                    <input type="text" name="">--}}
-{{--                                    <label for="">Email</label>--}}
                                     <p style="font-weight: bold">Email</p>
                                     <p>{{$customer->customer_email}}</p>
                                 </div>
