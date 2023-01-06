@@ -125,3 +125,12 @@ Route::get('/admin/accept_orders',[AdminController::class,'viewAcceptOrders']);
 Route::get('/admin/done_orders',[AdminController::class,'viewDoneOrders']);
 Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
 Route::get('/admin/orders_details',[AdminController::class,'viewOrdersDetails']);
+
+//Cart
+Route::post('/cart_save',[CartController::class,'saveCart']);
+Route::get('/cart_delete/{rowId}',[CartController::class,'deleteCart']);
+Route::post('/update_cart_quantity',[CartController::class,'updateCart']);
+
+//Check Login
+Route::get('/check_login',[LoginController::class,'checkLogin']);
+

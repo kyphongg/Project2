@@ -73,10 +73,19 @@
                     echo '<a href="/login">Đăng nhập/Đăng ký</a>';
                 }
                 ?>
-            <a class="cart" href="{{url('/cart')}}">
+
+            <?php
+                if($customer_id){
+                    echo '<a class="cart" href="/cart">
                 <img src="/images/shopping-cart.png" alt="UserImage">
-                Giỏ hàng (0)
-            </a>
+                Giỏ hàng
+            </a>';
+                }
+                else{
+                    echo '<a href="/login">Giỏ hàng</a>';
+                }
+                ?>
+
             <?php
             if($admin_id){
                 echo '<a class="cart" href="/admin/home">

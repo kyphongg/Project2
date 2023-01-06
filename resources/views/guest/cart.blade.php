@@ -10,6 +10,9 @@
         </div>
         <div class="cart-body">
             <table class="table table-bordered table-hover table-striped">
+                <?php
+                    $content = Cart::content();
+                ?>
                 <thead>
                     <tr>
                         <th>Ảnh sản phẩm</th>
@@ -20,24 +23,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($content as $v)
                     <tr>
-                        <td>
-                            <img src="images/ps5(sp1).jpg">
-                        </td>
-                        <td>Demon's Souls (PS5)</td>
-                        <td><input type="number" min="1" max="5" value="1"></td>
-                        <td>1.350.000đ</td>
-                        <td><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</td>
+                        <td><img src="/public/images/upload/{{$v->options->images}}" alt=""></td>
+                        <td>{{$v->name}}</td>
+                        <form action="{{URL::to('/update_cart_quantity')}}" method="POST">
+                            @csrf
+                            <td>
+                                <input type="number" min="1" max="5" value="{{$v->qty}}" name="quantity_cart">
+                                <input type="hidden" value="{{$v->rowId}}" name="rowId_cart" class="btn btn-default btn-sm">
+                                <input type="submit" value="Cập nhật" name="update_quantity" class="btn btn-default btn-sm">
+                            </td>
+                        </form>
+                        <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
+                        <td><a href="/cart_delete/{{$v->rowId}}"><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</a></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <img src="images/ps5(sp1).jpg">
-                        </td>
-                        <td>Demon's Souls (PS5)</td>
-                        <td><input type="number" min="1" max="5" value="1"></td>
-                        <td>1.350.000đ</td>
-                        <td><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</td>
-                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -45,17 +46,22 @@
             <table>
                 <tr>
                     <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                    <td>1.350.000đ</td>
+                    <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Thuế:</td>
+                    <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
                 </tr>
                 <tr>
                     <td style="font-weight: bold;">Phí vận chuyển:</td>
-                    <td style="padding-left: 20px;">30.000đ</td>
+                    <td style="padding-left: 20px;">Miễn Phí</td>
                 </tr>
                 <tr>
                     <td style="font-weight: bold;">Tổng thành tiền:</td>
-                    <td>1.380.000đ</td>
+                    <td>{{Cart::total(0).' VNĐ'}}</td>
                 </tr>
             </table>
+
         </div>
         <div class="two-btn">
             <div class="row">
@@ -65,6 +71,11 @@
                     </a>
                 </div>
 
+{{--                <div class="col">--}}
+{{--                    <a href={{url("/payment")}}>--}}
+{{--                        <button class="btn-next">Thanh toán</button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <div class="col">
                     <a href={{url("/payment")}}>
                         <button class="btn-next">Thanh toán</button>

@@ -39,4 +39,16 @@ class LoginController extends Controller
         Session::put('customer_id',null);
         return redirect('/login');
     }
+
+    function checkLogin(){
+        $customer_id = Session::get('customer_id');
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        if($customer_id){
+            return redirect('/home');
+        }
+        else{
+            return redirect('/admin/login')->with('category',$category)->send();
+        }
+    }
+
 }
