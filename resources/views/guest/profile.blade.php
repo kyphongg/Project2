@@ -52,24 +52,21 @@
                     </div>
                     <div class="changeInfo">
                         <h3>Chỉnh sửa và cập nhật tài khoản</h3>
-                        <form action="" class="user-infomation">
+                        <form action="{{url('/update-profile/'.$customer->customer_id)}}" class="user-infomation" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <input type="text">
-                                <label for="">Họ và Tên</label>
+                                <input name="customer_name" type="text" class="form-control" placeholder="Họ và Tên">
                             </div>
                             <div class="form-group">
-                                <input type="text">
-                                <label for="">Số điện thoại</label>
+                                <input name="customer_phone" type="text" class="form-control" placeholder="Số điện thoại">
                             </div>
                             <div class="form-group">
-                                <input type="text">
-                                <label for="">Địa chỉ hiện tại</label>
+                                <input name="customer_address" type="text" class="form-control" placeholder="Địa chỉ">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="">
-                                <label for="">Email</label>
+                                <input name="customer_email" type="text" class="form-control" placeholder="Email">
                             </div>
-                            <button class="userbtn-update">Cập nhật hồ sơ</button>
+                            <button type="submit" class="userbtn-update">Cập nhật hồ sơ</button>
                         </form>
                     </div>
                 </div>
