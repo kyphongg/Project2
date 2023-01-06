@@ -60,9 +60,9 @@ Route::get('/orders_detail', [ProfileController::class,'viewOrdersDetail']);
 Route::get('/security', [ProfileController::class,'viewSecurity']);
 
 //Client cart &payment
-Route::get('/cart', [CartController::class, 'viewCart']);
+Route::get('/cart/{customer_id}', [CartController::class, 'viewCart']);
 
-Route::get('/payment', [CartController::class, 'viewPayment']);
+Route::get('/payment/{customer_id}', [CartController::class, 'viewPayment']);
 
 //Admin profile
 Route::get('/admin/profile/{admin_id}',[AdminController::class,'viewProfile']);

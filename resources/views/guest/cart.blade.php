@@ -6,7 +6,6 @@
     <div class="cart-p">
         <div class="cart-heading">
             <h3>Giỏ hàng</h3>
-            <p>(2 sản phẩm)</p>
         </div>
         <div class="cart-body">
             <table class="table table-bordered table-hover table-striped">
@@ -71,13 +70,8 @@
                     </a>
                 </div>
 
-{{--                <div class="col">--}}
-{{--                    <a href={{url("/payment")}}>--}}
-{{--                        <button class="btn-next">Thanh toán</button>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
                 <div class="col">
-                    <a href={{url("/payment")}}>
+                    <a href={{url("/payment/$customer->customer_id")}}>
                         <button class="btn-next">Thanh toán</button>
                     </a>
                 </div>

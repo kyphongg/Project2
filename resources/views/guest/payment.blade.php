@@ -5,7 +5,7 @@
 @section('content')
     <div class="payment">
         <div class="payment-heading">
-            <h3>Giỏ hàng</h3>
+            <h3>Thanh toán</h3>
         </div>
 
         <div class="payment-body">
@@ -13,6 +13,9 @@
                 <div class="col payment-cart">
                     <div>
                         <table class="table table-bordered table-hover table-striped">
+                            <?php
+                            $content = Cart::content();
+                            ?>
                             <thead>
                             <tr>
                                 <th>STT</th>
@@ -22,22 +25,16 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($content as $v)
                             <tr>
                                 <td>
                                     1
                                 </td>
-                                <td>Demon's Souls (PS5)</td>
-                                <td>1</td>
-                                <td>1.350.000đ</td>
+                                <td>{{$v->name}}</td>
+                                <td>{{$v->qty}}</td>
+                                <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    2
-                                </td>
-                                <td>Demon's Souls (PS5)</td>
-                                <td>1</td>
-                                <td>1.350.000đ</td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
 
@@ -45,15 +42,19 @@
                             <table>
                                 <tr>
                                     <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                                    <td>1.350.000đ</td>
+                                    <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Thuế:</td>
+                                    <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold;">Phí vận chuyển:</td>
-                                    <td style="padding-left: 20px;">30.000đ</td>
+                                    <td style="padding-left: 20px;">Miễn Phí</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold;">Tổng thành tiền:</td>
-                                    <td>1.380.000đ</td>
+                                    <td>{{Cart::total(0).' VNĐ'}}</td>
                                 </tr>
                             </table>
                         </div>
@@ -66,20 +67,28 @@
                         <div class="info-detail">
                             <form action="" class="payment-infomation">
                                 <div class="form-group">
-                                    <input type="text">
-                                    <label for="">Họ và Tên</label>
+{{--                                    <input type="text">--}}
+{{--                                    <label for="">Họ và Tên</label>--}}
+                                    <p style="font-weight: bold">Họ và tên</p>
+                                    <p>{{$customer->customer_name}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text">
-                                    <label for="">Số điện thoại</label>
+{{--                                    <input type="text">--}}
+{{--                                    <label for="">Số điện thoại</label>--}}
+                                    <p style="font-weight: bold">Số điện thoại</p>
+                                    <p>{{$customer->customer_phone}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text">
-                                    <label for="">Địa chỉ hiện tại</label>
+{{--                                    <input type="text">--}}
+{{--                                    <label for="">Địa chỉ hiện tại</label>--}}
+                                    <p style="font-weight: bold">Địa chỉ hiện tại</p>
+                                    <p>{{$customer->customer_address}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="">
-                                    <label for="">Email</label>
+{{--                                    <input type="text" name="">--}}
+{{--                                    <label for="">Email</label>--}}
+                                    <p style="font-weight: bold">Email</p>
+                                    <p>{{$customer->customer_email}}</p>
                                 </div>
                                     <button class="btn-update">Cập nhật hồ sơ</button>
                             </form>
@@ -93,7 +102,7 @@
                         <div class="payCash">
                             <input type="radio" name="fav_language" class="cash" value="cash">
                             <label for="cash">
-                                <img src="images/GDTT.png">
+                                <img src="images/GDTT.png" alt="">
                                 Thanh toán tiền mặt khi nhận hàng (COD)
                             </label>
                             <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
@@ -102,7 +111,7 @@
                         <div class="payOnline">
                             <input type="radio" name="fav_language" class="onlineBanking" value="online">
                             <label for="online">
-                                <img src="images/bank.png">
+                                <img src="images/bank.png" alt="">
                                 Thanh toán chuyển khoản ngân hàng
                             </label>
                             <p>Nhân viên sẽ liên hệ với bạn qua email/ điện thoại để xác nhận đơn hàng.
@@ -110,7 +119,7 @@
                             <br>Nội dung chuyển khoản: ck + "Tên tài khoản".
                                 <br><span style="color:red; font-weight: bold;">LƯU Ý</span>: Vui lòng ghi đúng nội dung chuyển khoản <span style="color:red; font-weight: bold;">ĐÚNG NỘI DUNG BÊN TRÊN.</span>
                             <br>Bạn có thể thao tác chuyển khoản nhanh chóng bằng cách mở ứng dụng ngân hàng và chọn quét mã QR bên dưới và ghi đúng nội dung chuyển khoản.</p>
-                            <img style="width: 235px; height: 235px; border: 1px solid rgba(0,0,0,0.08); margin-left: 500px;" src="images/qrchuyenkhoan.jpg">
+                            <img style="width: 235px; height: 235px; border: 1px solid rgba(0,0,0,0.08); margin-left: 500px;" src="images/qrchuyenkhoan.jpg" alt="">
                         </div>
                     </form>
                     <a href="#">

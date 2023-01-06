@@ -76,7 +76,7 @@
 
             <?php
                 if($customer_id){
-                    echo '<a class="cart" href="/cart">
+                    echo '<a class="cart" href="/cart/'.$customer_id.'">
                 <img src="/images/shopping-cart.png" alt="UserImage">
                 Giỏ hàng
             </a>';

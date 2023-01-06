@@ -10,14 +10,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
-    function viewCart(){
+    function viewCart($customer_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        return view('guest/cart')->with('category',$category);
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
+        return view('guest/cart',['customer'=>$customer])->with('category',$category);
     }
 
-    function viewPayment(){
+    function viewPayment($customer_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
-        return view('guest/payment')->with('category',$category);
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
+        return view('guest/payment',['customer'=>$customer])->with('category',$category);
     }
 
     function saveCart(Request $request){
