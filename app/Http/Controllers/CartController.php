@@ -17,6 +17,11 @@ class CartController extends Controller
         return view('guest/cart',['customer'=>$customer])->with('category',$category);
     }
 
+    function viewSuccess(){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        return view('guest/success')->with('category',$category);
+    }
+
     function viewPayment($customer_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();

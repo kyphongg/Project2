@@ -65,6 +65,7 @@ Route::get('/security', [ProfileController::class,'viewSecurity']);
 Route::get('/cart/{customer_id}', [CartController::class, 'viewCart']);
 
 Route::get('/payment/{customer_id}', [CartController::class, 'viewPayment']);
+Route::get('/success', [CartController::class, 'viewSuccess']);
 
 //Admin profile
 Route::get('/admin/profile/{admin_id}',[AdminController::class,'viewProfile']);

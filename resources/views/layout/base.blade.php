@@ -22,8 +22,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" integrity="sha512-+1GzNJIJQ0SwHimHEEDQ0jbyQuglxEdmQmKsu8KI7QkMPAnyDrL9TAnVyLPEttcTxlnLVzaQgxv2FpLCLtli0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css"
+          integrity="sha512-+1GzNJIJQ0SwHimHEEDQ0jbyQuglxEdmQmKsu8KI7QkMPAnyDrL9TAnVyLPEttcTxlnLVzaQgxv2FpLCLtli0A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 <header id="header">
@@ -39,17 +43,17 @@
         </form>
         <div class="icon">
             <img src="/images/user (2).png" alt="UserImage" onclick="toggleMenu()">
-                <?php
-                $customer_id = Session::get('customer_id');
-                $admin_id = Session::get('admin_id');
-                if ($customer_id) {
-                    $customer_name = Session::get('customer_name');
-                    echo '<a href="/profile/'.$customer_id.'">';
-                    echo $customer_name;
-                    echo '</a>';
-                    echo '<div class="sub-menu-wrap" id="subMenu">
+            <?php
+            $customer_id = Session::get('customer_id');
+            $admin_id = Session::get('admin_id');
+            if ($customer_id) {
+                $customer_name = Session::get('customer_name');
+                echo '<a href="/profile/' . $customer_id . '">';
+                echo $customer_name;
+                echo '</a>';
+                echo '<div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
-                    <a href="/profile/'.$customer_id.'" class="sub-menu-link">
+                    <a href="/profile/' . $customer_id . '" class="sub-menu-link">
                         <p>Quản lý tài khoản</p>
                     </a>
                     <a href="/orders" class="sub-menu-link">
@@ -62,39 +66,35 @@
                         <p>Đăng xuất</p></a>
                 </div>
             </div>';
-                }
-                elseif($admin_id){
-                    $admin_name = Session::get('admin_name');
-                    echo '<a href="/admin/home">';
-                    echo $admin_name;
-                    echo '</a>';
-                }
-                else{
-                    echo '<a href="/login">Đăng nhập/Đăng ký</a>';
-                }
-                ?>
+            } elseif ($admin_id) {
+                $admin_name = Session::get('admin_name');
+                echo '<a href="/admin/home">';
+                echo $admin_name;
+                echo '</a>';
+            } else {
+                echo '<a href="/login">Đăng nhập/Đăng ký</a>';
+            }
+            ?>
 
             <?php
-                if($customer_id){
-                    echo '<a class="cart" href="/cart/'.$customer_id.'">
+            if ($customer_id) {
+                echo '<a class="cart" href="/cart/' . $customer_id . '">
                 <img src="/images/shopping-cart.png" alt="UserImage">
                 Giỏ hàng
             </a>';
-                }
-                else{
-                    echo '<a href="/login">Giỏ hàng</a>';
-                }
-                ?>
+            } else {
+                echo '<a href="/login">Giỏ hàng</a>';
+            }
+            ?>
 
             <?php
-            if($admin_id){
+            if ($admin_id) {
                 echo '<a class="cart" href="/admin/home">
                 <img src="/images/gear.png" alt="UserImage">Quản lý
             </a>';
-            }
-            elseif ($customer_id)
+            } elseif ($customer_id)
                 echo '';
-            else{
+            else {
                 echo '<a class="cart" href="/admin/login">
                 <img src="/images/gear.png" alt="UserImage">Quản lý
             </a>';
@@ -114,7 +114,8 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         @foreach($category as $kw => $cate)
-                            <li><a class="dropdown-item" href="{{'/category/'.$cate->category_id}}">{{$cate->category_name}}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{{'/category/'.$cate->category_id}}">{{$cate->category_name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -184,52 +185,66 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js" integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
+        integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.autoWidth').lightSlider({
-            autoWidth:true,
-            loop:true,
-            onSliderLoad: function() {
+            autoWidth: true,
+            loop: true,
+            onSliderLoad: function () {
                 $('.autoWidth').removeClass('cS-hidden');
             }
         });
     });
 
     let subMenu = document.getElementById("subMenu");
-    function toggleMenu(){
+
+    function toggleMenu() {
 
         subMenu.classList.toggle("open-menu");
+    }
+
+    let popup = document.getElementById("popup");
+
+    function openPopup(){
+        popup.classList.add("open-popup");
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup");
     }
 
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         load_comment();
-        function load_comment(){
+
+        function load_comment() {
             var game_id = $('.game_id').val();
             var _token = $('input[name="_token"]').val();
             $.ajax({
-                url:"{{url('/load-comment')}}",
-                method:"POST",
-                data:{game_id:game_id, _token:_token},
-                success:function (data){
+                url: "{{url('/load-comment')}}",
+                method: "POST",
+                data: {game_id: game_id, _token: _token},
+                success: function (data) {
                     $('#comment_show').html(data);
                 }
             });
         }
 
-        $('.send-comment').click(function (){
+        $('.send-comment').click(function () {
             var game_id = $('.game_id').val();
             var comment_info = $('.comment_info').val();
             var _token = $('input[name="_token"]').val();
             $.ajax({
-                url:"{{url('/send-comment')}}",
-                method:"POST",
-                data:{game_id:game_id, comment_info:comment_info, _token:_token},
-                success:function (data){
+                url: "{{url('/send-comment')}}",
+                method: "POST",
+                data: {game_id: game_id, comment_info: comment_info, _token: _token},
+                success: function (data) {
                     $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công</p>');
                     load_comment();
                     $('notify_comment').fadeOut(2000);

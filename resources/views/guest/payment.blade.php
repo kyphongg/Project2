@@ -1,4 +1,4 @@
-@extends('layout.base')
+    @extends('layout.base')
 
 @section('title' ,'Thanh Toán')
 
@@ -38,12 +38,7 @@
 
                         <div class="two-btn">
                             <div class="row">
-                                <div class="col">
-                                    <a href={{url("/home")}}>
-                                        <button class="btn-back">Tiếp tục mua hàng</button>
-                                    </a>
-                                </div>
-                                <div class="col">
+                                <div class="cartt-price">
                                     <table>
                                         <tr>
                                             <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
@@ -55,13 +50,18 @@
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold;">Phí vận chuyển:</td>
-                                            <td style="padding-left: 20px;">Miễn Phí</td>
+                                            <td style="padding-left: 40px;">Miễn Phí</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold;">Tổng thành tiền:</td>
                                             <td>{{Cart::total(0).' VNĐ'}}</td>
                                         </tr>
                                     </table>
+                                </div>
+                                <div class="col">
+                                    <a href={{url("/home")}}>
+                                        <button class="btn btn-secondary btn-backk">Tiếp tục mua hàng</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -89,8 +89,33 @@
                                     <p style="font-weight: bold">Email</p>
                                     <p>{{$customer->customer_email}}</p>
                                 </div>
-                                    <button class="btn-update">Cập nhật hồ sơ</button>
                             </form>
+                        </div>
+                        <button type="button" id="show-updateinfo" class="btn btn-secondary btn-update" onclick="openPopup()">Cập nhật hồ sơ</button>
+                        <div class="popup" id="popup">
+                            <div class="close-btn" onclick="closePopup()">&times;</div>
+                            <div class="form">
+                                <h3>Chỉnh sửa hồ sơ</h3>
+                                <div class="form-element">
+                                    <label for="text" style="font-weight: bold; color: white;">Họ và tên</label>
+                                    <input type="text" id="text" placeholder="Nhập họ và tên của bạn">
+                                </div>
+                                <div class="form-element">
+                                    <label for="text" style="font-weight: bold; color: white;">Số điện thoại</label>
+                                    <input type="text" id="text" placeholder="Nhập số điện thoại của bạn">
+                                </div>
+                                <div class="form-element">
+                                    <label for="text" style="font-weight: bold; color: white;">Địa chỉ hiện tại</label>
+                                    <input type="text" id="text" placeholder="Nhập địa chỉ của bạn">
+                                </div>
+                                <div class="form-element">
+                                    <label for="email" style="font-weight: bold; color: white;">Email</label>
+                                    <input type="text" id="email" placeholder="Nhập email của bạn">
+                                </div>
+                                <div class="form-element">
+                                    <button class="btn btn-secondary" onclick="closePopup()">Cập nhật hồ sơ</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +126,7 @@
                         <div class="payCash">
                             <input type="radio" name="fav_language" class="cash" value="cash">
                             <label for="cash">
-                                <img src="images/GDTT.png" alt="">
+                                <img src="/images/GDTT.png" alt="">
                                 Thanh toán tiền mặt khi nhận hàng (COD)
                             </label>
                             <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
@@ -110,7 +135,7 @@
                         <div class="payOnline">
                             <input type="radio" name="fav_language" class="onlineBanking" value="online">
                             <label for="online">
-                                <img src="images/bank.png" alt="">
+                                <img src="/images/bank.png" alt="">
                                 Thanh toán chuyển khoản ngân hàng
                             </label>
                             <p>Nhân viên sẽ liên hệ với bạn qua email/ điện thoại để xác nhận đơn hàng.
@@ -118,11 +143,11 @@
                             <br>Nội dung chuyển khoản: ck + "Tên tài khoản".
                                 <br><span style="color:red; font-weight: bold;">LƯU Ý</span>: Vui lòng ghi đúng nội dung chuyển khoản <span style="color:red; font-weight: bold;">ĐÚNG NỘI DUNG BÊN TRÊN.</span>
                             <br>Bạn có thể thao tác chuyển khoản nhanh chóng bằng cách mở ứng dụng ngân hàng và chọn quét mã QR bên dưới và ghi đúng nội dung chuyển khoản.</p>
-                            <img style="width: 235px; height: 235px; border: 1px solid rgba(0,0,0,0.08); margin-left: 500px;" src="images/qrchuyenkhoan.jpg" alt="">
+                            <img style="width: 235px; height: 235px; border: 1px solid rgba(0,0,0,0.08); margin-left: 500px;" src="/images/qrchuyenkhoan.jpg" alt="">
                         </div>
                     </form>
-                    <a href="#">
-                        <button class="btn-payment">Hoàn tất đơn hàng</button>
+                    <a href="{{url('/success')}}">
+                        <button class="btn btn-secondary btn-payment">Hoàn tất đơn hàng</button>
                     </a>
                 </div>
             </div>

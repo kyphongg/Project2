@@ -30,9 +30,9 @@
                         <form action="{{URL::to('/update_cart_quantity/'.$customer)}}" method="POST">
                             @csrf
                             <td>
-                                <input type="number" min="1" max="5" value="{{$v->qty}}" name="quantity_cart">
+                                <input type="number" min="1" max="5" value="{{$v->qty}}" name="quantity_cart" style="width: 40px; height: 40px; padding-left: 13px;">
                                 <input type="hidden" value="{{$v->rowId}}" name="rowId_cart" class="btn btn-default btn-sm">
-                                <input type="submit" value="Cập nhật" name="update_quantity" class="btn btn-default btn-sm">
+                                <input type="submit" value="Cập nhật" name="update_quantity" class="btn btn-primary update-quantity" style="margin-bottom: 5px; margin-left: 5px;">
                             </td>
                         </form>
                         <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold;">Phí vận chuyển:</td>
-                    <td style="padding-left: 20px;">Miễn Phí</td>
+                    <td style="padding-left: 40px;">Miễn Phí</td>
                 </tr>
                 <tr>
                     <td style="font-weight: bold;">Tổng thành tiền:</td>
@@ -67,13 +67,13 @@
             <div class="row">
                 <div class="col">
                     <a href={{url("/home")}}>
-                        <button class="btn-back">Tiếp tục mua hàng</button>
+                        <button class="btn btn-secondary btn-back">Tiếp tục mua hàng</button>
                     </a>
                 </div>
 
                 <div class="col">
                     <a href={{url("/payment/$customer")}}>
-                        <button class="btn-next">Thanh toán</button>
+                        <button class="btn btn-secondary btn-next">Thanh toán</button>
                     </a>
                 </div>
             </div>
