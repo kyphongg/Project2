@@ -82,14 +82,12 @@
     <div class="container">
         <div class="comment">
             <h3>Bình luận</h3>
-            @if($customer_id)
             <form action="#">
 {{--                <input type="hidden" name="customer_id" class="customer_id" value="{{$customer_id}}">--}}
                 <textarea name="comment" class="comment_info" placeholder="Nhập nội dung bình luận"></textarea>
                 <button type="button" class="send-comment"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận</button>
             </form>
             <div id="notify_comment"></div>
-            @endif
             <form>
                 @csrf
                 <input type="hidden" name="game_id" class="game_id" value="{{$game->game_id}}">
