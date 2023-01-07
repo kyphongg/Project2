@@ -155,13 +155,12 @@ class AdminController extends Controller
 
     function reply_comment(Request $request){
         $data= $request->all();
-        $admin_id = Session::get('admin_id');
         $comment = new Comment();
         $comment -> comment_info = $data['comment'];
         $comment -> game_id = $data['game_id'];
         $comment -> comment_parent_comment = $data['comment_id'];
         $comment -> comment_status=0;
-        $comment -> customer_id= $admin_id;
+        $comment -> customer_id;
         $comment->save();
     }
 }
