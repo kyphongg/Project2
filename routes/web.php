@@ -134,6 +134,10 @@ Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);
 Route::get('/cart_delete/{rowId}/{customer_id}',[CartController::class,'deleteCart']);
 Route::post('/update_cart_quantity/{customer_id}',[CartController::class,'updateCart']);
 
+//Comment
+Route::get('/admin/comment',[AdminController::class,'viewComment']);
+Route::post('/accept-comment',[AdminController::class,'accept_comment']);
+Route::post('/reply-comment',[AdminController::class,'reply_comment']);
 //Check Login
 Route::get('/check_login',[LoginController::class,'checkLogin']);
 

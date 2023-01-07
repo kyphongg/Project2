@@ -245,9 +245,9 @@
                 method: "POST",
                 data: {game_id: game_id, comment_info: comment_info, _token: _token},
                 success: function (data) {
-                    $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công</p>');
+                    $('#notify_comment').html('<p class="text text-success">Thêm bình luận thành công, Bình luận đang chờ duyệt</p>');
                     load_comment();
-                    $('notify_comment').fadeOut(2000);
+                    $('notify_comment').fadeOut(9000);
                     $('.comment_info').val('');
                 }
             });

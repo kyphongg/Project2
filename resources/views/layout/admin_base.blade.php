@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <title>@yield("title","Untitled")</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -104,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="leftside-navigation">
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li>
-                        <a class="active" href="{{url('/admin/home')}}">
+                        <a href="{{url('/admin/home')}}">
                             <i class="fa fa-dashboard"></i>
                             <span>Thống kê</span>
                         </a>
@@ -156,15 +157,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <?php
                     $admin_level = Session::get('admin_level');
                     if($admin_level==0||$admin_level==2||$admin_level==3||$admin_level==100)
-                        echo '<li class="sub-menu">
-                        <a href="javascript:">
+                        echo '<li>
+                        <a href="/admin/comment">
                             <i class="fas fa-comment-dots"></i>
-                            <span>Quản lý bình luận</span>
+                            <span>Bình luận</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href=""><i class="fas fa-comment-medical"></i>Mới</a></li>
-                            <li><a href=""><i class="fas fa-comments"></i>Cũ</a></li>
-                        </ul>
                     </li>';
                     ?>
 
@@ -218,6 +215,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src=""{{asset('js/flot-chart/excanvas.min.js')}}"></script><![endif]-->
 <script src="{{asset('js/jquery.scrollTo.js')}}"></script>
 <!-- morris JavaScript -->
+<script type="text/javascript">
+    $('.comment_accept_btn').click(function (){
+        var comment_status = $(this).data('comment_status');
+        var comment_id = $(this).data('comment_id');
+        var game_id = $(this).attr('id');
+        if(comment_status==0){
+            var alert= 'Duyệt thành công';
+        }
+        else{
+            var alert= 'Hủy duyệt thành công';
+        }
+        $.ajax({
+            url:"{{url('/accept-comment')}}",
+            method:"POST",
+            data:{comment_status:comment_status, comment_id:comment_id, game_id:game_id},
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function (data){
+                location.reload();
+                $('#notify-comment').html('<span class="text text-alert">'+alert+'</span>')
+            }
+        });
+    });
+
+    $('.btn-reply-comment').click(function (){
+        var comment_id = $(this).data('comment_id');
+        var comment = $('.reply_comment_'+comment_id).val();
+        var game_id = $(this).data('game_id');
+        // alert(comment);
+        // alert(comment_id);
+        // alert(game_id);
+
+        $.ajax({
+            url:"{{url('/reply-comment')}}",
+            method:"POST",
+            data:{comment:comment, comment_id:comment_id, game_id:game_id},
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function (data){
+                $('.reply_comment_'+comment_id).val('');
+                $('#notify-comment').html('<span class="text text-alert">Trả lời bình luận thành công</span>')
+            }
+        });
+    });
+
+</script>
 <script>
     $(document).ready(function() {
         //BOX BUTTON SHOW AND CLOSE

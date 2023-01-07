@@ -101,12 +101,13 @@ class HomeController extends Controller
         $comment ->comment_info= $comment_info;
         $comment->game_id= $game_id;
         $comment->customer_id= $customer_id;
+        $comment->comment_status= 1;
         $comment->save();
     }
 
     function load_comment(Request $request){
         $game_id = $request ->game_id;
-        $comment= Comment::where('game_id',$game_id)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')->get();
+        $comment= Comment::where('game_id',$game_id)->where('comment_status',0)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')->get();
 //        $comment = DB::table('tbl_comment')
 //            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
 //            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')

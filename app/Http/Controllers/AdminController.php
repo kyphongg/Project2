@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -135,5 +136,32 @@ class AdminController extends Controller
 
     function viewOrdersDetails(){
         return view('/admin/orders/orders_detail');
+    }
+
+    function viewComment(){
+        $comment = DB::table('tbl_comment')
+            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
+            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
+            ->orderBy('comment_status','desc')->get();
+        return view('/admin/comment/comment')->with('comment', $comment);
+    }
+
+    function accept_comment(Request $request){
+        $data= $request->all();
+        $comment = Comment::find($data['comment_id']);
+        $comment->comment_status = $data['comment_status'];
+        $comment->save();
+    }
+
+    function reply_comment(Request $request){
+        $data= $request->all();
+        $admin_id = Session::get('admin_id');
+        $comment = new Comment();
+        $comment -> comment_info = $data['comment'];
+        $comment -> game_id = $data['game_id'];
+        $comment -> comment_parent_comment = $data['comment_id'];
+        $comment -> comment_status=0;
+        $comment -> customer_id= $admin_id;
+        $comment->save();
     }
 }
