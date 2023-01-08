@@ -144,9 +144,15 @@ class AdminController extends Controller
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
             ->join('tbl_order_detail','tbl_order_detail.order_id','=','tbl_order.order_id')
             ->join('tbl_payment','tbl_payment.payment_id','=','tbl_order.payment_id')
+            ->where('tbl_order.order_id',$order_id)
             ->select('tbl_order.*','tbl_customer.*','tbl_order_detail.*','tbl_payment.*')
             ->first();
-        return view('/admin/orders/orders_detail')->with('order',$order);
+        $detail = DB::table('tbl_order_detail')
+            ->join('tbl_order','tbl_order.order_id','=','tbl_order_detail.order_id')
+            ->join('tbl_game','tbl_game.game_id','=','tbl_order_detail.game_id')
+            ->where('tbl_order.order_id',$order_id)
+            ->get();
+        return view('/admin/orders/orders_detail')->with('order',$order)->with('detail',$detail);
     }
 
     function viewComment(){

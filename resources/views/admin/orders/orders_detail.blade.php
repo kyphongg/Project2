@@ -20,6 +20,7 @@
         <div class="table-responsive" style="margin-top: 15px;">
             <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
                 <thead>
+                @foreach($detail as $d)
                 <tr>
                     <th style="width: 50px;">Hình ảnh</th>
                     <th>Tên sản phẩm</th>
@@ -29,32 +30,31 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><img style="width: 100px; height: 100px;" src="/images/ps5(sp2).jpg"></td>
-                    <td>God of War: Ragnorok</td>
-                    <td>2</td>
-                    <td>3.000.000đ</td>
+                    <td><img style="width: 100px; height: 100px;" src="/public/images/upload/{{$d->game_image}}" alt=""></td>
+                    <td>{{$d->game_name}}</td>
+                    <td>{{$d->game_quantity}}</td>
+                    <td>{{number_format($d->game_price).' VNĐ'}}</td>
                 </tr>
-                <tr>
-                    <td><img style="width: 100px; height: 100px;" src="/images/ps5(sp1).jpg"></td>
-                    <td>Demon's Souls</td>
-                    <td>1</td>
-                    <td>1.000.000đ</td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
             <div class="cart-price">
                 <table>
                     <tr>
                         <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                        <td>4.000.000đ</td>
+                        <td>{{number_format($order->game_price*$order->game_quantity).' VNĐ'}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Thuế:</td>
+                        <td style="padding-left: 20px;">{{number_format($order->game_price*0.01*$order->game_quantity).' VNĐ'}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Phí vận chuyển:</td>
-                        <td style="padding-left: 20px;">30.000đ</td>
+                        <td style="padding-left: 40px;">Miễn Phí</td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">Tổng thành tiền:</td>
-                        <td>4.030.000đ</td>
+                        <td>{{$order->order_total.' VNĐ'}}</td>
                     </tr>
                 </table>
             </div>
