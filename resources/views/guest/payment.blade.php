@@ -35,6 +35,17 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <?php
+                        $message = Session::get('message');
+                        if($message)
+                            echo $message;
+                        ?>
+                        <form method="POST" action="{{URL::to('/check_coupon')}}">
+                            @csrf
+                            <input type="text" class="form-control" name="coupon_text" placeholder="Nhập mã giảm giá">
+                            <input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
+
+                        </form>
 
                         <div class="two-btn">
                             <div class="row">
@@ -51,6 +62,43 @@
                                         <tr>
                                             <td style="font-weight: bold;">Phí vận chuyển:</td>
                                             <td style="padding-left: 40px;">Miễn Phí</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">Mã giảm giá:</td>
+                                            <td style="padding-left: 40px;">
+                                                @if(Session::get('coupon'))
+                                                    @foreach(Session::get('coupon') as $key => $c)
+                                                        @if($c['coupon_serve']==0)
+                                                            {{$c['coupon_number']}}%
+                                                        @else
+                                                            {{$c['coupon_number']}}K
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">Giảm:</td>
+                                            <td style="padding-left: 40px;">
+                                                @if(Session::get('coupon'))
+                                                    @foreach(Session::get('coupon') as $key => $c)
+                                                        @if($c['coupon_serve']==0)
+                                                            @php
+                                                              $total = Cart::priceTotal(0);
+                                                              $coupon = $c['coupon_number']/100;
+                                                              $total_coupon = ((int)$total-((int)$total*(int)$coupon));
+                                                              echo $total_coupon.'VNĐ';
+                                                            @endphp
+                                                        @else
+                                                            <p>
+                                                                @php
+
+                                                                @endphp
+                                                            </p>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold;">Tổng thành tiền:</td>

@@ -256,10 +256,5 @@
         });
     });
 </script>
-<script type="text/javascript">
-    $(document).ready(function (){
-        swal("Here's a message!")
-    });
-</script>
 </body>
 </html>

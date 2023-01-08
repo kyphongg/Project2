@@ -51,7 +51,6 @@
                 <input name="product_id_hidden" type="hidden" value="{{$game->game_id}}">
             </div>
                 <?php
-
                 if($customer_id){
                     echo '<div class="btn-box">
                 <button type="submit" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>

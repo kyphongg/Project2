@@ -1,0 +1,39 @@
+@extends('layout.admin_base')
+
+@section('title', 'Thêm thể loại')
+
+@section('content')
+    <div class="table-agile-info">
+        <h3>Thêm mã giảm giá</h3>
+        <div class="panel-body">
+            <div class="position-center">
+                <form role="form" action="{{url('/admin/coupons_add')}}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label>Tên mã giảm giá</label>
+                        <input name="coupon_name" type="text" class="form-control" placeholder="Tên mã giảm giá">
+                        <label>Mã giảm giá</label>
+                        <input name="coupon_text" type="text" class="form-control" placeholder="Mã giảm giá">
+                        <label>Giảm</label>
+                        <input name="coupon_number" type="text" class="form-control" placeholder="Giảm">
+                        <label>Số lượng</label>
+                        <input name="coupon_quantity" type="text" class="form-control" placeholder="Số lượng">
+                        <label>Mục đích</label>
+                        <select name="coupon_serve" class="form-control m-bot15">
+                            <option value="0">Giảm theo phần trăm</option>
+                            <option value="1">Giảm theo tiền</option>
+                        </select>
+                        <label>Trạng thái</label>
+                            <select name="coupon_status" class="form-control m-bot15">
+                                <option value="0">Hoạt động</option>
+                                <option value="1">Không hoạt động</option>
+                            </select>
+                    </div>
+                    <a href="{{URL::to('/admin/coupons')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
+                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-plus"></i> Thêm mã giảm giá</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+@endsection

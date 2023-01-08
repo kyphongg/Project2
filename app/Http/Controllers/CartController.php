@@ -96,4 +96,35 @@ class CartController extends Controller
         Cart::update($rowId,$quantity);
         return Redirect::to('/cart/'.$customer_id)->with('customer',$customer);
     }
+
+    function checkCoupon(Request $request){
+        $data = $request -> get('coupon_text');
+        $coupon = DB::table('tbl_coupon')->where('coupon_text',$data)->first();
+        if($coupon){
+            $coupon_session = Session::get('coupon');
+                if($coupon_session){
+                    $a = 0;
+                    if($a==0){
+                        $cou[] = array(
+                            'coupon_text' =>$coupon->coupon_text,
+                            'coupon_serve' =>$coupon->coupon_serve,
+                            'coupon_number' =>$coupon->coupon_number,
+                        );
+                        Session::put('coupon',$cou);
+                    }
+                }else{
+                    $cou[] = array(
+                        'coupon_text' =>$coupon->coupon_text,
+                        'coupon_serve' =>$coupon->coupon_serve,
+                        'coupon_number' =>$coupon->coupon_number,
+                    );
+                    Session::put('coupon',$cou);
+                }
+                Session::save();
+                return redirect()->back()->with('message','Thêm mã giảm giá thành công');
+        }
+        else{
+            return redirect()->back()->with('message','Thêm mã giảm giá không thành công');
+        }
+    }
 }

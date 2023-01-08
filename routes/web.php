@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
@@ -134,6 +135,16 @@ Route::get('/admin/orders_details/{order_id}',[AdminController::class,'viewOrder
 Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);
 Route::get('/cart_delete/{rowId}/{customer_id}',[CartController::class,'deleteCart']);
 Route::post('/update_cart_quantity/{customer_id}',[CartController::class,'updateCart']);
+
+Route::post('/check_coupon',[CartController::class,'checkCoupon']);
+
+//Coupon
+Route::get('/admin/coupons',[CouponController::class, 'viewCoupon'])->name('Coupon_home');
+Route::get('/admin/coupons_add',[CouponController::class, 'addCoupon']);//-> Admin addProducer
+Route::post('/admin/coupons_add',[CouponController::class, 'saveCoupon']); // -> addProducer: no View
+Route::get('/admin/edit-coupon/{coupon_id}',[CouponController::class,'editCoupon']);
+Route::post('/admin/update-coupon/{coupon_id}',[CouponController::class, 'updateCoupon']);
+Route::get('/admin/delete-coupon/{coupon_id}',[CouponController::class,'deleteCoupon']);
 
 //Comment
 Route::get('/admin/comment',[AdminController::class,'viewComment']);
