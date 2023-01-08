@@ -28,6 +28,41 @@ class CartController extends Controller
         return view('guest/payment',['customer'=>$customer])->with('category',$category);
     }
 
+    function orderPlace(Request $request){
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
+        $content = Cart::content();
+
+        $data = array();
+        $data['payment_method'] = $request -> get('payment_method');
+        $data['payment_status'] = '0';
+        $payment_id = DB::table('tbl_payment')->insertGetId($data);
+
+        $oder_data = array();
+        $oder_data['order_status'] = '0';
+        $oder_data['customer_id'] = Session::get('customer_id');
+        $oder_data['payment_id'] = $payment_id;
+        $oder_data['order_total'] = Cart::total(0);
+        $order_id = DB::table('tbl_order')->insertGetId($oder_data);
+
+
+        foreach($content as $v){
+            $oder_detail_data = array();
+            $oder_detail_data['order_id'] = $order_id;
+            $oder_detail_data['game_id'] = $v->id;
+            $oder_detail_data['game_name'] = $v->name;
+            $oder_detail_data['game_price'] = $v->price;
+            $oder_detail_data['game_quantity'] = $v->qty;
+            DB::table('tbl_order_detail')->insert($oder_detail_data);
+        }
+        if($data['payment_method']==1){
+            Cart::destroy();
+            echo 'Thanh toán bằng tiền mặt';
+        } elseif ($data['payment_method']==2){
+            Cart::destroy();
+            echo 'Thanh toán bằng ngân hàng';
+        }
+    }
+
     function saveCart(Request $request, $customer_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();

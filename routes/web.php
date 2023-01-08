@@ -66,6 +66,7 @@ Route::get('/cart/{customer_id}', [CartController::class, 'viewCart']);
 
 Route::get('/payment/{customer_id}', [CartController::class, 'viewPayment']);
 Route::get('/success', [CartController::class, 'viewSuccess']);
+Route::post('/order_place',[CartController::class,'orderPlace']);
 
 //Admin profile
 Route::get('/admin/profile/{admin_id}',[AdminController::class,'viewProfile']);
@@ -127,7 +128,7 @@ Route::get('/admin/new_orders',[AdminController::class,'viewNewOrders']);
 Route::get('/admin/accept_orders',[AdminController::class,'viewAcceptOrders']);
 Route::get('/admin/done_orders',[AdminController::class,'viewDoneOrders']);
 Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
-Route::get('/admin/orders_details',[AdminController::class,'viewOrdersDetails']);
+Route::get('/admin/orders_details/{order_id}',[AdminController::class,'viewOrdersDetails']);
 
 //Cart
 Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);

@@ -7,10 +7,15 @@
         <h3>Chi tiết đơn hàng</h3>
         <div class="info-orders">
             <p><b>Mã đơn hàng:</b> 1</p>
-            <p><b>Khách hàng:</b> Phong</p>
+            <p><b>Khách hàng:</b> {{$order->customer_name}}</p>
             <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
-            <p><b>Địa chỉ giao hàng:</b> Văn Chương, Đống Đa, Hà Nội</p>
-            <p><b>Hình thức thanh toán:</b> Tiền mặt</p>
+            <p><b>Địa chỉ giao hàng:</b> {{$order->customer_address}}</p>
+            <p><b>Hình thức thanh toán:</b> <?php
+                                            if ($order->payment_method == 1)
+                                                echo 'Tiền mặt';
+                                            elseif ($order->payment_method == 2)
+                                                echo 'Chuyển khoản';
+                                            ?></p>
         </div>
         <div class="table-responsive" style="margin-top: 15px;">
             <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
@@ -53,7 +58,9 @@
                     </tr>
                 </table>
             </div>
-            <a href="{{URL::to('/admin/products')}}"><button type="button" class="btn btn-info" ><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button></a>
+            <a href="{{URL::to('/admin/accept_orders')}}">
+                <button type="button" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
+            </a>
         </div>
     </div>
 @endsection

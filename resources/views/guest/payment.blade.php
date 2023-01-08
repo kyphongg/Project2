@@ -122,33 +122,39 @@
 
                 <div class="payment-method">
                     <h4>Phương thức thanh toán</h4>
-                    <form action="">
+                    <form action="{{URL::to('/order_place')}}" method="POST">
+                        @csrf
                         <div class="payCash">
-                            <input type="radio" name="fav_language" class="cash" value="cash">
-                            <label for="cash">
-                                <img src="/images/GDTT.png" alt="">
-                                Thanh toán tiền mặt khi nhận hàng (COD)
-                            </label>
-                            <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
+                            <span>
+                                <label>
+                                    <input name="payment_method" value="1" type="checkbox">
+                                    <img src="/images/GDTT.png" alt="">
+                                        Thanh toán tiền mặt khi nhận hàng (COD)
+                                    <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
                                 sau khi bạn hoàn tất đơn hàng</p>
+                                </label>
+                            </span>
                         </div>
+
                         <div class="payOnline">
-                            <input type="radio" name="fav_language" class="onlineBanking" value="online">
-                            <label for="online">
-                                <img src="/images/bank.png" alt="">
-                                Thanh toán chuyển khoản ngân hàng
-                            </label>
-                            <p>Nhân viên sẽ liên hệ với bạn qua email/ điện thoại để xác nhận đơn hàng.
+                            <span>
+                                <label>
+                                    <input name="payment_method" value="2" type="checkbox">
+                                    <img src="/images/bank.png" alt="">
+                                        Thanh toán chuyển khoản ngân hàng
+                                    <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
+                                sau khi bạn hoàn tất đơn hàng</p>
+                                    <p>Nhân viên sẽ liên hệ với bạn qua email/ điện thoại để xác nhận đơn hàng.
                             <br>Thông tin chuyển khoản:<span style="color:blue; font-weight: bold;"> Ngân hàng TP BANK - 04182459601 - MAI KỲ PHONG</span>
                             <br>Nội dung chuyển khoản: ck + "Tên tài khoản".
                                 <br><span style="color:red; font-weight: bold;">LƯU Ý</span>: Vui lòng ghi đúng nội dung chuyển khoản <span style="color:red; font-weight: bold;">ĐÚNG NỘI DUNG BÊN TRÊN.</span>
                             <br>Bạn có thể thao tác chuyển khoản nhanh chóng bằng cách mở ứng dụng ngân hàng và chọn quét mã QR bên dưới và ghi đúng nội dung chuyển khoản.</p>
                             <img style="width: 235px; height: 235px; border: 1px solid rgba(0,0,0,0.08); margin-left: 500px;" src="/images/qrchuyenkhoan.jpg" alt="">
+                                </label>
+                            </span>
                         </div>
+                        <button type="submit" class="btn btn-secondary btn-payment">Hoàn tất đơn hàng</button>
                     </form>
-                    <a href="{{url('/success')}}">
-                        <button class="btn btn-secondary btn-payment">Hoàn tất đơn hàng</button>
-                    </a>
                 </div>
             </div>
         </div>

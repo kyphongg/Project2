@@ -123,7 +123,11 @@ class AdminController extends Controller
     }
 
     function viewAcceptOrders(){
-        return view('/admin/orders/accept_orders');
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.order_id','desc')->get();
+        return view('/admin/orders/accept_orders')->with('order',$order);
     }
 
     function viewDoneOrders(){
@@ -134,8 +138,15 @@ class AdminController extends Controller
         return view('/admin/orders/cancel_orders');
     }
 
-    function viewOrdersDetails(){
-        return view('/admin/orders/orders_detail');
+    function viewOrdersDetails($order_id){
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->join('tbl_order_detail','tbl_order_detail.order_id','=','tbl_order.order_id')
+            ->join('tbl_payment','tbl_payment.payment_id','=','tbl_order.payment_id')
+            ->select('tbl_order.*','tbl_customer.*','tbl_order_detail.*','tbl_payment.*')
+            ->first();
+        return view('/admin/orders/orders_detail')->with('order',$order);
     }
 
     function viewComment(){
