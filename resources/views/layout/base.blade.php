@@ -12,6 +12,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" href="{{url('css/alert.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
@@ -190,6 +191,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
         integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{asset('js/alert.js')}}"></script>
 <script>
     $(document).ready(function () {
         $('.autoWidth').lightSlider({
@@ -252,6 +254,11 @@
                 }
             });
         });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function (){
+        swal("Here's a message!")
     });
 </script>
 </body>
