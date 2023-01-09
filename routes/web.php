@@ -57,8 +57,8 @@ Route::get('/customer_logout',[LoginController::class,'customer_logout']);
 Route::get('/profile/{customer_id}', [ProfileController::class,'viewProfile']);
 Route::post('/update-profile/{category_id}',[ProfileController::class, 'updateProfile']);
 
-Route::get('/orders', [ProfileController::class,'viewOrders']);
-Route::get('/orders_detail', [ProfileController::class,'viewOrdersDetail']);
+Route::get('/orders/{customer_id}', [ProfileController::class,'viewOrders']);
+Route::get('/orders_detail/{customer_id}', [ProfileController::class,'viewOrdersDetail']);
 
 Route::get('/security', [ProfileController::class,'viewSecurity']);
 

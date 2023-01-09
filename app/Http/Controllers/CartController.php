@@ -52,6 +52,7 @@ class CartController extends Controller
             $oder_detail_data['game_name'] = $v->name;
             $oder_detail_data['game_price'] = $v->price;
             $oder_detail_data['game_quantity'] = $v->qty;
+            $oder_detail_data['game_image'] = $v->options->images;
             DB::table('tbl_order_detail')->insert($oder_detail_data);
         }
         if($data['payment_method']==1){

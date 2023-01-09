@@ -9,10 +9,12 @@
                 <div class="side-nav" style="margin-bottom: 85px">
                     <ul class="nav-links">
                         <li style="border-bottom: 1px solid #E6E8EB;">
-                            <a href="{{url("/profile")}}" ><i class="fa-solid fa-user"></i>Tài khoản</a>
+                            <a href="{{url("/profile/$customer->customer_id")}}"><i class="fa-solid fa-user"></i>Tài
+                                khoản</a>
                         </li>
                         <li style="border-bottom: 1px solid #E6E8EB;">
-                            <a href="{{url("/orders")}}"><i class="fa-solid fa-cart-shopping"></i>Lịch sử đơn hàng</a>
+                            <a href="{{url("/orders/$customer->customer_id")}}"><i
+                                    class="fa-solid fa-cart-shopping"></i>Lịch sử đơn hàng</a>
                         </li>
                         <li style="border-bottom: 1px solid #E6E8EB;">
                             <a href="#"><i class="fa-solid fa-user-lock"></i>Mật khẩu và bảo mật</a>
@@ -31,9 +33,13 @@
                         <h3>Chi tiết đơn hàng</h3>
                         <p><b>Mã đơn hàng:</b> 1</p>
                         <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
-                        <p><b>Địa chỉ nhận hàng:</b> Văn Chương, Đống Đa, Hà Nội</p>
-                        <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang xử lí</p>
-                        <p><b>Hình thức thanh toán:</b> Tiền mặt</p>
+                        <p><b>Địa chỉ nhận hàng:</b> {{$customer->customer_address}}</p>
+                        <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang chờ xử lý </p>
+                        <p><b>Hình thức thanh toán:</b> @if($payment->payment_method==1)
+                                Tiền mặt
+                            @else
+                                Chuyển khoản ngân hàng
+                            @endif</p>
                     </div>
                     <div class=orders-table>
                         <table class="table table-bordered table-hover table-striped">
@@ -46,18 +52,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><img src="/images/ps5(sp2).jpg"></td>
-                                <td>God of War: Ragnarok</td>
-                                <td>2</td>
-                                <td>3.000.000đ</td>
-                            </tr>
-                            <tr>
-                                <td><img src="/images/ps5(sp1).jpg"></td>
-                                <td>Demon's Souls</td>
-                                <td>1</td>
-                                <td>1.000.000đ</td>
-                            </tr>
+                            @foreach($order as $o)
+                                <tr>
+                                    <td><img src="/public/images/upload/{{$o->game_image}}"></td>
+                                    <td>{{$o->game_name}}</td>
+                                    <td>{{$o->game_quantity}}</td>
+                                    <td>{{$o->order_total}} VNĐ</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

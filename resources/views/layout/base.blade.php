@@ -57,7 +57,7 @@
                     <a href="/profile/' . $customer_id . '" class="sub-menu-link">
                         <p>Quản lý tài khoản</p>
                     </a>
-                    <a href="/orders" class="sub-menu-link">
+                    <a href="/orders/'.$customer_id.'" class="sub-menu-link">
                         <p>Lịch sử đơn hàng</p>
                     </a>
                     <a href="/security" class="sub-menu-link">

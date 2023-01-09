@@ -20,6 +20,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
                                 <th>Số lượng</th>
                                 <th>Giá tiền</th>
                             </tr>
@@ -29,6 +30,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>{{$v->name}}</td>
+                                <td><img src="/public/images/upload/{{$v->options->images}}</td>
                                 <td>{{$v->qty}}</td>
                                 <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
                             </tr>

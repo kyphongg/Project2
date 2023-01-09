@@ -8,11 +8,12 @@
             <div class="col-3">
                 <div class="side-nav" style="margin-bottom: 85px">
                     <ul class="nav-links">
+
                         <li style="border-bottom: 1px solid #E6E8EB;">
-                            <a href="{{url("/profile")}}" ><i class="fa-solid fa-user"></i>Tài khoản</a>
+                            <a href="{{url("/profile/$customer->customer_id")}}" ><i class="fa-solid fa-user"></i>Tài khoản</a>
                         </li>
                         <li style="border-bottom: 1px solid #E6E8EB;">
-                            <a href="{{url("/orders")}}"><i class="fa-solid fa-cart-shopping"></i>Lịch sử đơn hàng</a>
+                            <a href="{{url("/orders/$customer->customer_id")}}"><i class="fa-solid fa-cart-shopping"></i>Lịch sử đơn hàng</a>
                         </li>
                         <li style="border-bottom: 1px solid #E6E8EB;">
                             <a href="#"><i class="fa-solid fa-user-lock"></i>Mật khẩu và bảo mật</a>
@@ -21,6 +22,7 @@
                             <a href="#"><i class="fa-solid fa-heart"></i>Sản phẩm yêu thích</a>
                         </li>
                         <div class="animation start-user"></div>
+
                     </ul>
                 </div>
             </div>
@@ -43,40 +45,19 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($order as $o)
                             <tr>
                                 <td style="width: 120px;">1</td>
                                 <td>15/12/2022</td>
-                                <td>1.380.000đ</td>
+                                <td>{{$o->order_total}} VNĐ</td>
                                 <td>Đã hoàn thành</td>
                                 <td>
-                                    <a href="{{url('/orders_detail')}}">
-                                        <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
-                                    </a>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 120px;">2</td>
-                                <td>15/12/2022</td>
-                                <td>1.380.000đ</td>
-                                <td>Đang vận chuyển</td>
-                                <td>
-                                    <a href="{{url('/orders_detail')}}">
+                                    <a href="{{url('/orders_detail/'.$o->customer_id)}}">
                                         <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="width: 120px;">3</td>
-                                <td>15/12/2022</td>
-                                <td>1.380.000đ</td>
-                                <td>Đang xử lí</td>
-                                <td>
-                                    <a href="{{url('/orders_detail')}}">
-                                        <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
