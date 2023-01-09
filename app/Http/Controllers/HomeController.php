@@ -102,16 +102,22 @@ class HomeController extends Controller
         $comment->game_id= $game_id;
         $comment->customer_id= $customer_id;
         $comment->comment_status= 1;
+        $comment->comment_parent_comment= 0;
         $comment->save();
     }
 
     function load_comment(Request $request){
         $game_id = $request ->game_id;
-        $comment= Comment::where('game_id',$game_id)->where('comment_status',0)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')->get();
-//        $comment = DB::table('tbl_comment')
-//            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
-//            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
-//            ->orderBy('comment_id')->get();
+        $comment= Comment::where('game_id',$game_id)
+            ->where('comment_parent_comment','=',0)
+            ->where('comment_status',0)->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
+            ->get();
+        $comment_reply = DB::table('tbl_comment')
+            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
+            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
+            ->where('comment_parent_comment','>',0)
+            ->orderBy('comment_id','desc')
+            ->get();
         $output= '';
         foreach($comment as $key =>$comm){
             $output.= '
@@ -120,14 +126,32 @@ class HomeController extends Controller
                     <img style="width: 80px;" src="/images/avataricon.png">
                 </div>
                 <div class="col-md-10">
-                    <p style="line-height: 0.5;"><b>'.$comm->customer_name.'</b></p>
-                    <p style="color: #6B7684;">Bình luận vào lúc: '.$comm->created_at.'</p>
-                    <p>'.$comm->comment_info.'</p>
+                    <p style="line-height: 0.5;"><b>' . $comm->customer_name . '</b></p>
+                    <p style="color: #6B7684;">Bình luận vào lúc: ' . $comm->created_at . '</p>
+                    <p>' . $comm->comment_info . '</p>
                 </div>
             </div>
+             <p></p>
+             ';
+            foreach ($comment_reply as $kw =>$com_reply) {
+                if ($com_reply->comment_parent_comment == $comm->comment_id) {
+                    $output .= '
+                   <div class="row style_comment" style="margin-left: 90px; margin-bottom: 35px;">
+                    <div class="col-md-1">
+                        <img style="width: 50px;" src="/images/gamingstore-logooo.png">
+                    </div>
+                    <div class="col-md-11" style="margin-top: 5px;">
+                        <p style="line-height: 0.5;margin-left: 30px; color: #2579F2;"><b>GamingStore_Admin</b></p>
+                        <p style="color: #000000;margin-left: 30px;"><b style="font-weight: 500">Trả lời: </b>' .$com_reply->comment_info. '</p>
+                    </div>
+                </div>
+                 <p></p>
             ';
+
+                }
+            }
         }
         echo $output;
     }
-
 }
+

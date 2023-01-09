@@ -159,8 +159,16 @@ class AdminController extends Controller
         $comment = DB::table('tbl_comment')
             ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
             ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
-            ->orderBy('comment_status','desc')->get();
-        return view('/admin/comment/comment')->with('comment', $comment);
+            ->where('comment_parent_comment','=',0)
+            ->orderBy('comment_id','desc')->get();
+        $comment_reply = DB::table('tbl_comment')
+            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_comment.game_id')
+            ->join('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_comment.customer_id')
+            ->where('comment_parent_comment','>',0)
+            ->orderBy('comment_id','desc')
+            ->get();
+        return view('/admin/comment/comment')->with('comment', $comment)->with('comment_reply', $comment_reply);
+
     }
 
     function accept_comment(Request $request){
@@ -173,11 +181,12 @@ class AdminController extends Controller
     function reply_comment(Request $request){
         $data= $request->all();
         $comment = new Comment();
+        $admin_id = Session::get('admin_id');
         $comment -> comment_info = $data['comment'];
         $comment -> game_id = $data['game_id'];
         $comment -> comment_parent_comment = $data['comment_id'];
         $comment -> comment_status=0;
-        $comment -> customer_id;
+        $comment -> customer_id= $admin_id;
         $comment->save();
     }
 }

@@ -12,10 +12,10 @@
                     <thead>
                     <tr>
                         <th style="width: 30px;">Duyệt</th>
-                        <th style="width: 150px;">Tên khách hàng</th>
+                        <th style="width: 110px;">Tên khách hàng</th>
                         <th style="width: 300px;">Bình luận</th>
-                        <th style="width: 125px;">Ngày bình luận</th>
-                        <th>Sản phẩm</th>
+                        <th style="width: 100px;">Ngày bình luận</th>
+                        <th style="width: 150px;">Sản phẩm</th>
                         <th style="width: 50px;">Tùy biến</th>
                     </tr>
                     </thead>
@@ -29,8 +29,15 @@
                                 <input type="button" data-comment_status="1" data-comment_id="{{$comm->comment_id}}" id="{{$comm->game_id}}" class="btn btn-danger btn-md comment_accept_btn" value="Hủy Duyệt">
                             @endif
                             </td>
-                            <td style="text-align: center;">{{$comm->customer_name}}</td>
+                            <td>{{$comm->customer_name}}</td>
                             <td style="">{{$comm->comment_info}}
+                                <ul class="list_cmrep">
+                                    @foreach($comment_reply as $kw => $comm_reply)
+                                        @if($comm_reply->comment_parent_comment==$comm->comment_id)
+                                            <li>Trả lời: {{$comm_reply->comment_info}}</li>
+                                        @endif
+                                    @endforeach
+                                </ul>
                                 @if($comm->comment_status ==0)
                                 <br><textarea class="form-control reply_comment_{{$comm->comment_id}}" rows="5"></textarea>
                                 <br><button class="btn-reply-comment" data-game_id="{{$comm->game_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời</button>

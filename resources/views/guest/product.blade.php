@@ -91,8 +91,6 @@
                 @csrf
                 <input type="hidden" name="game_id" class="game_id" value="{{$game->game_id}}">
                 <div id="comment_show"></div>
-
-                <p></p>
             </form>
         </div>
     </div>

@@ -3015,3 +3015,7 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     padding-top: 10px;
     padding-right: 25px;
 }
+.list_cmrep{
+    list-style: none;
+    color: blue;
+}
