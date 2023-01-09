@@ -84,7 +84,7 @@
                 Giỏ hàng
             </a>';
             } else {
-                echo '<a href="/login">Giỏ hàng</a>';
+                echo '<a href="/login"><img src="/images/shopping-cart.png" alt="UserImage">Giỏ hàng</a>';
             }
             ?>
 
