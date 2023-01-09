@@ -36,7 +36,7 @@
                             </td>
                         </form>
                         <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
-                        <td><a href="/cart_delete/{{$v->rowId}}/{{$customer}}"><i class="fa-solid fa-ban" style="color: red"></i> Xóa sản phẩm</a></td>
+                        <td><a href="/cart_delete/{{$v->rowId}}/{{$customer}}" style="text-decoration: none;;" class="btn btn-danger"><i class="fa-solid fa-ban" style="color: white;"></i> Xóa sản phẩm</a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -48,10 +48,10 @@
                     <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
                     <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
                 </tr>
-                <tr>
-                    <td style="font-weight: bold;">Thuế:</td>
-                    <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
-                </tr>
+{{--                <tr>--}}
+{{--                    <td style="font-weight: bold;">Thuế:</td>--}}
+{{--                    <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>--}}
+{{--                </tr>--}}
                 <tr>
                     <td style="font-weight: bold;">Phí vận chuyển:</td>
                     <td style="padding-left: 40px;">Miễn Phí</td>

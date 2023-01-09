@@ -30,7 +30,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>{{$v->name}}</td>
-                                <td><img src="/public/images/upload/{{$v->options->images}}</td>
+                                <td><img src="/public/images/upload/{{$v->options->images}}"></td>
                                 <td>{{$v->qty}}</td>
                                 <td>{{number_format($v->price * $v->qty).' VNĐ'}}</td>
                             </tr>
@@ -42,12 +42,12 @@
                         if($message)
                             echo $message;
                         ?>
-                        <form method="POST" action="{{URL::to('/check_coupon')}}">
-                            @csrf
-                            <input type="text" class="form-control" name="coupon_text" placeholder="Nhập mã giảm giá">
-                            <input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
+{{--                        <form method="POST" action="{{URL::to('/check_coupon')}}">--}}
+{{--                            @csrf--}}
+{{--                            <input type="text" class="form-control" name="coupon_text" placeholder="Nhập mã giảm giá">--}}
+{{--                            <input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">--}}
 
-                        </form>
+{{--                        </form>--}}
 
                         <div class="two-btn">
                             <div class="row">
@@ -58,47 +58,47 @@
                                              <td>{{Cart::priceTotal(0).' VNĐ'}}</td>
                                         </tr>
                                         <tr>
-                                             <td style="font-weight: bold;">Thuế:</td>
-                                            <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>
+{{--                                             <td style="font-weight: bold;">Thuế:</td>--}}
+{{--                                            <td style="padding-left: 20px;">{{Cart::tax(0).' VNĐ'}}</td>--}}
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold;">Phí vận chuyển:</td>
                                             <td style="padding-left: 40px;">Miễn Phí</td>
                                         </tr>
-                                        <tr>
-                                            <td style="font-weight: bold;">Mã giảm giá:</td>
-                                            <td style="padding-left: 40px;">
-                                                @if(Session::get('coupon'))
-                                                    @foreach(Session::get('coupon') as $key => $c)
-                                                        @if($c['coupon_serve']==0)
-                                                            {{$c['coupon_number']}}%
-                                                        @else
-                                                            {{$c['coupon_number']}}K
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight: bold;">Giảm:</td>
-                                            <td style="padding-left: 40px;">
-                                                @if(Session::get('coupon'))
-                                                    @foreach(Session::get('coupon') as $key => $c)
-                                                        @if($c['coupon_serve']==0)
-                                                            @php
+{{--                                        <tr>--}}
+{{--                                            <td style="font-weight: bold;">Mã giảm giá:</td>--}}
+{{--                                            <td style="padding-left: 40px;">--}}
+{{--                                                @if(Session::get('coupon'))--}}
+{{--                                                    @foreach(Session::get('coupon') as $key => $c)--}}
+{{--                                                        @if($c['coupon_serve']==0)--}}
+{{--                                                            {{$c['coupon_number']}}%--}}
+{{--                                                        @else--}}
+{{--                                                            {{$c['coupon_number']}}K--}}
+{{--                                                        @endif--}}
+{{--                                                    @endforeach--}}
+{{--                                                @endif--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                        <tr>--}}
+{{--                                            <td style="font-weight: bold;">Giảm:</td>--}}
+{{--                                            <td style="padding-left: 40px;">--}}
+{{--                                                @if(Session::get('coupon'))--}}
+{{--                                                    @foreach(Session::get('coupon') as $key => $c)--}}
+{{--                                                        @if($c['coupon_serve']==0)--}}
+{{--                                                            @php--}}
 
-                                                            @endphp
-                                                        @else
-                                                            <p>
-                                                                @php
+{{--                                                            @endphp--}}
+{{--                                                        @else--}}
+{{--                                                            <p>--}}
+{{--                                                                @php--}}
 
-                                                                @endphp
-                                                            </p>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                        </tr>
+{{--                                                                @endphp--}}
+{{--                                                            </p>--}}
+{{--                                                        @endif--}}
+{{--                                                    @endforeach--}}
+{{--                                                @endif--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
                                         <tr>
                                             <td style="font-weight: bold;">Tổng thành tiền:</td>
                                             <td>{{Cart::total(0).' VNĐ'}}</td>
@@ -143,7 +143,7 @@
                             <div class="close-btn" onclick="closePopup()">&times;</div>
                             <div class="form">
                                 <h3>Chỉnh sửa hồ sơ</h3>
-                                <form action="{{url('/update-profile/'.$customer->customer_id)}}" class="user-infomation" method="POST">
+                                <form action="{{url('/update-profile/'.$customer->customer_id)}}"  method="POST">
                                     @csrf
                                 <div class="form-element">
                                     <label for="text" style="font-weight: bold; color: white;">Họ và tên</label>

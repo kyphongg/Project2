@@ -39,8 +39,8 @@
                                     @endforeach
                                 </ul>
                                 @if($comm->comment_status ==0)
-                                <br><textarea class="form-control reply_comment_{{$comm->comment_id}}" rows="5"></textarea>
-                                <br><button class="btn-reply-comment" data-game_id="{{$comm->game_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời</button>
+                                <br><textarea style="margin-top: -20px;" class="form-control reply_comment_{{$comm->comment_id}}" rows="5"></textarea>
+                                <br><button style="margin-top: -95px;"  class="btn-reply-comment" data-game_id="{{$comm->game_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời</button>
                                 @endif
                             </td>
                             <td style="text-align: center;">{{$comm->created_at}}</td>

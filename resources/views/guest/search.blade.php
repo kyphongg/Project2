@@ -3,7 +3,7 @@
 
 @section('title','Kết quả tìm kiếm')
 @section('content')
-    <div class="cart-p">
+    <div class="cart-p" style="padding-bottom: 275px;">
         <div class="cart-heading">
             <h3>Kết quả tìm kiếm</h3>
         </div>
