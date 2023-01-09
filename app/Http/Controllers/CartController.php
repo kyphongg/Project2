@@ -56,10 +56,10 @@ class CartController extends Controller
         }
         if($data['payment_method']==1){
             Cart::destroy();
-            echo 'Thanh toán bằng tiền mặt';
+            return view('guest/success')->with('category',$category);
         } elseif ($data['payment_method']==2){
             Cart::destroy();
-            echo 'Thanh toán bằng ngân hàng';
+            return view('guest/success')->with('category',$category);
         }
     }
 
@@ -79,7 +79,7 @@ class CartController extends Controller
         $data['weight'] = $product_info -> game_price_in;
         $data['options']['images'] = $product_info -> game_image;
         Cart::add($data);
-        Cart::setGlobalTax(1);
+        Cart::setGlobalTax(0);
         return Redirect::to('/cart/'.$customer_id)->with('customer',$customer);
     }
 

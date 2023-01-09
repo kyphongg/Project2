@@ -9,7 +9,7 @@
                 <div class="side-nav">
                     <ul class="nav-links">
                         <li style="border-bottom: 1px solid #E6E8EB;">
-                            <a href="{{url("/profile")}}" ><i class="fa-solid fa-user"></i>Tài khoản</a>
+                            <a href="{{url("/profile/$customer->customer_id")}}" ><i class="fa-solid fa-user"></i>Tài khoản</a>
                         </li>
                         <li style="border-bottom: 1px solid #E6E8EB;">
                             <a href="{{url("/orders")}}"><i class="fa-solid fa-cart-shopping"></i>Lịch sử đơn hàng</a>

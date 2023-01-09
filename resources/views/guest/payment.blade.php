@@ -84,10 +84,7 @@
                                                     @foreach(Session::get('coupon') as $key => $c)
                                                         @if($c['coupon_serve']==0)
                                                             @php
-                                                              $total = Cart::priceTotal(0);
-                                                              $coupon = $c['coupon_number']/100;
-                                                              $total_coupon = ((int)$total-((int)$total*(int)$coupon));
-                                                              echo $total_coupon.'VNĐ';
+
                                                             @endphp
                                                         @else
                                                             <p>
@@ -144,25 +141,28 @@
                             <div class="close-btn" onclick="closePopup()">&times;</div>
                             <div class="form">
                                 <h3>Chỉnh sửa hồ sơ</h3>
+                                <form action="{{url('/update-profile/'.$customer->customer_id)}}" class="user-infomation" method="POST">
+                                    @csrf
                                 <div class="form-element">
                                     <label for="text" style="font-weight: bold; color: white;">Họ và tên</label>
-                                    <input type="text" id="text" placeholder="Nhập họ và tên của bạn">
+                                    <input type="text" id="text" name="customer_name" placeholder="Nhập họ và tên của bạn">
                                 </div>
                                 <div class="form-element">
                                     <label for="text" style="font-weight: bold; color: white;">Số điện thoại</label>
-                                    <input type="text" id="text" placeholder="Nhập số điện thoại của bạn">
+                                    <input type="text" id="text" name="customer_phone" placeholder="Nhập số điện thoại của bạn">
                                 </div>
                                 <div class="form-element">
                                     <label for="text" style="font-weight: bold; color: white;">Địa chỉ hiện tại</label>
-                                    <input type="text" id="text" placeholder="Nhập địa chỉ của bạn">
+                                    <input type="text" id="text" name="customer_address" placeholder="Nhập địa chỉ của bạn">
                                 </div>
                                 <div class="form-element">
                                     <label for="email" style="font-weight: bold; color: white;">Email</label>
-                                    <input type="text" id="email" placeholder="Nhập email của bạn">
+                                    <input type="text" id="email" name="customer_email" placeholder="Nhập email của bạn">
                                 </div>
                                 <div class="form-element">
-                                    <button class="btn btn-secondary" onclick="closePopup()">Cập nhật hồ sơ</button>
+                                    <button type="submit" class="btn btn-secondary" onclick="closePopup()">Cập nhật hồ sơ</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
