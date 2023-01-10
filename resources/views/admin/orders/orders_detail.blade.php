@@ -20,7 +20,6 @@
         <div class="table-responsive" style="margin-top: 15px;">
             <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
                 <thead>
-                @foreach($detail as $d)
                 <tr>
                     <th style="width: 50px;">Hình ảnh</th>
                     <th>Tên sản phẩm</th>
@@ -29,6 +28,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($detail as $d)
                 <tr>
                     <td><img style="width: 100px; height: 100px;" src="/public/images/upload/{{$d->game_image}}" alt=""></td>
                     <td>{{$d->game_name}}</td>
