@@ -37,7 +37,7 @@
                         <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang chờ xử lý </p>
                         <p><b>Hình thức thanh toán:</b> @if($payment->payment_method==1)
                                 Tiền mặt
-                            @else
+                            @elseif($payment->payment_method==2)
                                 Chuyển khoản ngân hàng
                             @endif</p>
                     </div>
