@@ -47,7 +47,7 @@
                             <tbody>
                             @foreach($order as $o)
                             <tr>
-                                <td style="width: 120px;">1</td>
+                                <td style="width: 120px;">{{$o->order_id}}</td>
                                 <td>15/12/2022</td>
                                 <td>{{$o->order_total}} VNĐ</td>
                                 <td>Đã hoàn thành</td>

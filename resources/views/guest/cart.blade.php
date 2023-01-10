@@ -70,7 +70,6 @@
                         <button class="btn btn-secondary btn-back">Tiếp tục mua hàng</button>
                     </a>
                 </div>
-
                 <div class="col">
                     <a href={{url("/payment/$customer")}}>
                         <button class="btn btn-secondary btn-next">Thanh toán</button>
