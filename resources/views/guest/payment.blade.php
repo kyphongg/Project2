@@ -177,7 +177,7 @@
                         <div class="payCash">
                             <span>
                                 <label>
-                                    <input name="payment_method" value="1" type="checkbox">
+                                    <input name="payment_method" value="1" type="radio">
                                     <img src="/images/GDTT.png" alt="">
                                         Thanh toán tiền mặt khi nhận hàng (COD)
                                     <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
@@ -189,7 +189,7 @@
                         <div class="payOnline">
                             <span>
                                 <label>
-                                    <input name="payment_method" value="2" type="checkbox">
+                                    <input name="payment_method" value="2" type="radio">
                                     <img src="/images/bank.png" alt="">
                                         Thanh toán chuyển khoản ngân hàng
                                     <p>Bạn chỉ phải thanh toán khi nhận được hàng. Nhân viên sẽ liên hệ bạn để xác nhận đơn hàng trong vòng 24h
