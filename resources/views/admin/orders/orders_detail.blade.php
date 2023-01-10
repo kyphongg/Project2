@@ -6,7 +6,7 @@
     <div class="table-agile-info">
         <h3>Chi tiết đơn hàng</h3>
         <div class="info-orders">
-            <p><b>Mã đơn hàng:</b> 1</p>
+            <p><b>Mã đơn hàng:</b> {{$order->order_id}}</p>
             <p><b>Khách hàng:</b> {{$order->customer_name}}</p>
             <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
             <p><b>Địa chỉ giao hàng:</b> {{$order->customer_address}}</p>
@@ -44,10 +44,10 @@
                         <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
                         <td>{{number_format($order->game_price*$order->game_quantity).' VNĐ'}}</td>
                     </tr>
-                    <tr>
-                        <td style="font-weight: bold;">Thuế:</td>
-                        <td style="padding-left: 20px;">{{number_format($order->game_price*0.01*$order->game_quantity).' VNĐ'}}</td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <td style="font-weight: bold;">Thuế:</td>--}}
+{{--                        <td style="padding-left: 20px;">{{number_format($order->game_price*0.01*$order->game_quantity).' VNĐ'}}</td>--}}
+{{--                    </tr>--}}
                     <tr>
                         <td style="font-weight: bold;">Phí vận chuyển:</td>
                         <td style="padding-left: 40px;">Miễn Phí</td>

@@ -24,7 +24,7 @@
                     <tbody>
                     @foreach($order as $o)
                     <tr>
-                        <td>1</td>
+                        <td>{{$o->order_id}}</td>
                         <td>{{$o->customer_name}}</td>
                         <td>{{$o->order_total}} VNĐ</td>
                         <td>{{$o->customer_address}}</td>
