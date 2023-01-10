@@ -76,7 +76,7 @@ class CategoryController extends Controller
         $categoryName = DB::table('tbl_category')->where('category_id',$category_id)->first();
         $gameCate = DB::table('tbl_game')
             ->join('tbl_producer','tbl_producer.producer_id','=','tbl_game.producer_id')
-            ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
+//            ->join('tbl_warehouse','tbl_warehouse.game_id','=','tbl_game.game_id')
             ->join('tbl_category','tbl_category.category_id','=','tbl_game.category_id')
             ->where('tbl_category.category_id',$category_id)
             ->get();
