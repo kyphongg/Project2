@@ -52,7 +52,7 @@
                                 <td>{{$o->order_total}} VNĐ</td>
                                 <td>Đã hoàn thành</td>
                                 <td>
-                                    <a href="{{url('/orders_detail/'.$o->customer_id)}}">
+                                    <a href="{{url('/orders_detail/'.$o->customer_id.'/'.$o->order_id)}}">
                                         <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
                                     </a>
                                 </td>

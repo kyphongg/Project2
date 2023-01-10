@@ -58,7 +58,7 @@ Route::get('/profile/{customer_id}', [ProfileController::class,'viewProfile']);
 Route::post('/update-profile/{category_id}',[ProfileController::class, 'updateProfile']);
 
 Route::get('/orders/{customer_id}', [ProfileController::class,'viewOrders']);
-Route::get('/orders_detail/{customer_id}', [ProfileController::class,'viewOrdersDetail']);
+Route::get('/orders_detail/{customer_id}/{order_id}', [ProfileController::class,'viewOrdersDetail']);
 
 Route::get('/security', [ProfileController::class,'viewSecurity']);
 

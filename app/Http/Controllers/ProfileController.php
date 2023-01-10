@@ -38,7 +38,7 @@ class ProfileController extends Controller
         return view('/guest/orders',['customer'=>$customer])->with('category',$category)->with('order',$order);
     }
 
-    function viewOrdersDetail($customer_id){
+    function viewOrdersDetail($customer_id ,$order_id){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $customer = DB::table('tbl_customer')
             ->where('tbl_customer.customer_id',$customer_id)->first();
@@ -50,7 +50,7 @@ class ProfileController extends Controller
             ->join('tbl_customer','tbl_order.customer_id','=','tbl_customer.customer_id')
             ->join('tbl_order_detail','tbl_order_detail.order_id','=','tbl_order.order_id')
             ->join('tbl_payment','tbl_order.payment_id','=','tbl_payment.payment_id')
-            ->where('tbl_customer.customer_id',$customer_id)
+            ->where('tbl_order.order_id',$order_id)
             ->get();
         return view('/guest/orders_detail',['customer'=>$customer])->with('category',$category)->with('order',$order)->with('payment',$payment);
     }
