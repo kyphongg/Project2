@@ -10,7 +10,7 @@
                 <table style="text-align: center;" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 30px;">STT</th>
+                        <th style="width: 30px;">ID</th>
                         <th>Tên nhân viên</th>
                         <th>Email</th>
                         <th>Chức vụ</th>

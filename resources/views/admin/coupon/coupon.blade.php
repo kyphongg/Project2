@@ -13,7 +13,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 30px;">STT</th>
+                        <th style="width: 30px;">ID</th>
                         <th>Tên mã giảm giá</th>
                         <th>Mã giảm giá</th>
                         <th>Giảm</th>

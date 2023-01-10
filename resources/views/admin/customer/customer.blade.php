@@ -10,7 +10,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 30px;">STT</th>
+                        <th style="width: 30px;">ID</th>
                         <th>Tên khách hàng</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>

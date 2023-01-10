@@ -13,7 +13,7 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 45px;">STT</th style="width: 45px;">
+                        <th style="width: 45px;">ID</th>
                         <th>Tên sản phẩm</th>
                         <th>Hình ảnh</th>
                         <th>Thể loại</th>
