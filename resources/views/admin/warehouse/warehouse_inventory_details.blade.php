@@ -11,11 +11,11 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Game</th>
-                        <th>Số lượng ban đầu</th>
-                        <th>Số lượng nhập mới</th>
-                        <th>Số lượng bán</th>
-                        <th>Số lượng tồn kho</th>
+                        <th style="text-align: center;">Game</th>
+                        <th style="text-align: center;">Số lượng ban đầu</th>
+                        <th style="text-align: center;">Số lượng nhập mới</th>
+                        <th style="text-align: center;">Số lượng bán</th>
+                        <th style="text-align: center;">Số lượng tồn kho</th>
                     </tr>
                     </thead>
                     <tbody>

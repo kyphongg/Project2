@@ -6,24 +6,24 @@
     <div class="table-agile-info">
         <h3>Danh sách thể loại sản phẩm</h3>
         <a href="{{url('/admin/categories_add')}}">
-            <button><i class="fa-solid fa-plus"></i>Thêm thể loại</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>  Thêm thể loại</button>
         </a>
         <div class="panel panel-default">
-            <div class="table-responsive">
+            <div class="table-responsive" style="text-align: center;">
                 <table class="table table-striped table-bordered">
-                    <thead>
+                    <thead >
                     <tr>
-                        <th style="width: 30px;">ID</th>
-                        <th>Tên thể loại</th>
-                        <th>Tùy biến</th>
+                        <th style="width: 50px; text-align: center;">ID</th>
+                        <th  style="text-align: center;">Tên thể loại</th>
+                        <th  style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
                     @forelse($category as $categories)
                         <tbody>
                         <tr>
-                            <td style="text-align: center;">{{$categories->category_id}}</td>
-                            <td style="text-align: center;">{{$categories->category_name}}</td>
-                            <td style="text-align: center;">
+                            <td>{{$categories->category_id}}</td>
+                            <td>{{$categories->category_name}}</td>
+                            <td>
                                 <a href="{{URL::to('/admin/edit-category/'.$categories->category_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>

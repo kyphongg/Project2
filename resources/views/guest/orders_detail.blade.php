@@ -82,14 +82,14 @@
                     <div class="two-btn" style="padding-bottom: 30px;">
                         <div class="row">
                             <div class="col">
-                                <a href="{{url('/orders')}}">
-                                    <button class="btn-back">Quay lại</button>
+                                <a href="{{url("/orders/$customer->customer_id")}}">
+                                    <button class="btn btn-secondary btn-back">Quay lại</button>
                                 </a>
                             </div>
 
                             <div class="col">
                                 <a href="#">
-                                    <button class="btn-next">Hủy đơn hàng</button>
+                                    <button class="btn btn-secondary btn-next">Hủy đơn hàng</button>
                                 </a>
                             </div>
                         </div>

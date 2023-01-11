@@ -10,8 +10,8 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Ngày kiểm kê</th>
-                        <th>Tùy biến</th>
+                        <th style="text-align: center;">Ngày kiểm kê</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
                     <tbody>

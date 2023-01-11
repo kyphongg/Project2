@@ -4,41 +4,51 @@
 
 @section('content')
     <div class="table-agile-info">
-        <h3>Đơn hàng đang xử lý</h3>
+        <div class="table-heading">
+            <div class="row">
+                <div class="col">
+                    <h3>Đơn hàng đã xác nhận</h3>
+                </div>
+                <div class="col">
+                    <div class="order-status" style="margin-left: 320px;">
+                        <a href="{{url('/admin/new_orders')}}">Đơn mới |</a>
+                        <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
+                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="panel panel-default">
-            <div class="table-responsive" style="margin-top: 15px;">
-                <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
+            <div class="table-responsive">
+                <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Mã đơn hàng</th>
-                        <th>Khách hàng</th>
-                        <th>Tổng tiền</th>
-                        <th>Địa chỉ giao hàng</th>
-                        <th>Ngày đặt</th>
-                        <th>Trạng thái</th>
-                        <th>Cập nhật</th>
-                        <th>Tùy biến</th>
+                        <th style="width: 75px;">Mã đơn</th>
+                        <th style="width: 145px; text-align: center;">Người nhận</th>
+                        <th style="text-align: center;width: 90px;">SĐT</th>
+                        <th style="text-align: center;">Địa chỉ giao</th>
+                        <th style="text-align: center;">Tổng tiền</th>
+                        <th style="text-align: center;">Ngày đặt</th>
+                        <th style="text-align: center;">Trạng thái</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     @foreach($order as $o)
                     <tr>
-                        <td>{{$o->order_id}}</td>
+                        <td style="text-align: center;">{{$o->order_id}}</td>
                         <td>{{$o->customer_name}}</td>
-                        <td>{{$o->order_total}} VNĐ</td>
+                        <td>{{$o->customer_phone}}</td>
                         <td>{{$o->customer_address}}</td>
-                        <td>03/01/2022</td>
-                        @if($o->order_status==0)
-                            <td>Đang chờ xử lý</td>
-                        @endif
-
-                        <td>
-                            <button style="width: 100px; background-color: #5CB85C;"><b>Vận chuyển</b></button>
+                        <td style="text-align: center;">{{$o->order_total}} đ</td>
+                        <td style="text-align: center;">2023-1-11 10:39</td>
+                        <td style="text-align: center;">
+                            <button class="btn btn-success" style="width: 100px;"><b>Vận chuyển</b></button>
                         </td>
-                        <td>
-                            <a style="text-align: center;" href="{{url('/admin/orders_details/'.$o->order_id)}}">
-                                <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
+                        <td style="text-align: center;">
+                            <a class="btn btn-primary" style="text-align: center;" href="{{url('/admin/orders_details/'.$o->order_id)}}">
+                                Xem chi tiết
                             </a>
                         </td>
                     </tr>

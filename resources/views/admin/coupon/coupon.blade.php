@@ -6,46 +6,46 @@
     <div class="table-agile-info">
         <h3>Danh sách mã giảm giá của sản phẩm</h3>
         <a href="{{url('/admin/coupons_add')}}">
-            <button><i class="fa-solid fa-plus"></i>Thêm MGG</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>  Thêm mã giảm giá</button>
         </a>
         <div class="panel panel-default">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" style="text-align: center;">
                     <thead>
                     <tr>
                         <th style="width: 30px;">ID</th>
-                        <th>Tên mã giảm giá</th>
-                        <th>Mã giảm giá</th>
-                        <th>Giảm</th>
-                        <th>Số lượng</th>
-                        <th>Mục đích</th>
-                        <th>Trạng thái</th>
-                        <th>Tùy biến</th>
+                        <th style="text-align: center;">Tên mã giảm giá</th>
+                        <th style="text-align: center;">Mã giảm giá</th>
+                        <th style="text-align: center;">Giảm</th>
+                        <th style="text-align: center;">Số lượng</th>
+                        <th style="text-align: center;">Mục đích</th>
+                        <th style="text-align: center;">Trạng thái</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
                     @forelse($coupon as $coupons)
                         <tbody>
                         <tr>
-                            <td style="text-align: center;">{{$coupons->coupon_id}}</td>
-                            <td style="text-align: center;">{{$coupons->coupon_name}}</td>
-                            <td style="text-align: center;">{{$coupons->coupon_text}}</td>
+                            <td>{{$coupons->coupon_id}}</td>
+                            <td>{{$coupons->coupon_name}}</td>
+                            <td>{{$coupons->coupon_text}}</td>
                             @if($coupons->coupon_serve==0)
-                                <td style="text-align: center;">{{$coupons->coupon_number}}%</td>
+                                <td>{{$coupons->coupon_number}}%</td>
                             @else
-                                <td style="text-align: center;">{{$coupons->coupon_number}}K</td>
+                                <td>{{$coupons->coupon_number}}K</td>
                             @endif
-                            <td style="text-align: center;">{{$coupons->coupon_quantity}}</td>
+                            <td>{{$coupons->coupon_quantity}}</td>
                             @if($coupons->coupon_serve==0)
-                                <td style="text-align: center;">Giảm theo phần trăm</td>
+                                <td>Giảm theo phần trăm</td>
                             @else
-                                <td style="text-align: center;">Giảm theo tiền</td>
+                                <td>Giảm theo tiền</td>
                             @endif
                             @if($coupons->coupon_status==0)
-                                <td style="text-align: center;">Hoạt động</td>
+                                <td>Hoạt động</td>
                             @else
-                                <td style="text-align: center;">Không hoạt động</td>
+                                <td>Không hoạt động</td>
                             @endif
-                            <td style="text-align: center;">
+                            <td>
                                 <a href="{{URL::to('/admin/edit-coupon/'.$coupons->coupon_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>

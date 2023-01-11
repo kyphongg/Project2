@@ -4,33 +4,49 @@
 
 @section('content')
     <div class="table-agile-info">
-        <h3>Đơn hàng mới</h3>
+        <div class="table-heading">
+            <div class="row">
+                <div class="col">
+                    <h3>Đơn hàng mới</h3>
+                </div>
+                <div class="col">
+                    <div class="order-status" style="margin-left: 300px;">
+                        <a href="{{url('/admin/accept_orders')}}">Đã xác nhận |</a>
+                        <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
+                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="panel panel-default">
-            <div class="table-responsive" style="margin-top: 15px;">
-                <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
+            <div class="table-responsive">
+                <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Mã đơn hàng</th>
-                        <th>Khách hàng</th>
-                        <th>Tổng tiền</th>
-                        <th>Địa chỉ giao hàng</th>
-                        <th>Ngày đặt</th>
-                        <th>Cập nhật</th>
-                        <th>Tùy biến</th>
+                        <th style="width: 75px;">Mã đơn</th>
+                        <th style="width: 145px; text-align: center;">Người nhận</th>
+                        <th style="text-align: center;width: 90px;">SĐT</th>
+                        <th style="text-align: center;">Địa chỉ giao</th>
+                        <th style="text-align: center;">Tổng tiền</th>
+                        <th style="text-align: center;">Ngày đặt</th>
+                        <th style="text-align: center;">Trạng thái</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td style="text-align: center;">1</td>
                             <td>Phong</td>
-                            <td>4.030.000đ</td>
+                            <td>0966331402</td>
                             <td>Văn Chương, Đống Đa, Hà Nội</td>
-                            <td>03/01/2022</td>
-                            <td>
-                                <button style="width: 80px; background-color: #5CB85C;"><b>Xác nhận</b></button></td>
-                            <td>
-                                <a style="text-align: center;" href="{{url('/admin/orders_details')}}">
-                                    <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>
+                            <td style="text-align: center;">4.030.000đ</td>
+                            <td style="text-align: center;">2023-11-1 10:38</td>
+                            <td style="text-align: center;">
+                                <button class="btn btn-success" style="width: 80px;"><b>Xác nhận</b></button>
+                            </td>
+                            <td style="text-align: center;">
+                                <a class="btn btn-primary" style="text-align: center;" href="{{url('/admin/orders_details')}}">
+                                    Xem chi tiết
                                 </a>
                             </td>
                         </tr>

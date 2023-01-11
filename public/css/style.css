@@ -1223,11 +1223,11 @@ section#tables  p {
 	background-color: #ffffff;
 }
 .table th, .table>thead>tr>td, .table>thead>tr>th{
-    text-align: center;
+
 }
 
 .table td, .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-	padding: 15px!important;
+	padding: 8px!important;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
 	font-size: 16px;
@@ -1417,12 +1417,8 @@ ul.bs-glyphicons-list {
 }
 
 .table-agile-info button{
-    background-color: #337AB7;
     color: white;
-    border:none;
     border-radius: 10px;
-    width:150px;
-    height: 30px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -3017,5 +3013,20 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 }
 .list_cmrep{
     list-style: none;
+    color: blue;
+}
+
+.order-status{
+    margin-bottom: 25px;
+}
+
+.order-status a{
+    color: #337AB7;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.order-status a:hover{
     color: blue;
 }

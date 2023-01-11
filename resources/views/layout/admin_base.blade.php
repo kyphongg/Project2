@@ -142,16 +142,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $admin_level = Session::get('admin_level');
                     if($admin_level==0||$admin_level==2||$admin_level==3||$admin_level==100)
                         echo '<li class="sub-menu">
-                        <a href="javascript:">
-                            <i class="fas fa-truck-loading"></i>
+                         <a href="/admin/new_orders">
+                            <i class="fas fa-cart-plus"></i>
                             <span>Quản lý đơn hàng</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="/admin/new_orders"><i class="fas fa-cart-plus"></i>Đơn hàng mới</a></li>
-                            <li><a href="/admin/accept_orders"><i class="fas fa-spinner"></i>Đơn hàng đang xử lý</a></li>
-                            <li><a href="/admin/done_orders"><i class="fas fa-clipboard-check"></i>Đơn hàng đã hoàn thành</a></li>
-                            <li><a href="/admin/cancel_orders"><i class="fas fa-window-close"></i>Đơn hàng bị hủy</a></li>
-                        </ul>
                     </li>';
                     ?>
 

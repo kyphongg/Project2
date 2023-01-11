@@ -6,7 +6,7 @@
     <div class="table-agile-info">
         <h3>Kho</h3>
         <a href="{{url('/admin/warehouse_add')}}">
-            <button><i class="fa-solid fa-plus"></i>  Nhập sản phẩm</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>  Nhập sản phẩm</button>
         </a>
         <div class="panel panel-default">
             <div class="table-responsive">
@@ -14,15 +14,15 @@
                     <thead>
                     <tr>
                         <th style="width: 45px;">ID</th>
-                        <th>Game</th>
-                        <th>Số lượng</th>
-                        <th>Ngày nhập</th>
-                        <th>Người nhập</th>
-                        <th>Tùy biến</th>
+                        <th style="text-align: center;">Game</th>
+                        <th style="text-align: center;">Số lượng</th>
+                        <th style="text-align: center;">Ngày nhập</th>
+                        <th style="text-align: center;">Người nhập</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
-                    @foreach($ware as $key => $w)
                     <tbody>
+                    @foreach($ware as $key => $w)
                     <tr>
                         <td style="text-align: center;">{{$w->warehouse_id}}</td>
                         <td>{{$w->game_name}}</td>

@@ -8,7 +8,8 @@
         <div class="info-orders">
             <p><b>Mã đơn hàng:</b> {{$order->order_id}}</p>
             <p><b>Khách hàng:</b> {{$order->customer_name}}</p>
-            <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
+            <p><b>Ngày đặt hàng:</b> 2023-1-11 11:06</p>
+            <p><b>Số điện thoại:</b> {{$order->customer_phone}}</p>
             <p><b>Địa chỉ giao hàng:</b> {{$order->customer_address}}</p>
             <p><b>Hình thức thanh toán:</b> <?php
                                             if ($order->payment_method == 1)

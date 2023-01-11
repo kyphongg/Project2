@@ -6,24 +6,24 @@
     <div class="table-agile-info">
         <h3>Danh sách nhà sản xuất của sản phẩm</h3>
         <a href="{{url('/admin/producers_add')}}">
-            <button><i class="fa-solid fa-plus"></i>Thêm NSX</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>  Thêm nhà sản xuất</button>
         </a>
         <div class="panel panel-default">
-            <div class="table-responsive">
+            <div class="table-responsive" style="text-align: center;">
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 30px;">ID</th>
-                        <th>Tên nhà sản xuất</th>
-                        <th>Tùy biến</th>
+                        <th style="text-align: center; width: 50px;">ID</th>
+                        <th style="text-align: center;">Tên nhà sản xuất</th>
+                        <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
                     @forelse($producer as $producers)
                         <tbody>
                         <tr>
-                            <td style="text-align: center;">{{$producers->producer_id}}</td>
-                            <td style="text-align: center;">{{$producers->producer_name}}</td>
-                            <td style="text-align: center;">
+                            <td>{{$producers->producer_id}}</td>
+                            <td>{{$producers->producer_name}}</td>
+                            <td>
                                 <a href="{{URL::to('/admin/edit-producer/'.$producers->producer_id)}}" class="active" ui-toggle-class="">
                                     <i class="fa-solid fa-square-pen" style="font-size: 25px; color: #5CB85C;"></i>
                                 </a>
