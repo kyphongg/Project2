@@ -25,16 +25,14 @@ class AdminController extends Controller
 
     function viewHome(){
         $this->checkLogin();
-        return view('/admin/home');
+        $customer_total= DB::table('tbl_customer')->count();
+        $admin_total= DB::table('tbl_admin')->get()->count();
+        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total);
     }
 
     function viewLogin(){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         return view('/admin/login')->with('category',$category);
-    }
-
-    function test(){
-        return view('/layout/testadmin');
     }
 
     function login(Request $request){
