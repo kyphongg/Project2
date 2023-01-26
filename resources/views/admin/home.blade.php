@@ -21,12 +21,12 @@
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-1">
                 <div class="col-md-4 market-update-right">
-                    <i class="fas fa-file-invoice-dollar"></i>
+                    <i style="color: white;" class="fa fa-comments fa-3x" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
-                    <h4>Đơn hàng</h4>
-                    <h3>1,250</h3>
-                    <p>Số lượng đơn đã bán</p>
+                    <h4>Bình luận</h4>
+                    <h3>{{$comment_total}}</h3>
+                    <p>Số lượng bình luận</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -47,7 +47,7 @@
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-4">
                 <div class="col-md-4 market-update-right">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i class="fas fa-file-invoice-dollar"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
                     <h4>Đơn mới</h4>
@@ -60,9 +60,11 @@
 
         <div class="graphBox">
             <div class="box">
+                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>
                 <canvas id="myChart"></canvas>
             </div>
             <div class="box">
+                <h3 style="text-align: center;">Doanh thu theo tháng</h3>
                 <canvas id="earning"></canvas>
             </div>
         </div>

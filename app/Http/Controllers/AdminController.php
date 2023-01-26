@@ -26,8 +26,9 @@ class AdminController extends Controller
     function viewHome(){
         $this->checkLogin();
         $customer_total= DB::table('tbl_customer')->count();
-        $admin_total= DB::table('tbl_admin')->get()->count();
-        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total);
+        $admin_total= DB::table('tbl_admin')->count();
+        $comment_total= DB::table('tbl_comment')->count();
+        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total)->with('comment_total',$comment_total);
     }
 
     function viewLogin(){
