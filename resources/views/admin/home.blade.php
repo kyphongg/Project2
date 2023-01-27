@@ -61,11 +61,123 @@
         <div class="graphBox">
             <div class="box">
                 <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart" style="margin-top: 15px;"></canvas>
             </div>
             <div class="box">
-                <h3 style="text-align: center;">Doanh thu theo tháng</h3>
+                <h3 style="text-align: center;">Biểu đồ doanh thu</h3>
+{{--                <form autocomplete="off" style="margin-bottom: 10px;">--}}
+{{--                    @csrf--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>--}}
+{{--                    </div>--}}
+{{--                    <input style="margin-top: 25px;" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lấy dữ liệu">--}}
+{{--                </form>--}}
                 <canvas id="earning"></canvas>
+            </div>
+        </div>
+
+        <div class="detailsOrder">
+            <div class="outOfStockItem">
+                <div class="cardHeader">
+                    <h2>Sản phẩm hết hàng</h2>
+                </div>
+                <table>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp1).jpg"></div></td>
+                        <td>
+                            <h4 class="btn btn-danger">Hết hàng</h4><br>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp2).jpg"></div></td>
+                        <td>
+                            <h4 class="btn btn-danger">Hết hàng</h4><br>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp3).png"></div></td>
+                        <td>
+                            <h4 class="btn btn-danger">Hết hàng</h4><br>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp4).jpg"></div></td>
+                        <td>
+                            <h4 class="btn btn-danger">Hết hàng</h4><br>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp5).jpeg"></div></td>
+                        <td>
+                            <h4 class="btn btn-danger">Hết hàng</h4><br>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="doneOrders">
+                <div class="cardHeader">
+                    <h2>Đơn hàng hôm nay</h2>
+                </div>
+                <table style="margin-top: -55px; text-align: center;">
+                    <thead>
+                    <tr>
+                        <td>Mã ĐH</td>
+                        <td>Tên KH</td>
+                        <td>Số điện thoại</td>
+                        <td>Số tiền</td>
+                        <td>Tình Trạng</td>
+                        <td>Thời gian</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Phong</td>
+                        <td>0966331402</td>
+                        <td>1.000.000đ</td>
+                        <td><span class="status delivered">Đã hoàn thành</span></td>
+                        <td>27-1-2023</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Phong</td>
+                        <td>0966331402</td>
+                        <td>1.000.000đ</td>
+                        <td><span class="status delivered">Đã hoàn thành</span></td>
+                        <td>27-1-2023</td>
+                    </tr>  <tr>
+                        <td>3</td>
+                        <td>Phong</td>
+                        <td>0966331402</td>
+                        <td>1.000.000đ</td>
+                        <td><span class="status delivered">Đã hoàn thành</span></td>
+                        <td>27-1-2023</td>
+                    </tr>  <tr>
+                        <td>4</td>
+                        <td>Phong</td>
+                        <td>0966331402</td>
+                        <td>1.000.000đ</td>
+                        <td><span class="status delivered">Đã hoàn thành</span></td>
+                        <td>27-1-2023</td>
+                    </tr>  <tr>
+                        <td>5</td>
+                        <td>Phong</td>
+                        <td>0966331402</td>
+                        <td>1.000.000đ</td>
+                        <td><span class="status delivered">Đã hoàn thành</span></td>
+                        <td>27-1-2023</td>
+                    </tr>
+                    </tbody>
+                </table>
+                    <h3 style="text-align: right; margin-top:20px;">Tổng doanh thu: 5.000.000đ</h3>
             </div>
         </div>
 
@@ -118,11 +230,51 @@
                     </tbody>
                 </table>
             </div>
+            <div class="featureItem">
+                <div class="cardHeader">
+                    <h2>Sản phẩm bán chạy</h2>
+                </div>
+                <table>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp1).jpg"></div></td>
+                        <td>
+                            <h4>100 lượt mua</h4>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp2).jpg"></div></td>
+                        <td>
+                            <h4>52 lượt mua</h4>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp3).png"></div></td>
+                        <td>
+                            <h4>34 lượt mua</h4>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp4).jpg"></div></td>
+                        <td>
+                            <h4>12 lượt mua</h4>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp5).jpeg"></div></td>
+                        <td>
+                            <h4>20 lượt mua</h4>
+                            <span>Demon's Souls</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
-        <div class="featureItem">
 
-        </div>
         <div class="clearfix"> </div>
     </div>
 

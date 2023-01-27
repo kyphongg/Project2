@@ -13,6 +13,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
             crossorigin="anonymous"></script>
@@ -47,6 +48,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
     <script src="{{asset('js/raphael-min.js')}}"></script>
     <script src="{{asset('js/morris.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </head>
 <body>
@@ -260,6 +263,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     });
 
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            prevText: "Tháng trước",
+            nextText: "Tháng sau",
+            dateFormat: "yy-mm-dd",
+            dayNamesMin: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5","Thứ 6","Thứ 7"],
+            duration: "slow"
+        });
+    } );
+
+    $( function() {
+        $( "#datepicker2" ).datepicker();
+    } );
+
 </script>
 <script>
     $(document).ready(function() {
@@ -346,6 +363,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     });
+
+
 </script>
 @section('js')
     <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>

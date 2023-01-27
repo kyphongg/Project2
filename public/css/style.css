@@ -3174,3 +3174,153 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     font-size: 14px;
     font-weight: 500;
 }
+
+.details .featureItem{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+
+.details .featureItem .imgBx img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details .featureItem table tr td{
+    padding: 12px 10px;
+}
+
+.details .featureItem table tr td h4{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.details .featureItem table tr td h4 span{
+    font-size: 16px;
+    color: grey;
+}
+
+.details .featureItem table tr:hover{
+    background-color: #347CE5;
+    color: white;
+}
+
+.details .featureItem table tr:hover td h4 span{
+    color: white;
+}
+
+.detailsOrder{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    /*margin-top: 10px;*/
+}
+
+.detailsOrder .doneOrders{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+
+.detailsOrder table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.detailsOrder table thead td{
+    font-weight: 600;
+}
+
+.detailsOrder .doneOrders table tr{
+    color: black;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.detailsOrder .doneOrders table tr:last-child{
+    border-bottom: none;
+}
+
+.detailsOrder .doneOrders table tbody tr:hover{
+    background-color: #347CE5;
+    color: white;
+}
+
+.detailsOrder .doneOrders table tr td{
+    padding:10px;
+}
+
+.detailsOrder .doneOrders table tr td:last-child{
+    text-align: end;
+}
+
+.detailsOrder .doneOrders table tr td:nth-child(2){
+    text-align: end;
+}
+
+.detailsOrder .doneOrders table tr td:nth-child(3){
+    text-align: center;
+}
+
+.detailsOrder .outOfStockItem{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+
+.detailsOrder .outOfStockItem .imgBx img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detailsOrder .outOfStockItem table tr td{
+    padding: 12px 10px;
+}
+
+.detailsOrder .outOfStockItem table tr td h4{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.detailsOrder .outOfStockItem table tr td h4 span{
+    font-size: 16px;
+    color: grey;
+}
+
+.detailsOrder .outOfStockItem table tr:hover{
+    background-color: #347CE5;
+    color: white;
+}
+
+.detailsOrder .outOfStockItem table tr:hover td h4 span{
+    color: white;
+}
+
+
+
+
