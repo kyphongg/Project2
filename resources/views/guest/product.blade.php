@@ -54,6 +54,13 @@
                 if($customer_id){
                     echo '<div class="btn-box">
                 <button type="submit" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>
+                 <div class="alert hide">
+                    <span class="fas fa-exclamation-circle"></span>
+                    <span class="msg">Thêm vào giỏ hàng thành công!</span>
+                    <span class="close-btnn">
+                        <span class="fas fa-times"></span>
+                    </span>
+                </div>
             </div>';
                 }
                 else{

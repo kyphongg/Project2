@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{url('css/app.css')}}">
     <link rel="stylesheet" href="{{url('css/alert.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -253,6 +254,20 @@
                     $('.comment_info').val('');
                 }
             });
+        });
+
+        $('.cart-btn').click(function (){
+            $('.alert').removeClass('hide');
+            $('.alert').addClass('show');
+            $('.alert').addClass('showAlert');
+            setTimeout(function (){
+                $('.alert').addClass('hide');
+                $('.alert').removeClass('show');
+            },5000);
+        });
+        $('.close-btnn').click(function (){
+            $('.alert').addClass('hide');
+            $('.alert').removeClass('show');
         });
     });
 </script>
