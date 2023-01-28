@@ -28,4 +28,8 @@
         @endforelse
     </div>
 
+     {{ $gameCate -> links('guest.my_pagination') }}
+
+
+
 @endsection
