@@ -18,14 +18,12 @@ class ProfileController extends Controller
         $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->first();
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $data = array();
-        $data['customer_name'] = $request->get('customer_name');
         $data['customer_phone'] = $request->get('customer_phone');
         $data['customer_address'] = $request->get('customer_address');
-        $data['customer_email'] = $request->get('customer_email');
         //Update
         DB::table('tbl_customer')->where('customer_id',$customer_id)->update(
             $data);
-        return view('/guest/profile',['customer'=>$customer])->with('category',$category);
+        return view('/guest/cart',['customer'=>$customer])->with('category',$category);
     }
 
     function viewOrders($customer_id){

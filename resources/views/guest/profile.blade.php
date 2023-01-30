@@ -5,7 +5,7 @@
 @section('content')
     <div class="profile">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3" style="margin-bottom: 80px;">
                 <div class="side-nav">
                     <ul class="nav-links">
                         <li style="border-bottom: 1px solid #E6E8EB;">
@@ -34,40 +34,10 @@
                             <p>Họ và tên</p>
                             <p style="font-weight: 600;">{{$customer->customer_name}}</p>
                         </div>
-
-                        <div class="col-2">
-                            <p>Số điện thoại</p>
-                            <p style="font-weight: 600;">{{$customer->customer_phone}}</p>
-                        </div>
-
-                        <div class="col-4">
-                            <p>Địa chỉ</p>
-                            <p style="font-weight: 600;">{{$customer->customer_address}}</p>
-                        </div>
-
                         <div class="col-4">
                             <p>Địa chỉ email</p>
                             <p style="font-weight: 600;">{{$customer->customer_email}}</p>
                         </div>
-                    </div>
-                    <div class="changeInfo">
-                        <h3>Chỉnh sửa và cập nhật tài khoản</h3>
-                        <form action="{{url('/update-profile/'.$customer->customer_id)}}" class="user-infomation" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <input name="customer_name" type="text" class="form-control" placeholder="Họ và Tên">
-                            </div>
-                            <div class="form-group">
-                                <input name="customer_phone" type="text" class="form-control" placeholder="Số điện thoại">
-                            </div>
-                            <div class="form-group">
-                                <input name="customer_address" type="text" class="form-control" placeholder="Địa chỉ">
-                            </div>
-                            <div class="form-group">
-                                <input name="customer_email" type="text" class="form-control" placeholder="Email">
-                            </div>
-                            <button type="submit" class="userbtn-update">Cập nhật hồ sơ</button>
-                        </form>
                     </div>
                 </div>
                 @endif

@@ -125,11 +125,11 @@
                                     <p>{{$customer->customer_name}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p style="font-weight: bold">Số điện thoại</p>
+                                    <p style="font-weight: bold">Số điện thoại nhận hàng</p>
                                     <p>{{$customer->customer_phone}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <p style="font-weight: bold">Địa chỉ hiện tại</p>
+                                    <p style="font-weight: bold">Địa chỉ nhận hàng</p>
                                     <p>{{$customer->customer_address}}</p>
                                 </div>
                                 <div class="form-group">
@@ -145,21 +145,14 @@
                                 <h3>Chỉnh sửa hồ sơ</h3>
                                 <form action="{{url('/update-profile/'.$customer->customer_id)}}"  method="POST">
                                     @csrf
+
                                 <div class="form-element">
-                                    <label for="text" style="font-weight: bold; color: white;">Họ và tên</label>
-                                    <input type="text" id="text" name="customer_name" placeholder="Nhập họ và tên của bạn">
-                                </div>
-                                <div class="form-element">
-                                    <label for="text" style="font-weight: bold; color: white;">Số điện thoại</label>
+                                    <label for="text" style="font-weight: bold; color: white;">Số điện thoại nhận hàng</label>
                                     <input type="text" id="text" name="customer_phone" placeholder="Nhập số điện thoại của bạn">
                                 </div>
                                 <div class="form-element">
-                                    <label for="text" style="font-weight: bold; color: white;">Địa chỉ hiện tại</label>
+                                    <label for="text" style="font-weight: bold; color: white;">Địa chỉ nhận hàng</label>
                                     <input type="text" id="text" name="customer_address" placeholder="Nhập địa chỉ của bạn">
-                                </div>
-                                <div class="form-element">
-                                    <label for="email" style="font-weight: bold; color: white;">Email</label>
-                                    <input type="text" id="email" name="customer_email" placeholder="Nhập email của bạn">
                                 </div>
                                 <div class="form-element">
                                     <button type="submit" class="btn btn-secondary" onclick="closePopup()">Cập nhật hồ sơ</button>
