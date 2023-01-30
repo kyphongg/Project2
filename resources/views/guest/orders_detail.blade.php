@@ -31,8 +31,6 @@
                 <div class="orders">
                     <div class="order-heading">
                         <h3>Chi tiết đơn hàng</h3>
-                        <p><b>Mã đơn hàng:</b> 1</p>
-                        <p><b>Ngày đặt hàng:</b> 03/01/2023</p>
                         <p><b>Địa chỉ nhận hàng:</b> {{$customer->customer_address}}</p>
                         <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang chờ xử lý </p>
                         <p><b>Hình thức thanh toán:</b> @if($payment->payment_method==1)
@@ -45,8 +43,10 @@
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
-                                <th>Hình ảnh</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Ngày đặt</th>
                                 <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
                                 <th>Số lượng</th>
                                 <th>Giá tiền</th>
                             </tr>
@@ -54,8 +54,10 @@
                             <tbody>
                             @foreach($order as $o)
                                 <tr>
-                                    <td><img src="/public/images/upload/{{$o->game_image}}"></td>
+                                    <td>{{$o->order_code}}</td>
+                                    <td>{{$o->created_at}}</td>
                                     <td>{{$o->game_name}}</td>
+                                    <td><img src="/public/images/upload/{{$o->game_image}}"></td>
                                     <td>{{$o->game_quantity}}</td>
                                     <td>{{$o->order_total}} VNĐ</td>
                                 </tr>
@@ -67,15 +69,15 @@
                         <table>
                             <tr>
                                 <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
-                                <td>4.000.000đ</td>
+                                <td>{{$o->order_total}} VNĐ</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">Phí vận chuyển:</td>
-                                <td style="padding-left: 20px;">30.000đ</td>
+                                <td style="padding-left: 20px;">Miễn Phí</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">Tổng thành tiền:</td>
-                                <td>4.030.000đ</td>
+                                <td>{{$o->order_total}} VNĐ</td>
                             </tr>
                         </table>
                     </div>

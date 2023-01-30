@@ -37,6 +37,7 @@
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
+                                <th style="width: 75px;">Thứ tự</th>
                                 <th style="width: 120px;">Mã đơn hàng</th>
                                 <th>Ngày đặt hàng</th>
                                 <th>TT thanh toán</th>
@@ -45,12 +46,30 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i=0;
+                            @endphp
                             @foreach($order as $o)
+                                @php
+                                    $i++;
+                                @endphp
                             <tr>
-                                <td style="width: 120px;">{{$o->order_id}}</td>
-                                <td>15/12/2022</td>
+                                <td style="text-align: center;">{{$i}}</td>
+                                <td style="width: 120px;">{{$o->order_code}}</td>
+                                <td>{{$o->created_at}}</td>
                                 <td>{{$o->order_total}} VNĐ</td>
-                                <td>Đã hoàn thành</td>
+                                @if($o->order_status==0)
+                                    <td>Đang chờ xử lý</td>
+                                @elseif($o->order_status==1)
+                                    <td>Đã xác nhận</td>
+                                @elseif($o->order_status==2)
+                                    <td>Đang vận chuyển</td>
+                                @elseif($o->order_status==3)
+                                    <td>Hoàn thành</td>
+                                @elseif($o->order_status==4)
+                                    <td>Huỷ</td>
+                                @endif
+
                                 <td>
                                     <a href="{{url('/orders_detail/'.$o->customer_id.'/'.$o->order_id)}}">
                                         <i class="fas fa-eye" style="background-color: #337AB7; color: white; width: 25px; height: 25px; padding-top: 5px; border-radius: 2px;"></i>

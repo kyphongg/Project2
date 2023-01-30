@@ -118,14 +118,28 @@ class AdminController extends Controller
     }
 
     function viewNewOrders(){
-        return view('/admin/orders/new_orders');
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.created_at','desc')
+            ->where('tbl_order.order_status','=','0')->get();
+        return view('/admin/orders/new_orders')->with('order',$order);
+    }
+
+    function acceptOrders($order_id){
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->orderBy('tbl_order.created_at','desc')
+            ->where('tbl_order.order_id',$order_id)
+            ->update(['order_status'=>1]);
+        return view('/admin/home')->with('$order',$order);
     }
 
     function viewAcceptOrders(){
         $this->checkLogin();
         $order = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
-            ->orderBy('tbl_order.order_id','desc')->get();
+            ->orderBy('tbl_order.created_at','desc')->get();
         return view('/admin/orders/accept_orders')->with('order',$order);
     }
 

@@ -6,9 +6,7 @@
     <div class="table-agile-info">
         <h3>Chi tiết đơn hàng</h3>
         <div class="info-orders">
-            <p><b>Mã đơn hàng:</b> {{$order->order_id}}</p>
             <p><b>Khách hàng:</b> {{$order->customer_name}}</p>
-            <p><b>Ngày đặt hàng:</b> 2023-1-11 11:06</p>
             <p><b>Số điện thoại:</b> {{$order->customer_phone}}</p>
             <p><b>Địa chỉ giao hàng:</b> {{$order->customer_address}}</p>
             <p><b>Hình thức thanh toán:</b> <?php
@@ -22,19 +20,23 @@
             <table id="myTable" class="table table-striped table-bordered" style="text-align: center;">
                 <thead>
                 <tr>
-                    <th style="width: 50px;">Hình ảnh</th>
+                    <th>Mã đơn hàng</th>
                     <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
                     <th>Số lượng</th>
                     <th>Giá tiền</th>
+                    <th>Ngày đặt</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($detail as $d)
                 <tr>
-                    <td><img style="width: 100px; height: 100px;" src="/public/images/upload/{{$d->game_image}}" alt=""></td>
+                    <td>{{$d->order_code}}</td>
                     <td>{{$d->game_name}}</td>
+                    <td><img style="width: 100px; height: 100px;" src="/public/images/upload/{{$d->game_image}}" alt=""></td>
                     <td>{{$d->game_quantity}}</td>
                     <td>{{number_format($d->game_price).' VNĐ'}}</td>
+                    <td>{{$d->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -59,7 +61,7 @@
                     </tr>
                 </table>
             </div>
-            <a href="{{URL::to('/admin/accept_orders')}}">
+            <a href="{{URL::to('/admin/new_orders')}}">
                 <button type="button" class="btn btn-info"><i class="fa-solid fa-arrow-left-long"></i> Quay lại</button>
             </a>
         </div>
