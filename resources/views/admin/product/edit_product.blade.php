@@ -67,6 +67,7 @@
                         <select name="product_status" class="form-control m-bot15">
                             <option value="0">Nổi bật</option>
                             <option value="1">Mới</option>
+                            <option value="2">Ẩn</option>
                         </select>
                     </div>
 
