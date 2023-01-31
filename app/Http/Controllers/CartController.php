@@ -42,7 +42,9 @@ class CartController extends Controller
         $oder_data['order_status'] = '0';
         $oder_data['customer_id'] = Session::get('customer_id');
         $oder_data['payment_id'] = $payment_id;
-        $oder_data['order_total'] = Cart::total(0);
+        $change = Cart::total(0);
+        $c = str_replace( array(',') , '', $change );
+        $oder_data['order_total'] = $c;
         $oder_data['order_code'] = substr(md5(microtime()),rand(0,26),5);
         $oder_data['time_in'] = Carbon::now();
         $order_id = DB::table('tbl_order')->insertGetId($oder_data);

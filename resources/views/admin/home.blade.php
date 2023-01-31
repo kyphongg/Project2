@@ -73,15 +73,6 @@
             </div>
             <div class="box">
                 <h3 style="text-align: center;">Biểu đồ doanh thu</h3>
-                @foreach ($a as $m)
-                @php
-                        $moneyDay = 0;
-                        $b = $m->order_total;
-                        $c = str_replace( array(',') , '', $b );
-                        $moneyDay = $c + $moneyDay;
-                @endphp
-
-                @endforeach
 {{--                                <form autocomplete="off" style="margin-bottom: 10px;">--}}
 {{--                                    @csrf--}}
 {{--                                    <div class="col-md-3">--}}
