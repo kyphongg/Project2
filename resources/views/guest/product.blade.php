@@ -31,6 +31,10 @@
                     <p>Hết Hàng</p>
                 @endif
             </div>
+            <div class="pid">
+                <p style="font-weight: bold">Số lượng: &nbsp</p>
+                <p>{{$count}}</p>
+            </div>
             <div class="pcategory">
                 <p style="font-weight: bold">Thể loại: &nbsp</p>
                 <p>{{$game->category_name}}</p>

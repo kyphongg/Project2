@@ -65,6 +65,10 @@
                                 <td style="text-align: center;">
                                     <button class="btn btn-success" style="width: 80px;"><b>Đã vận chuyển</b></button>
                                 </td>
+                            @elseif($c->order_status==3)
+                                <td style="text-align: center;">
+                                    <button class="btn btn-success" style="width: 80px;"><b>Hoàn thành</b></button>
+                                </td>
                             @endif
                             <td style="text-align: center;">
                                 <a class="btn btn-primary" style="text-align: center;" href="{{url('/admin/orders_details/'.$c->order_id)}}">

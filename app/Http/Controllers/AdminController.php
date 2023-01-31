@@ -169,7 +169,12 @@ class AdminController extends Controller
     }
 
     function viewDoneOrders(){
-        return view('/admin/orders/done_orders');
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.created_at','desc')->get();
+        return view('/admin/orders/done_orders')->with('order',$order);
+
     }
 
     function viewCancelOrders(){
