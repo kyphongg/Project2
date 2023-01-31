@@ -56,7 +56,7 @@ class ProfileController extends Controller
     }
 
     function receiveOrders($order_id){
-        $this->checkLogin();
+        $category = DB::table('tbl_category')->orderBy('category_id')->get();
         $order = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
             ->orderBy('tbl_order.created_at','desc')
@@ -64,7 +64,7 @@ class ProfileController extends Controller
         $receive = DB::table('tbl_order')
             ->where('tbl_order.order_id',$order_id)
             ->update(['tbl_order.order_status'=>3]);
-        return view('/admin/orders/accept_orders')->with('receive',$receive)->with('order',$order);
+        return view('/guest/done')->with('receive',$receive)->with('order',$order)->with('category',$category);
     }
 
     function viewSecurity(){

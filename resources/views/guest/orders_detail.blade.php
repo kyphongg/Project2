@@ -104,7 +104,7 @@
                             @forelse($order as $o)
                                 @if($o->order_status==2)
                                     <div class="col">
-                                        <a href="{{url('/admin/received_orders/'.$o->order_id)}}">
+                                        <a href="{{url('/received_orders/'.$o->order_id)}}">
                                             <button class="btn btn-secondary btn-next">Nhận đơn hàng</button>
                                         </a>
                                     </div>

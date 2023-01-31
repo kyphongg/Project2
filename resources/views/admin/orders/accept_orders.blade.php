@@ -1,6 +1,6 @@
 @extends('layout.admin_base')
 
-@section('title', 'Đơn hàng mới')
+@section('title', 'Đơn hàng đã xác nhận')
 
 @section('content')
     <div class="table-agile-info">
@@ -44,21 +44,30 @@
                         @endphp
                     <tr>
                         <td style="text-align: center;">{{$i}}</td>
-                        <td style="text-align: center;">{{$o->order_id}}</td>
+                        <td style="text-align: center;">{{$o->order_code}}</td>
                         <td>{{$o->customer_name}}</td>
                         <td>{{$o->customer_phone}}</td>
                         <td>{{$o->customer_address}}</td>
                         <td style="text-align: center;">{{$o->order_total}} VNĐ</td>
                         <td style="text-align: center;">{{$o->time_in}}</td>
-                        @if($o->order_status==1)
+                        @if($o->order_status==0)
+                            <td style="text-align: center;">
+                                <a style="text-align: center;" href="{{url('/admin/accept_orders/'.$o->order_id)}}">
+                                    <button class="btn btn-success" style="width: 80px;"><b>Xác nhận</b></button>
+                                </a>
+                            </td>
+                        @elseif($o->order_status==1)
                             <td style="text-align: center;">
                                 <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$o->order_id)}}">
                                     <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
-                                </a>
                             </td>
-                        @else
+                        @elseif($o->order_status==2)
                             <td style="text-align: center;">
                                 <button class="btn btn-success" style="width: 80px;"><b>Đã vận chuyển</b></button>
+                            </td>
+                        @elseif($o->order_status==3)
+                            <td style="text-align: center;">
+                                <button class="btn btn-success" style="width: 80px;"><b>Hoàn thành</b></button>
                             </td>
                         @endif
                         <td style="text-align: center;">

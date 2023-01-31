@@ -153,6 +153,7 @@ class AdminController extends Controller
         $this->checkLogin();
         $order = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->where('tbl_order.order_status','=','1')
             ->orderBy('tbl_order.created_at','desc')->get();
         return view('/admin/orders/accept_orders')->with('order',$order);
     }
@@ -173,6 +174,7 @@ class AdminController extends Controller
         $this->checkLogin();
         $order = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->where('tbl_order.order_status','=','3')
             ->orderBy('tbl_order.created_at','desc')->get();
         return view('/admin/orders/done_orders')->with('order',$order);
 

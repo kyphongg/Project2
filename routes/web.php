@@ -133,7 +133,7 @@ Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
 Route::get('/admin/orders_details/{order_id}',[AdminController::class,'viewOrdersDetails']);
 Route::get('/admin/accept_orders/{order_id}',[AdminController::class,'acceptOrders']);
 Route::get('/admin/shipped_orders/{order_id}',[AdminController::class,'shippedOrders']);
-Route::get('/admin/received_orders/{order_id}',[ProfileController::class,'receiveOrders']);
+Route::get('/received_orders/{order_id}',[ProfileController::class,'receiveOrders']);
 
 //Cart
 Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);

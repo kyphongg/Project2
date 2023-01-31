@@ -1,6 +1,6 @@
 @extends('layout.admin_base')
 
-@section('title', 'Đơn hàng mới')
+@section('title', 'Đơn hàng đã hoàn thành')
 
 @section('content')
     <div class="table-agile-info">
