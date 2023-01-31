@@ -14,7 +14,6 @@
                         <a href="{{url('/admin/new_orders')}}">Đơn mới |</a>
                         <a href="{{url('/admin/accept_orders')}}">Đã xác nhận |</a>
                         <a href="{{url('/admin/done_orders')}}">Đã hoàn thành</a>
-{{--                                                <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>--}}
                     </div>
                 </div>
             </div>
