@@ -7,6 +7,7 @@
     <div class="market-updates">
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-2">
+                <a href="{{url("/admin/customer-list")}}">
                 <div class="col-md-4 market-update-right">
                     <i class="fas fa-users"></i>
                 </div>
@@ -15,11 +16,13 @@
                     <h3>{{$customer_total}}</h3>
                     <p>Số lượt đăng ký tài khoản</p>
                 </div>
+                </a>
                 <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-1">
+                <a href="{{url("/admin/comment")}}">
                 <div class="col-md-4 market-update-right">
                     <i style="color: white;" class="fa fa-comments fa-3x" aria-hidden="true"></i>
                 </div>
@@ -28,60 +31,61 @@
                     <h3>{{$comment_total}}</h3>
                     <p>Số lượng bình luận</p>
                 </div>
+                </a>
                 <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-3">
+                <a href="{{url("/admin/all-staff")}}">
                 <div class="col-md-4 market-update-right">
                     <i class="far fa-address-card"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
-                    <a href="{{url("/admin/all-staff")}}">
                         <h4>Nhân viên</h4>
                         <h3>{{$admin_total}}</h3>
                         <p>Số lượng nhân viên</p>
-                    </a>
                 </div>
+                </a>
                 <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-4">
+                <a href="{{url("/admin/new_orders")}}">
                 <div class="col-md-4 market-update-right">
                     <i class="fas fa-file-invoice-dollar"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
-                    <a href="{{url("/admin/all_orders")}}">
                         <h4>Đơn mới</h4>
                         <h3>{{$order_new}}</h3>
                         <p>Số lượng đơn chưa duyệt</p>
-                    </a>
                 </div>
+                </a>
                 <div class="clearfix"></div>
             </div>
         </div>
 
-{{--        <div class="graphBox">--}}
-{{--            <div class="box">--}}
-{{--                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>--}}
-{{--                <canvas id="myChart" style="margin-top: 15px;"></canvas>--}}
-{{--            </div>--}}
-{{--            <div class="box">--}}
-{{--                <h3 style="text-align: center;">Biểu đồ doanh thu</h3>--}}
-{{--                --}}{{--                <form autocomplete="off" style="margin-bottom: 10px;">--}}
-{{--                --}}{{--                    @csrf--}}
-{{--                --}}{{--                    <div class="col-md-3">--}}
-{{--                --}}{{--                        <p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>--}}
-{{--                --}}{{--                    </div>--}}
-{{--                --}}{{--                    <div class="col-md-3">--}}
-{{--                --}}{{--                        <p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>--}}
-{{--                --}}{{--                    </div>--}}
-{{--                --}}{{--                    <input style="margin-top: 25px;" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lấy dữ liệu">--}}
-{{--                --}}{{--                </form>--}}
-{{--                <canvas id="earning"></canvas>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <div class="graphBox">
+            <div class="box">
+                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>
+                <canvas id="myChart" style="margin-top: 15px;"></canvas>
+            </div>
+            <div class="box">
+                <h3 style="text-align: center;">Biểu đồ doanh thu</h3>
+{{--                                <form autocomplete="off" style="margin-bottom: 10px;">--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="col-md-3">--}}
+{{--                                        <p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-3">--}}
+{{--                                        <p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>--}}
+{{--                                    </div>--}}
+{{--                                    <input style="margin-top: 25px;" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lấy dữ liệu">--}}
+{{--                                </form>--}}
+                <canvas id="earning"></canvas>
+            </div>
+        </div>
 
         <div class="detailsOrder">
             <div class="outOfStockItem">
@@ -216,4 +220,55 @@
         <div class="clearfix"></div>
     </div>
 
+@endsection
+
+@section('js')
+    @parent
+    <script type="text/javascript">
+        $(function() {
+            // const ctx = document.getElementById('myChart');
+            const earning = document.getElementById('earning');
+
+            // new Chart(ctx, {
+            //     type: 'doughnut',
+            //     data: {
+            //         labels: ['Mô Phỏng', 'Phiêu Lưu', 'Hành Động', 'Nhập Vai', 'Chiến Thuật', 'Thể thao'],
+            //         datasets: [{
+            //             label: 'Số lượng bán ra',
+            //             data: [10, 25, 100, 45, 12, 3],
+            //             borderWidth: 1
+            //         }]
+            //     },
+            //     options: {
+            //         responsive: true,
+            //     }
+            // });
+            
+            new Chart(earning, {
+                type: 'bar',
+                data: {
+                    labels: ['Doanh thu theo năm'],
+                    datasets: [{
+                        label: 'Doanh thu',
+                        data: [{!!$moneyDay!!}],
+                        backgroundColor: [
+                            'rgba(255,99,132,1)',
+                        ],
+                        borderWidth: 1
+                    },
+                        {
+                            label: 'Lợi nhuận',
+                            data: [{!!$moneyDay!!}],
+                            backgroundColor: [
+                                'rgba(54,162,235,1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                },
+                options: {
+                    responsive: true,
+                }
+            });
+        });
+    </script>
 @endsection

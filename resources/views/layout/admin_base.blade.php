@@ -135,10 +135,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/admin/coupons"><i class="fas fa-images"></i>Mã giảm giá</a></li>
                             <li><a href="/admin/warehouse"><i class="fa-solid fa-boxes-stacked"></i>Quản lý kho</a></li>
                             <li><a href="/admin/warehouse_quantity"><i class="fas fa-store"></i>Số lượng tồn kho</a></li>
-                            <li><a href="/admin/warehouse_inventory"><i class="fas fa-clipboard-check"></i>Kiểm kê</a></li>
-                            <li><a href="/admin/warehouse_number"><i class="fas fa-archive"></i>Số lượng sản phẩm</a></li>
                         </ul>
                     </li>';
+
+//                    <li><a href="/admin/warehouse_inventory"><i class="fas fa-clipboard-check"></i>Kiểm kê</a></li>
+//                            <li><a href="/admin/warehouse_number"><i class="fas fa-archive"></i>Số lượng sản phẩm</a></li>
                     ?>
 
                     <?php
@@ -263,19 +264,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     });
 
-    $( function() {
-        $( "#datepicker" ).datepicker({
-            prevText: "Tháng trước",
-            nextText: "Tháng sau",
-            dateFormat: "yy-mm-dd",
-            dayNamesMin: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5","Thứ 6","Thứ 7"],
-            duration: "slow"
-        });
-    } );
-
-    $( function() {
-        $( "#datepicker2" ).datepicker();
-    } );
+    // $( function() {
+    //     $( "#datepicker" ).datepicker({
+    //         prevText: "Tháng trước",
+    //         nextText: "Tháng sau",
+    //         dateFormat: "yy-mm-dd",
+    //         dayNamesMin: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5","Thứ 6","Thứ 7"],
+    //         duration: "slow"
+    //     });
+    // } );
+    //
+    // $( function() {
+    //     $( "#datepicker2" ).datepicker();
+    // } );
 
 </script>
 <script>

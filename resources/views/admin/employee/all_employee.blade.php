@@ -6,7 +6,7 @@
     <div class="table-agile-info">
         <h3>Danh sách nhân viên</h3>
         <a href="{{url('/admin/add-employee')}}">
-            <button><i class="fa-solid fa-plus"></i>Thêm nhân viên</button>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>Thêm nhân viên</button>
         </a>
         <div class="panel panel-default">
             <div class="table-responsive" style="margin-top: 15px;">

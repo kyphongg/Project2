@@ -10,10 +10,10 @@
                     <h3>Đơn hàng đã xác nhận</h3>
                 </div>
                 <div class="col">
-                    <div class="order-status" style="margin-left: 320px;">
-                        <a href="{{url('/admin/all_orders')}}">Tổng đơn hàng |</a>
+                    <div class="order-status" style="margin-left:260px;">
                         <a href="{{url('/admin/new_orders')}}">Đơn mới |</a>
                         <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
+                        <a href="{{url('/admin/all_orders')}}">Tổng đơn hàng</a>
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th style="width: 75px;">Thứ tự</th>
-                        <th style="width: 75px;">Mã đơn</th>
+                        <th style="width: 45px;">STT</th>
+                        <th style="width: 70px;">Mã đơn</th>
                         <th style="width: 145px; text-align: center;">Người nhận</th>
                         <th style="text-align: center;width: 90px;">SĐT</th>
                         <th style="text-align: center;">Địa chỉ giao</th>
@@ -34,10 +34,10 @@
                         <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
+                    <tbody>
                     @php
                         $i=0;
                     @endphp
-                    <tbody>
                     @foreach($order as $o)
                         @php
                             $i++;
@@ -59,7 +59,7 @@
                         @elseif($o->order_status==1)
                             <td style="text-align: center;">
                                 <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$o->order_id)}}">
-                                    <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
+                                    <button class="btn btn-danger" style="width: 95px;"><b>Vận chuyển</b></button>
                                 </a>
                             </td>
                         @elseif($o->order_status==2)
