@@ -59,7 +59,9 @@
                                 </td>
                             @elseif($c->order_status==1)
                                 <td style="text-align: center;">
-                                    <button class="btn btn-success" style="width: 80px;"><b>Đã xác nhận</b></button>
+                                    <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$c->order_id)}}">
+                                        <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
+                                    </a>
                                 </td>
                             @elseif($c->order_status==2)
                                 <td style="text-align: center;">

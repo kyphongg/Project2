@@ -22,7 +22,15 @@
                     @foreach($ware as $key => $w)
                     <tr>
                         <td style="text-align: center;">{{$w->game_name}}</td>
-                        <td style="text-align: center;"></td>
+                        @php
+                            $count = Illuminate\Support\Facades\DB::table('tbl_game')
+        ->join('tbl_category', 'tbl_category.category_id', '=', 'tbl_game.category_id')
+        ->join('tbl_producer', 'tbl_producer.producer_id', '=', 'tbl_game.producer_id')
+        ->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
+        ->where('tbl_game.game_id',$w->game_id)
+        ->sum('tbl_warehouse.quantity_in');
+                        @endphp
+                        <td style="text-align: center;">{{$count}}</td>
                         <td style="text-align: center;"></td>
                         <td style="text-align: center;"></td>
                         <td style="text-align: center;"></td>

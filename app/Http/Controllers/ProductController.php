@@ -154,13 +154,17 @@ class ProductController extends Controller
         $ware = DB::table('tbl_warehouse')
             ->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
             ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
-            ->orderBy('tbl_warehouse.game_id','desc')->get();
-        $count = DB::table('tbl_game')
-            ->join('tbl_category', 'tbl_category.category_id', '=', 'tbl_game.category_id')
-            ->join('tbl_producer', 'tbl_producer.producer_id', '=', 'tbl_game.producer_id')
-            ->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
-            ->sum('tbl_warehouse.quantity_in');
-        return view('/admin/warehouse/warehouse_quantity', ['ware' => $ware])->with('count',$count);
+            ->orderBy('tbl_warehouse.game_id','desc')
+            ->select('tbl_game.game_name','tbl_game.game_id')
+            ->distinct('tbl_game.game_name')
+            ->get();
+//        $count = DB::table('tbl_game')
+//            ->join('tbl_category', 'tbl_category.category_id', '=', 'tbl_game.category_id')
+//            ->join('tbl_producer', 'tbl_producer.producer_id', '=', 'tbl_game.producer_id')
+//            ->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
+//            ->distinct('time_in','game_name')
+//            ->sum('tbl_warehouse.quantity_in');
+        return view('/admin/warehouse/warehouse_quantity', ['ware' => $ware]);
     }
 
     function viewInventory(){

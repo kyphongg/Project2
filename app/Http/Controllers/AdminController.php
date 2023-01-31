@@ -146,7 +146,7 @@ class AdminController extends Controller
         $accept = DB::table('tbl_order')
             ->where('tbl_order.order_id',$order_id)
             ->update(['tbl_order.order_status'=>1]);
-        return view('/admin/orders/new_orders')->with('accept',$accept)->with('order',$order);
+        return view('/admin/orders/all_orders')->with('accept',$accept)->with('order',$order);
     }
 
     function viewAcceptOrders(){
@@ -167,7 +167,7 @@ class AdminController extends Controller
         $ship = DB::table('tbl_order')
             ->where('tbl_order.order_id',$order_id)
             ->update(['tbl_order.order_status'=>2]);
-        return view('/admin/orders/accept_orders')->with('ship',$ship)->with('order',$order);
+        return view('/admin/orders/all_orders')->with('ship',$ship)->with('order',$order);
     }
 
     function viewDoneOrders(){

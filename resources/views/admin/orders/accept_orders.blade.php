@@ -60,6 +60,7 @@
                             <td style="text-align: center;">
                                 <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$o->order_id)}}">
                                     <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
+                                </a>
                             </td>
                         @elseif($o->order_status==2)
                             <td style="text-align: center;">
