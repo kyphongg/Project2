@@ -22,10 +22,10 @@
                     @foreach($ware as $key => $w)
                     <tr>
                         <td style="text-align: center;">{{$w->game_name}}</td>
-                        <td style="text-align: center;">20</td>
-                        <td style="text-align: center;">10</td>
-                        <td style="text-align: center;">0</td>
-                        <td style="text-align: center;">30</td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
                     </tr>
                     @endforeach
                     </tbody>
