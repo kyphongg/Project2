@@ -101,7 +101,7 @@
                                     <button class="btn btn-secondary btn-back">Quay lại</button>
                                 </a>
                             </div>
-                            @forelse($order as $o)
+
                                 @if($o->order_status==2)
                                     <div class="col">
                                         <a href="{{url('/received_orders/'.$o->order_id)}}">
@@ -109,9 +109,7 @@
                                         </a>
                                     </div>
                                 @endif
-                            @empty
-                                <p>Rỗng</p>
-                            @endforelse
+
                         </div>
                     </div>
                 </div>

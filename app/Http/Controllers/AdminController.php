@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use Session;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
@@ -29,7 +30,43 @@ class AdminController extends Controller
         $admin_total= DB::table('tbl_admin')->count();
         $comment_total= DB::table('tbl_comment')->count();
         $order_new = DB::table('tbl_order')->where('order_status','=','0')->count();
-        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total)->with('comment_total',$comment_total)->with('order_new',$order_new);
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->join('tbl_payment','tbl_payment.payment_id','=','tbl_order.payment_id')
+            ->orderBy('tbl_order.order_id','desc')
+            ->take(5)
+            ->get();
+
+        $a = getdate();
+        $year = $a['year'];
+        $month = $a['mon'];
+        $day = $a['mday'];
+
+        if($month<10){
+            $b = '0'.$month;
+        }else{
+            $b = $month;
+        }
+
+        $date = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->where('tbl_order.time_in','like','%'.$year.'-'.$b.'-'.$day.'%')
+            ->take(5)
+            ->get();
+
+        $ware = DB::table('tbl_warehouse')
+            ->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
+            ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
+            ->orderBy('tbl_warehouse.game_id','desc')
+            ->select('tbl_game.game_name','tbl_game.game_id')
+            ->distinct('tbl_game.game_name')
+            ->take(5)
+            ->get();
+
+        return view('/admin/home')->with('customer_total',$customer_total)
+            ->with('admin_total',$admin_total)->with('comment_total',$comment_total)
+            ->with('order_new',$order_new)->with('order',$order)->with('date',$date)
+            ->with('ware',$ware);
     }
 
     function viewLogin(){

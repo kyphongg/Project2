@@ -6,13 +6,15 @@
     <div class="product-box">
         <div class="p-left">
             <div class="big-img">
-                <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="300px" width="100px" alt="">
+                <img src="/public/images/upload/{{$game->game_image}}" style="text-align: center" height="300px"
+                     width="100px" alt="">
             </div>
         </div>
 
         <div class="p-right">
             <div class="url">
-                <a href="{{'/home'}}">Trang chủ</a> > <a href="{{'/category/'.$game->category_id}}">{{$game->category_name}}</a>
+                <a href="{{'/home'}}">Trang chủ</a> > <a
+                    href="{{'/category/'.$game->category_id}}">{{$game->category_name}}</a>
             </div>
             <div class="pname"> {{$game->game_name}}
                 <div class="p-favorite">
@@ -25,15 +27,15 @@
             </div>
             <div class="pstatus">
                 <p style="font-weight: bold">Tình trạng: &nbsp</p>
-                @if($count>0)
-                <p>Còn Hàng</p>
+                @if($count-$out>0)
+                    <p>Còn Hàng</p>
                 @else
                     <p>Hết Hàng</p>
                 @endif
             </div>
             <div class="pid">
                 <p style="font-weight: bold">Số lượng: &nbsp</p>
-                <p>{{$count}}</p>
+                <p>{{$count-$out}}</p>
             </div>
             <div class="pcategory">
                 <p style="font-weight: bold">Thể loại: &nbsp</p>
@@ -49,14 +51,15 @@
             ?>
             <form action="{{URL::to('/cart_save/'.$customer_id)}}" method="POST">
                 @csrf
-            <div class="quantity">
-                <p>Số lượng :</p>
-                <input name="quantity" type="number" min="1" max="5" value="1">
-                <input name="product_id_hidden" type="hidden" value="{{$game->game_id}}">
-            </div>
+                <div class="quantity">
+                    <p>Số lượng :</p>
+                    <input name="quantity" type="number" min="1" max="5" value="1">
+                    <input name="product_id_hidden" type="hidden" value="{{$game->game_id}}">
+                </div>
                 <?php
-                if($customer_id){
-                    echo '<div class="btn-box">
+                if ($count - $out > 0) {
+                    if ($customer_id) {
+                        echo '<div class="btn-box">
                 <button type="submit" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>
                  <div class="alert hide">
                     <span class="fas fa-exclamation-circle"></span>
@@ -66,11 +69,12 @@
                     </span>
                 </div>
             </div>';
-                }
-                else{
-                    echo '<div class="btn-box">
+                    }
+                    else {
+                        echo '<div class="btn-box">
                 <a href="/login"><button type="button" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>
             </a></div>';
+                    }
                 }
                 ?>
             </form>
@@ -93,9 +97,10 @@
         <div class="comment">
             <h3>Bình luận</h3>
             <form action="#">
-{{--                <input type="hidden" name="customer_id" class="customer_id" value="{{$customer_id}}">--}}
+                {{--                <input type="hidden" name="customer_id" class="customer_id" value="{{$customer_id}}">--}}
                 <textarea name="comment" class="comment_info" placeholder="Nhập nội dung bình luận"></textarea>
-                <button type="button" class="send-comment"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận</button>
+                <button type="button" class="send-comment"><i class="fa-solid fa-location-arrow"></i> Gửi bình luận
+                </button>
             </form>
             <div id="notify_comment"></div>
             <form>

@@ -30,7 +30,7 @@
                         <form action="{{URL::to('/update_cart_quantity/'.$customer)}}" method="POST">
                             @csrf
                             <td>
-                                <input type="number" min="1" max="5" value="{{$v->qty}}" name="quantity_cart" style="width: 40px; height: 40px; padding-left: 13px;">
+                                <input type="number" min="1" max="15" value="{{$v->qty}}" name="quantity_cart" style="width: 40px; height: 40px; padding-left: 13px;">
                                 <input type="hidden" value="{{$v->rowId}}" name="rowId_cart" class="btn btn-default btn-sm">
                                 <input type="submit" value="Cập nhật" name="update_quantity" class="btn btn-primary update-quantity" style="margin-bottom: 5px; margin-left: 5px;">
                             </td>

@@ -42,8 +42,22 @@ class HomeController extends Controller
             ->join('tbl_producer', 'tbl_producer.producer_id', '=', 'tbl_game.producer_id')
             ->join('tbl_warehouse', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
             ->where('tbl_game.game_id',$id)
-            ->sum('quantity_in');
-        return view('guest/product', ['game' => $game], ['count' => $count])->with('category', $category);
+            ->sum('tbl_warehouse.quantity_in');
+        $out = DB::table('tbl_order_detail')
+            ->join('tbl_order', 'tbl_order.order_id', '=', 'tbl_order_detail.order_id')
+            ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_order_detail.game_id')
+            ->where('tbl_order_detail.game_id',$id)
+            ->sum('tbl_order_detail.game_quantity');
+//        $ware = DB::table('tbl_warehouse')
+//            ->join('tbl_game','tbl_warehouse.game_id','=','tbl_game.game_id')
+//            ->join('tbl_admin','tbl_warehouse.admin_id','=','tbl_admin.admin_id')
+//            ->orderBy('tbl_warehouse.game_id','desc')
+//            ->select('tbl_game.game_name','tbl_game.game_id')
+//            ->distinct('tbl_game.game_name')
+//            ->get();
+
+        return view('guest/product', ['game' => $game], ['count' => $count])->with('category', $category)
+            ->with('out',$out);
     }
 
     function search(Request $request)

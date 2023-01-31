@@ -11,7 +11,7 @@
                 </div>
                 <div class="col">
                     <div class="order-status" style="margin-left: 300px;">
-                        <a href="{{url('/admin/all_orders')}}">Đơn mới |</a>
+                        <a href="{{url('/admin/new_orders')}}">Đơn mới |</a>
                         <a href="{{url('/admin/accept_orders')}}">Đã xác nhận |</a>
                         <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
                         {{--                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>--}}
@@ -32,6 +32,7 @@
                         <th style="text-align: center;">Tổng tiền</th>
                         <th style="text-align: center;">Ngày đặt</th>
                         <th style="text-align: center;">Trạng thái</th>
+                        <th style="text-align: center;">Tuỳ biến</th>
                         <th style="text-align: center;">Chi tiết</th>
                     </tr>
                     </thead>
@@ -52,22 +53,26 @@
                             <td style="text-align: center;">{{$c->order_total}} VNĐ</td>
                             <td style="text-align: center;">{{$c->time_in}}</td>
                             @if($c->order_status==0)
+                                <td>Đang chờ xác nhận</td>
                                 <td style="text-align: center;">
                                     <a style="text-align: center;" href="{{url('/admin/accept_orders/'.$c->order_id)}}">
                                         <button class="btn btn-success" style="width: 80px;"><b>Xác nhận</b></button>
                                     </a>
                                 </td>
                             @elseif($c->order_status==1)
+                                <td>Đang chờ vận chuyển</td>
                                 <td style="text-align: center;">
                                     <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$c->order_id)}}">
                                         <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
                                     </a>
                                 </td>
                             @elseif($c->order_status==2)
+                                <td>Đang chờ khách xác nhận</td>
                                 <td style="text-align: center;">
                                     <button class="btn btn-success" style="width: 80px;"><b>Đã vận chuyển</b></button>
                                 </td>
                             @elseif($c->order_status==3)
+                                <td>Khách đã nhận được hàng</td>
                                 <td style="text-align: center;">
                                     <button class="btn btn-success" style="width: 80px;"><b>Hoàn thành</b></button>
                                 </td>

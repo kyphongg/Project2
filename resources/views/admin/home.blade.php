@@ -15,7 +15,7 @@
                     <h3>{{$customer_total}}</h3>
                     <p>Số lượt đăng ký tài khoản</p>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
@@ -28,7 +28,7 @@
                     <h3>{{$comment_total}}</h3>
                     <p>Số lượng bình luận</p>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
@@ -37,11 +37,13 @@
                     <i class="far fa-address-card"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
-                    <h4>Nhân viên</h4>
-                    <h3>{{$admin_total}}</h3>
-                    <p>Số lượng nhân viên</p>
+                    <a href="{{url("/admin/all-staff")}}">
+                        <h4>Nhân viên</h4>
+                        <h3>{{$admin_total}}</h3>
+                        <p>Số lượng nhân viên</p>
+                    </a>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3 market-update-gd">
@@ -50,34 +52,36 @@
                     <i class="fas fa-file-invoice-dollar"></i>
                 </div>
                 <div class="col-md-8 market-update-left">
-                    <h4>Đơn mới</h4>
-                    <h3>{{$order_new}}</h3>
-                    <p>Số lượng đơn chưa duyệt</p>
+                    <a href="{{url("/admin/all_orders")}}">
+                        <h4>Đơn mới</h4>
+                        <h3>{{$order_new}}</h3>
+                        <p>Số lượng đơn chưa duyệt</p>
+                    </a>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
         </div>
 
-        <div class="graphBox">
-            <div class="box">
-                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>
-                <canvas id="myChart" style="margin-top: 15px;"></canvas>
-            </div>
-            <div class="box">
-                <h3 style="text-align: center;">Biểu đồ doanh thu</h3>
-{{--                <form autocomplete="off" style="margin-bottom: 10px;">--}}
-{{--                    @csrf--}}
-{{--                    <div class="col-md-3">--}}
-{{--                        <p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-3">--}}
-{{--                        <p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>--}}
-{{--                    </div>--}}
-{{--                    <input style="margin-top: 25px;" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lấy dữ liệu">--}}
-{{--                </form>--}}
-                <canvas id="earning"></canvas>
-            </div>
-        </div>
+{{--        <div class="graphBox">--}}
+{{--            <div class="box">--}}
+{{--                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>--}}
+{{--                <canvas id="myChart" style="margin-top: 15px;"></canvas>--}}
+{{--            </div>--}}
+{{--            <div class="box">--}}
+{{--                <h3 style="text-align: center;">Biểu đồ doanh thu</h3>--}}
+{{--                --}}{{--                <form autocomplete="off" style="margin-bottom: 10px;">--}}
+{{--                --}}{{--                    @csrf--}}
+{{--                --}}{{--                    <div class="col-md-3">--}}
+{{--                --}}{{--                        <p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>--}}
+{{--                --}}{{--                    </div>--}}
+{{--                --}}{{--                    <div class="col-md-3">--}}
+{{--                --}}{{--                        <p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>--}}
+{{--                --}}{{--                    </div>--}}
+{{--                --}}{{--                    <input style="margin-top: 25px;" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lấy dữ liệu">--}}
+{{--                --}}{{--                </form>--}}
+{{--                <canvas id="earning"></canvas>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div class="detailsOrder">
             <div class="outOfStockItem">
@@ -85,46 +89,37 @@
                     <h2>Sản phẩm hết hàng</h2>
                 </div>
                 <table>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp1).jpg"></div></td>
-                        <td>
-                            <h4 class="btn btn-danger">Hết hàng</h4><br>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp2).jpg"></div></td>
-                        <td>
-                            <h4 class="btn btn-danger">Hết hàng</h4><br>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp3).png"></div></td>
-                        <td>
-                            <h4 class="btn btn-danger">Hết hàng</h4><br>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp4).jpg"></div></td>
-                        <td>
-                            <h4 class="btn btn-danger">Hết hàng</h4><br>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp5).jpeg"></div></td>
-                        <td>
-                            <h4 class="btn btn-danger">Hết hàng</h4><br>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
+                    @foreach($ware as $key => $w)
+                        @php
+                            $count = Illuminate\Support\Facades\DB::table('tbl_warehouse')
+        ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_game.game_id')
+        ->where('tbl_game.game_id',$w->game_id)
+        ->sum('tbl_warehouse.quantity_in');
+                            $out = Illuminate\Support\Facades\DB::table('tbl_order_detail')
+        ->join('tbl_order', 'tbl_order.order_id', '=', 'tbl_order_detail.order_id')
+        ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_order_detail.game_id')
+        ->where('tbl_order_detail.game_id',$w->game_id)
+        ->sum('tbl_order_detail.game_quantity');
+                        @endphp
+                        <tr>
+                            @if($count-$out==0)
+                                <td>
+                                    <div class="imgBx"><img src="/public/images/upload/{{$w->game_image}}" height="80"
+                                                            width="80" alt=""></div>
+                                </td>
+                                <td>
+                                    <h4 class="btn btn-danger">Hết hàng</h4><br>
+                                    <span>{{$w->game_name}}</span>
+                                </td>
+                            @endif
+                        </tr>
+                    @endforeach
                 </table>
             </div>
             <div class="doneOrders">
                 <div class="cardHeader">
                     <h2>Đơn hàng hôm nay</h2>
+                    <a href="{{url("/admin/all_orders")}}" class="btnn">Xem tất cả</a>
                 </div>
                 <table style="margin-top: -55px; text-align: center;">
                     <thead>
@@ -137,47 +132,28 @@
                         <td>Thời gian</td>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Phong</td>
-                        <td>0966331402</td>
-                        <td>1.000.000đ</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                        <td>27-1-2023</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Phong</td>
-                        <td>0966331402</td>
-                        <td>1.000.000đ</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                        <td>27-1-2023</td>
-                    </tr>  <tr>
-                        <td>3</td>
-                        <td>Phong</td>
-                        <td>0966331402</td>
-                        <td>1.000.000đ</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                        <td>27-1-2023</td>
-                    </tr>  <tr>
-                        <td>4</td>
-                        <td>Phong</td>
-                        <td>0966331402</td>
-                        <td>1.000.000đ</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                        <td>27-1-2023</td>
-                    </tr>  <tr>
-                        <td>5</td>
-                        <td>Phong</td>
-                        <td>0966331402</td>
-                        <td>1.000.000đ</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                        <td>27-1-2023</td>
-                    </tr>
-                    </tbody>
+                    @foreach($date as $d)
+                        <tbody>
+                        <tr>
+                            <td>{{$d->order_code}}</td>
+                            <td>{{$d->customer_name}}</td>
+                            <td>{{$d->customer_phone}}</td>
+                            <td>{{$d->order_total}} VNĐ</td>
+                            @if($d->order_status==0)
+                                <td>Đang chờ xác nhận</td>
+                            @elseif($d->order_status==1)
+                                <td>Đang chờ vận chuyển</td>
+                            @elseif($d->order_status==2)
+                                <td>Đang chờ khách xác nhận</td>
+                            @elseif($d->order_status==3)
+                                <td><span class="status delivered">Đã hoàn thành</span></td>
+                            @endif
+                            <td>{{$d->time_in}}</td>
+                        </tr>
+                        </tbody>
+                    @endforeach
                 </table>
-                    <h3 style="text-align: right; margin-top:20px;">Tổng doanh thu: 5.000.000đ</h3>
+
             </div>
         </div>
 
@@ -185,7 +161,7 @@
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>Đơn hàng gần đây</h2>
-                    <a href="#" class="btnn">Xem tất cả</a>
+                    <a href="{{url("/admin/all_orders")}}" class="btnn">Xem tất cả</a>
                 </div>
                 <table style="margin-top: -125px;">
                     <thead>
@@ -196,86 +172,48 @@
                         <td>Tình Trạng</td>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>4.500.000đ</td>
-                        <td>Tiền mặt</td>
-                        <td><span class="status delivered">Đã hoàn thành</span></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>5.500.000đ</td>
-                        <td>Chuyển khoản</td>
-                        <td><span class="status loading">Đơn mới</span></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>1.500.000đ</td>
-                        <td>Tiền mặt</td>
-                        <td><span class="status shipping">Đang vận chuyển</span></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>4.500.000đ</td>
-                        <td>Tiền mặt</td>
-                        <td><span class="status loading">Đang xử lý</span></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>4.500.000đ</td>
-                        <td>Tiền mặt</td>
-                        <td><span class="status cancel">Bị hủy</span></td>
-                    </tr>
-                    </tbody>
+                    @foreach($order as $c)
+                        <tbody>
+                        <tr>
+                            <td>{{$c->order_code}}</td>
+                            <td>{{$c->order_total}} VNĐ</td>
+                            @if($c->payment_method==1)
+                                <td>Tiền mặt</td>
+                            @elseif($c->payment_method==2)
+                                <td>Chuyển khoản ngân hàng</td>
+                            @endif
+                            @if($c->order_status==0)
+                                <td>Đang chờ xác nhận</td>
+                            @elseif($c->order_status==1)
+                                <td>Đang chờ vận chuyển</td>
+                            @elseif($c->order_status==2)
+                                <td>Đang chờ khách xác nhận</td>
+                            @elseif($c->order_status==3)
+                                <td><span class="status delivered">Đã hoàn thành</span></td>
+                            @endif
+                        </tr>
+                        </tbody>
+                    @endforeach
                 </table>
             </div>
-            <div class="featureItem">
-                <div class="cardHeader">
-                    <h2>Sản phẩm bán chạy</h2>
-                </div>
-                <table>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp1).jpg"></div></td>
-                        <td>
-                            <h4>100 lượt mua</h4>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp2).jpg"></div></td>
-                        <td>
-                            <h4>52 lượt mua</h4>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp3).png"></div></td>
-                        <td>
-                            <h4>34 lượt mua</h4>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp4).jpg"></div></td>
-                        <td>
-                            <h4>12 lượt mua</h4>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="70px"><div class="imgBx"><img src="/images/ps5(sp5).jpeg"></div></td>
-                        <td>
-                            <h4>20 lượt mua</h4>
-                            <span>Demon's Souls</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+{{--            <div class="featureItem">--}}
+{{--                <div class="cardHeader">--}}
+{{--                    <h2>Sản phẩm bán chạy</h2>--}}
+{{--                </div>--}}
+{{--                <table>--}}
+{{--                    <tr>--}}
+{{--                        <td width="70px">--}}
+{{--                            <div class="imgBx"><img src="/images/ps5(sp1).jpg"></div>--}}
+{{--                        </td>--}}
+{{--                        <td>--}}
+{{--                            <h4>100 lượt mua</h4>--}}
+{{--                            <span>Demon's Souls</span>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                </table>--}}
+{{--            </div>--}}
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
-
-
 
 @endsection
