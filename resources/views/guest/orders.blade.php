@@ -55,7 +55,7 @@
                             <tr>
                                 <td style="text-align: center;">{{$i}}</td>
                                 <td style="width: 120px;">{{$o->order_code}}</td>
-                                <td>{{$o->created_at}}</td>
+                                <td>{{$o->time_in}}</td>
                                 <td>{{$o->order_total}} VNĐ</td>
                                 @if($o->order_status==0)
                                     <td>Đang chờ xử lý</td>

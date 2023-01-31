@@ -49,7 +49,7 @@
                         <td>{{$o->customer_phone}}</td>
                         <td>{{$o->customer_address}}</td>
                         <td style="text-align: center;">{{$o->order_total}} VNĐ</td>
-                        <td style="text-align: center;">{{$o->created_at}}</td>
+                        <td style="text-align: center;">{{$o->time_in}}</td>
                         @if($o->order_status==1)
                             <td style="text-align: center;">
                                 <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$o->order_id)}}">

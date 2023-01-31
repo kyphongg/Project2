@@ -55,7 +55,7 @@
                             @foreach($order as $o)
                                 <tr>
                                     <td>{{$o->order_code}}</td>
-                                    <td>{{$o->created_at}}</td>
+                                    <td>{{$o->time_in}}</td>
                                     <td>{{$o->game_name}}</td>
                                     <td><img src="/public/images/upload/{{$o->game_image}}"></td>
                                     <td>{{$o->game_quantity}}</td>

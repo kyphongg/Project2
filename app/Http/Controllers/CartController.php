@@ -43,7 +43,7 @@ class CartController extends Controller
         $oder_data['payment_id'] = $payment_id;
         $oder_data['order_total'] = Cart::total(0);
         $oder_data['order_code'] = substr(md5(microtime()),rand(0,26),5);
-        $oder_data['created_at'] = now();
+        $oder_data['time_in'] = now();
         $order_id = DB::table('tbl_order')->insertGetId($oder_data);
 
 

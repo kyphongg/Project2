@@ -117,7 +117,7 @@ class ProductController extends Controller
         $data = array();
         $data['game_id'] = $request->get('game_id');
         $data['quantity_in'] = $request->get('quantity_in');
-        $data['time_in'] = $request->get('date_in');
+        $data['time_in'] = now();
         $data['admin_id'] = $request->get('admin_id');
         DB::table('tbl_warehouse')->insert(
             $data

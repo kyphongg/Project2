@@ -36,7 +36,7 @@
                     <td><img style="width: 100px; height: 100px;" src="/public/images/upload/{{$d->game_image}}" alt=""></td>
                     <td>{{$d->game_quantity}}</td>
                     <td>{{number_format($d->game_price).' VNĐ'}}</td>
-                    <td>{{$d->created_at}}</td>
+                    <td>{{$d->time_in}}</td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -50,7 +50,7 @@
                             <td style="text-align: center;">{{$c->customer_phone}}</td>
                             <td style="text-align: center;">{{$c->customer_address}}</td>
                             <td style="text-align: center;">{{$c->order_total}} VNĐ</td>
-                            <td style="text-align: center;">{{$c->created_at}}</td>
+                            <td style="text-align: center;">{{$c->time_in}}</td>
                             @if($c->order_status==0)
                                 <td style="text-align: center;">
                                     <a style="text-align: center;" href="{{url('/admin/accept_orders/'.$c->order_id)}}">
