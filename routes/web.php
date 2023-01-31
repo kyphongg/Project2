@@ -125,12 +125,15 @@ Route::get('/admin/all-staff',[AdminController::class,'viewAllStaff']);
 Route::get('admin/add-employee',[AdminController::class,'viewAddEmployee']);
 Route::post('admin/save-employee',[AdminController::class,'saveEmployee']);
 
+Route::get('/admin/all_orders',[AdminController::class,'viewAllOrders']);
 Route::get('/admin/new_orders',[AdminController::class,'viewNewOrders']);
 Route::get('/admin/accept_orders',[AdminController::class,'viewAcceptOrders']);
 Route::get('/admin/done_orders',[AdminController::class,'viewDoneOrders']);
 Route::get('/admin/cancel_orders',[AdminController::class,'viewCancelOrders']);
 Route::get('/admin/orders_details/{order_id}',[AdminController::class,'viewOrdersDetails']);
 Route::get('/admin/accept_orders/{order_id}',[AdminController::class,'acceptOrders']);
+Route::get('/admin/shipped_orders/{order_id}',[AdminController::class,'shippedOrders']);
+Route::get('/admin/received_orders/{order_id}',[ProfileController::class,'receiveOrders']);
 
 //Cart
 Route::post('/cart_save/{customer_id}',[CartController::class,'saveCart']);

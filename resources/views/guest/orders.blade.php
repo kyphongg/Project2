@@ -31,7 +31,6 @@
                 <div class="orders">
                     <div class="order-heading">
                         <h3>Lịch sử đơn hàng</h3>
-                        <p>Hiển thị đơn hàng của bạn đã hoàn tất</p>
                     </div>
                     <div class=orders-table>
                         <table class="table table-bordered table-hover table-striped">

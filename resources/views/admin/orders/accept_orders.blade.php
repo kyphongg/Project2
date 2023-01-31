@@ -11,9 +11,9 @@
                 </div>
                 <div class="col">
                     <div class="order-status" style="margin-left: 320px;">
+                        <a href="{{url('/admin/all_orders')}}">Tổng đơn hàng |</a>
                         <a href="{{url('/admin/new_orders')}}">Đơn mới |</a>
                         <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
-                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>
                     </div>
                 </div>
             </div>
@@ -23,6 +23,7 @@
                 <table id="myTable" class="table table-striped table-bordered">
                     <thead>
                     <tr>
+                        <th style="width: 75px;">Thứ tự</th>
                         <th style="width: 75px;">Mã đơn</th>
                         <th style="width: 145px; text-align: center;">Người nhận</th>
                         <th style="text-align: center;width: 90px;">SĐT</th>
@@ -33,19 +34,33 @@
                         <th style="text-align: center;">Tùy biến</th>
                     </tr>
                     </thead>
-
+                    @php
+                        $i=0;
+                    @endphp
                     <tbody>
                     @foreach($order as $o)
+                        @php
+                            $i++;
+                        @endphp
                     <tr>
+                        <td style="text-align: center;">{{$i}}</td>
                         <td style="text-align: center;">{{$o->order_id}}</td>
                         <td>{{$o->customer_name}}</td>
                         <td>{{$o->customer_phone}}</td>
                         <td>{{$o->customer_address}}</td>
-                        <td style="text-align: center;">{{$o->order_total}} đ</td>
-                        <td style="text-align: center;">2023-1-11 10:39</td>
-                        <td style="text-align: center;">
-                            <button class="btn btn-success" style="width: 100px;"><b>Vận chuyển</b></button>
-                        </td>
+                        <td style="text-align: center;">{{$o->order_total}} VNĐ</td>
+                        <td style="text-align: center;">{{$o->created_at}}</td>
+                        @if($o->order_status==1)
+                            <td style="text-align: center;">
+                                <a style="text-align: center;" href="{{url('/admin/shipped_orders/'.$o->order_id)}}">
+                                    <button class="btn btn-success" style="width: 80px;"><b>Vận chuyển</b></button>
+                                </a>
+                            </td>
+                        @else
+                            <td style="text-align: center;">
+                                <button class="btn btn-success" style="width: 80px;"><b>Đã vận chuyển</b></button>
+                            </td>
+                        @endif
                         <td style="text-align: center;">
                             <a class="btn btn-primary" style="text-align: center;" href="{{url('/admin/orders_details/'.$o->order_id)}}">
                                 Xem chi tiết

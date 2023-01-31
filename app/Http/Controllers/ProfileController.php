@@ -55,6 +55,18 @@ class ProfileController extends Controller
         return view('/guest/orders_detail',['customer'=>$customer])->with('category',$category)->with('order',$order)->with('payment',$payment);
     }
 
+    function receiveOrders($order_id){
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.created_at','desc')
+            ->get();
+        $receive = DB::table('tbl_order')
+            ->where('tbl_order.order_id',$order_id)
+            ->update(['tbl_order.order_status'=>3]);
+        return view('/admin/orders/accept_orders')->with('receive',$receive)->with('order',$order);
+    }
+
     function viewSecurity(){
         $category = DB::table('tbl_category')->orderBy('category_id')->get();
         return view('/guest/security')->with('category',$category);

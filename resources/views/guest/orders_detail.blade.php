@@ -32,7 +32,6 @@
                     <div class="order-heading">
                         <h3>Chi tiết đơn hàng</h3>
                         <p><b>Địa chỉ nhận hàng:</b> {{$customer->customer_address}}</p>
-                        <p style="color: red;"><b style="color: black;">Tình trạng:</b> Đang chờ xử lý </p>
                         <p><b>Hình thức thanh toán:</b> @if($payment->payment_method==1)
                                 Tiền mặt
                             @elseif($payment->payment_method==2)
@@ -49,6 +48,7 @@
                                 <th>Hình ảnh</th>
                                 <th>Số lượng</th>
                                 <th>Giá tiền</th>
+                                <th>Tình trạng</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -59,7 +59,18 @@
                                     <td>{{$o->game_name}}</td>
                                     <td><img src="/public/images/upload/{{$o->game_image}}"></td>
                                     <td>{{$o->game_quantity}}</td>
-                                    <td>{{$o->order_total}} VNĐ</td>
+                                    <td>{{number_format($o->game_price)}} VNĐ</td>
+                                    @if($o->order_status==0)
+                                        <td>Đang chờ xử lý</td>
+                                    @elseif($o->order_status==1)
+                                        <td>Đã xác nhận</td>
+                                    @elseif($o->order_status==2)
+                                        <td>Đang vận chuyển</td>
+                                    @elseif($o->order_status==3)
+                                        <td>Hoàn thành</td>
+                                    @elseif($o->order_status==4)
+                                        <td>Huỷ</td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
@@ -67,6 +78,7 @@
                     </div>
                     <div class="cart-price">
                         <table>
+
                             <tr>
                                 <td style="font-weight: bold;">Tổng giá sản phẩm:</td>
                                 <td>{{$o->order_total}} VNĐ</td>
@@ -79,6 +91,7 @@
                                 <td style="font-weight: bold;">Tổng thành tiền:</td>
                                 <td>{{$o->order_total}} VNĐ</td>
                             </tr>
+
                         </table>
                     </div>
                     <div class="two-btn" style="padding-bottom: 30px;">
@@ -88,12 +101,17 @@
                                     <button class="btn btn-secondary btn-back">Quay lại</button>
                                 </a>
                             </div>
-
-                            <div class="col">
-                                <a href="#">
-                                    <button class="btn btn-secondary btn-next">Hủy đơn hàng</button>
-                                </a>
-                            </div>
+                            @forelse($order as $o)
+                                @if($o->order_status==2)
+                                    <div class="col">
+                                        <a href="{{url('/admin/received_orders/'.$o->order_id)}}">
+                                            <button class="btn btn-secondary btn-next">Nhận đơn hàng</button>
+                                        </a>
+                                    </div>
+                                @endif
+                            @empty
+                                <p>Rỗng</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>

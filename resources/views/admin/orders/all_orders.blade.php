@@ -1,20 +1,20 @@
 @extends('layout.admin_base')
 
-@section('title', 'Đơn hàng mới')
+@section('title', 'Tổng đơn hàng')
 
 @section('content')
     <div class="table-agile-info">
         <div class="table-heading">
             <div class="row">
                 <div class="col">
-                    <h3>Đơn hàng mới</h3>
+                    <h3>Tổng đơn hàng</h3>
                 </div>
                 <div class="col">
                     <div class="order-status" style="margin-left: 300px;">
-                        <a href="{{url('/admin/all_orders')}}">Tổng đơn hàng |</a>
+                        <a href="{{url('/admin/all_orders')}}">Đơn mới |</a>
                         <a href="{{url('/admin/accept_orders')}}">Đã xác nhận |</a>
                         <a href="{{url('/admin/done_orders')}}">Đã hoàn thành |</a>
-{{--                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>--}}
+                        {{--                        <a href="{{url('/admin/cancel_orders')}}">Bị hủy</a>--}}
                     </div>
                 </div>
             </div>
@@ -36,13 +36,13 @@
                     </tr>
                     </thead>
                     @php
-                    $i=0;
+                        $i=0;
                     @endphp
                     @foreach($order as $c)
                         @php
                             $i++;
                         @endphp
-                    <tbody>
+                        <tbody>
                         <tr>
                             <td style="text-align: center;">{{$i}}</td>
                             <td style="text-align: center;">{{$c->order_code}}</td>
@@ -57,9 +57,13 @@
                                         <button class="btn btn-success" style="width: 80px;"><b>Xác nhận</b></button>
                                     </a>
                                 </td>
-                            @else
+                            @elseif($c->order_status==1)
                                 <td style="text-align: center;">
-                                        <button class="btn btn-success" style="width: 80px;"><b>Đã xác nhận</b></button>
+                                    <button class="btn btn-success" style="width: 80px;"><b>Đã xác nhận</b></button>
+                                </td>
+                            @elseif($c->order_status==2)
+                                <td style="text-align: center;">
+                                    <button class="btn btn-success" style="width: 80px;"><b>Đã vận chuyển</b></button>
                                 </td>
                             @endif
                             <td style="text-align: center;">
@@ -68,7 +72,7 @@
                                 </a>
                             </td>
                         </tr>
-                    </tbody>
+                        </tbody>
                     @endforeach
                 </table>
             </div>

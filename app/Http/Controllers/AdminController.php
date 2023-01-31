@@ -117,22 +117,35 @@ class AdminController extends Controller
         return view('/admin/employee/add_employee');
     }
 
+    function viewAllOrders(){
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.order_id','desc')
+            ->get();
+        return view('/admin/orders/all_orders')->with('order',$order);
+    }
+
     function viewNewOrders(){
         $this->checkLogin();
         $order = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
-            ->orderBy('tbl_order.created_at','desc')
-            ->where('tbl_order.order_status','=','0')->get();
+            ->orderBy('tbl_order.order_id','desc')
+            ->where('tbl_order.order_status','=','0')
+            ->get();
         return view('/admin/orders/new_orders')->with('order',$order);
     }
 
     function acceptOrders($order_id){
         $this->checkLogin();
         $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
             ->orderBy('tbl_order.created_at','desc')
+            ->get();
+        $accept = DB::table('tbl_order')
             ->where('tbl_order.order_id',$order_id)
-            ->update(['order_status'=>1]);
-        return view('/admin/home')->with('$order',$order);
+            ->update(['tbl_order.order_status'=>1]);
+        return view('/admin/orders/new_orders')->with('accept',$accept)->with('order',$order);
     }
 
     function viewAcceptOrders(){
@@ -141,6 +154,18 @@ class AdminController extends Controller
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
             ->orderBy('tbl_order.created_at','desc')->get();
         return view('/admin/orders/accept_orders')->with('order',$order);
+    }
+
+    function shippedOrders($order_id){
+        $this->checkLogin();
+        $order = DB::table('tbl_order')
+            ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
+            ->orderBy('tbl_order.created_at','desc')
+            ->get();
+        $ship = DB::table('tbl_order')
+            ->where('tbl_order.order_id',$order_id)
+            ->update(['tbl_order.order_status'=>2]);
+        return view('/admin/orders/accept_orders')->with('ship',$ship)->with('order',$order);
     }
 
     function viewDoneOrders(){

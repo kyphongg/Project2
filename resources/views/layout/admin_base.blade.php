@@ -145,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $admin_level = Session::get('admin_level');
                     if($admin_level==0||$admin_level==2||$admin_level==3||$admin_level==100)
                         echo '<li class="sub-menu">
-                         <a href="/admin/new_orders">
+                         <a href="/admin/all_orders">
                             <i class="fas fa-cart-plus"></i>
                             <span>Quản lý đơn hàng</span>
                         </a>
