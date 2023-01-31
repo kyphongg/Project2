@@ -28,7 +28,8 @@ class AdminController extends Controller
         $customer_total= DB::table('tbl_customer')->count();
         $admin_total= DB::table('tbl_admin')->count();
         $comment_total= DB::table('tbl_comment')->count();
-        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total)->with('comment_total',$comment_total);
+        $order_new = DB::table('tbl_order')->where('order_status','=','0')->count();
+        return view('/admin/home')->with('customer_total',$customer_total)->with('admin_total',$admin_total)->with('comment_total',$comment_total)->with('order_new',$order_new);
     }
 
     function viewLogin(){

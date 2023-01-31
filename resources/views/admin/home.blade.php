@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-8 market-update-left">
                     <h4>Đơn mới</h4>
-                    <h3>19</h3>
+                    <h3>{{$order_new}}</h3>
                     <p>Số lượng đơn chưa duyệt</p>
                 </div>
                 <div class="clearfix"> </div>
