@@ -257,7 +257,7 @@
             new Chart(earning, {
                 type: 'bar',
                 data: {
-                    labels: ['Doanh thu theo ngày'],
+                    labels: ['Tổng doanh thu'],
                     datasets: [{
                         label: 'Tổng doanh thu theo ngày',
                         data: [{!!$moneyDay!!}],
