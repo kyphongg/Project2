@@ -259,7 +259,7 @@
                 data: {
                     labels: ['Doanh thu theo ngày'],
                     datasets: [{
-                        label: 'Doanh thu theo ngày',
+                        label: 'Tổng doanh thu theo ngày',
                         data: [{!!$moneyDay!!}],
                         backgroundColor: [
                             'rgba(255,99,132,1)',
@@ -267,7 +267,7 @@
                         borderWidth: 1
                     },
                         {
-                            label: 'Doanh thu theo năm',
+                            label: 'Tổng doanh thu theo năm',
                             data: [{!!$moneyYear!!}],
                             backgroundColor: [
                                 'rgba(54,162,235,1)',
