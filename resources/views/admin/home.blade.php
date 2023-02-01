@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-3 market-update-gd">
             <div class="market-update-block clr-block-4">
-                <a href="{{url("/admin/all_orders")}}">
+                <a href="{{url("/admin/new_orders")}}">
                 <div class="col-md-4 market-update-right">
                     <i class="fas fa-file-invoice-dollar"></i>
                 </div>
