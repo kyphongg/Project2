@@ -68,7 +68,7 @@
 
         <div class="graphBox">
             <div class="box">
-                <h3 style="text-align: center;">Danh mục bán chạy nhất</h3>
+                <h3 style="text-align: center;">Sản phẩm bán chạy nhất</h3>
                 <canvas id="myChart" style="margin-top: 15px;"></canvas>
             </div>
             <div class="box">
@@ -122,7 +122,7 @@
             </div>
             <div class="doneOrders">
                 <div class="cardHeader">
-                    <h2>Đơn hàng hôm nay</h2>
+                    <h2>Đơn hàng hôm nay đã hoàn thành</h2>
                     <a href="{{url("/admin/all_orders")}}" class="btnn">Xem tất cả</a>
                 </div>
                 <table style="margin-top: -55px; text-align: center;">
@@ -142,7 +142,7 @@
                             <td>{{$d->order_code}}</td>
                             <td>{{$d->customer_name}}</td>
                             <td>{{$d->customer_phone}}</td>
-                            <td>{{$d->order_total}} VNĐ</td>
+                            <td>{{number_format($d->order_total)}} VNĐ</td>
                             @if($d->order_status==0)
                                 <td>Đang chờ xác nhận</td>
                             @elseif($d->order_status==1)
@@ -179,7 +179,7 @@
                     @foreach($order as $c)
                         <tr>
                             <td>{{$c->order_code}}</td>
-                            <td>{{$c->order_total}} VNĐ</td>
+                            <td>{{number_format($c->order_total)}} VNĐ</td>
                             @if($c->payment_method==1)
                                 <td>Tiền mặt</td>
                             @elseif($c->payment_method==2)

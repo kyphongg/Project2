@@ -50,7 +50,8 @@ class AdminController extends Controller
 
         $date = DB::table('tbl_order')
             ->join('tbl_customer','tbl_customer.customer_id','=','tbl_order.customer_id')
-            ->where('tbl_order.time_in','like','%'.$year.'-'.$b.'-'.$day.'%')
+            ->whereDay('tbl_order.time_in',$day)
+            ->where('tbl_order.order_status','3')
             ->take(5)
             ->get();
 
