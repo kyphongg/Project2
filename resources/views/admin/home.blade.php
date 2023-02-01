@@ -177,7 +177,6 @@
                     </tr>
                     </thead>
                     @foreach($order as $c)
-                        <tbody>
                         <tr>
                             <td>{{$c->order_code}}</td>
                             <td>{{$c->order_total}} VNĐ</td>
@@ -258,9 +257,9 @@
             new Chart(earning, {
                 type: 'bar',
                 data: {
-                    labels: ['Doanh thu theo năm'],
+                    labels: ['Doanh thu theo ngày'],
                     datasets: [{
-                        label: 'Doanh thu',
+                        label: 'Doanh thu theo ngày',
                         data: [{!!$moneyDay!!}],
                         backgroundColor: [
                             'rgba(255,99,132,1)',
@@ -268,8 +267,8 @@
                         borderWidth: 1
                     },
                         {
-                            label: 'Lợi nhuận',
-                            data: [{!!$moneyDay!!}],
+                            label: 'Doanh thu theo năm',
+                            data: [{!!$moneyYear!!}],
                             backgroundColor: [
                                 'rgba(54,162,235,1)',
                             ],

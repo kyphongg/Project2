@@ -68,10 +68,15 @@ class AdminController extends Controller
             ->whereDay('tbl_order.time_in',$day)
             ->sum('tbl_order.order_total');
 
+        $moneyYear = DB::table('tbl_order')
+            ->where('tbl_order.order_status', '=','3')
+            ->whereYear('tbl_order.time_in',$year)
+            ->sum('tbl_order.order_total');
+
         return view('/admin/home')->with('customer_total',$customer_total)
             ->with('admin_total',$admin_total)->with('comment_total',$comment_total)
             ->with('order_new',$order_new)->with('order',$order)->with('date',$date)
-            ->with('ware',$ware)->with('moneyDay',$moneyDay);
+            ->with('ware',$ware)->with('moneyDay',$moneyDay)->with('moneyYear',$moneyYear);
     }
 
     function viewLogin(){
