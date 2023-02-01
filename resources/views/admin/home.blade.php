@@ -90,13 +90,13 @@
         <div class="detailsOrder">
             <div class="outOfStockItem">
                 <div class="cardHeader">
-                    <h2>Sản phẩm hết hàng</h2>
+                    <h2>Sản phẩm sắp hết hàng</h2>
                 </div>
                 <table>
                     @foreach($ware as $key => $w)
                         @php
                             $count = Illuminate\Support\Facades\DB::table('tbl_warehouse')
-        ->join('tbl_game', 'tbl_game.game_id', '=', 'tbl_game.game_id')
+        ->join('tbl_game', 'tbl_warehouse.game_id', '=', 'tbl_game.game_id')
         ->where('tbl_game.game_id',$w->game_id)
         ->sum('tbl_warehouse.quantity_in');
                             $out = Illuminate\Support\Facades\DB::table('tbl_order_detail')
@@ -106,17 +106,18 @@
         ->sum('tbl_order_detail.game_quantity');
                         @endphp
                         <tr>
-                            @if($count-$out==0)
+                            @if($count-$out<=5)
                                 <td>
                                     <div class="imgBx"><img src="/public/images/upload/{{$w->game_image}}" height="80"
                                                             width="80" alt=""></div>
                                 </td>
                                 <td>
-                                    <h4 class="btn btn-danger">Hết hàng</h4><br>
+                                    <h4 class="btn btn-danger">Sắp hết hàng</h4><br>
                                     <span>{{$w->game_name}}</span>
                                 </td>
                             @endif
                         </tr>
+
                     @endforeach
                 </table>
             </div>
@@ -177,6 +178,7 @@
                     </tr>
                     </thead>
                     @foreach($order as $c)
+                        <tbody>
                         <tr>
                             <td>{{$c->order_code}}</td>
                             <td>{{number_format($c->order_total)}} VNĐ</td>

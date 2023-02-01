@@ -53,7 +53,7 @@
                 @csrf
                 <div class="quantity">
                     <p>Số lượng :</p>
-                    <input name="quantity" type="number" min="1" max="5" value="1">
+                    <input name="quantity" type="number" min="1" max="{{$count-$out}}" value="1">
                     <input name="product_id_hidden" type="hidden" value="{{$game->game_id}}">
                 </div>
                 <?php
@@ -75,6 +75,10 @@
                 <a href="/login"><button type="button" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Thêm vào Giỏ</button>
             </a></div>';
                     }
+                }else{
+                    echo '<div class="btn-box">
+                <a href="#"><button type="button" class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Liên hệ shop để đặt hàng</button>
+            </a></div>';
                 }
                 ?>
             </form>
